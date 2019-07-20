@@ -49,7 +49,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Sound/Engine.o \
 	${OBJECTDIR}/Structs.o \
 	${OBJECTDIR}/Transformable.o \
-	${OBJECTDIR}/main.old.o \
+	${OBJECTDIR}/newmain.o \
 	${OBJECTDIR}/test/TestRectangle.o \
 	${OBJECTDIR}/test/TestText.o
 
@@ -148,10 +148,10 @@ ${OBJECTDIR}/Transformable.o: Transformable.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -DWINDOWS -I../../WinLibraries/gcc/i686-w64-mingw32 -I../../WinLibraries/SDL2-2.0.9/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Transformable.o Transformable.cpp
 
-${OBJECTDIR}/main.old.o: main.old.cpp
+${OBJECTDIR}/newmain.o: newmain.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -DWINDOWS -I../../WinLibraries/gcc/i686-w64-mingw32 -I../../WinLibraries/SDL2-2.0.9/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.old.o main.old.cpp
+	$(COMPILE.cc) -O2 -DWINDOWS -I../../WinLibraries/gcc/i686-w64-mingw32 -I../../WinLibraries/SDL2-2.0.9/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/newmain.o newmain.cpp
 
 ${OBJECTDIR}/test/TestRectangle.o: test/TestRectangle.cpp
 	${MKDIR} -p ${OBJECTDIR}/test

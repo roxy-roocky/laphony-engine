@@ -36,7 +36,7 @@ int main(int argc, char** argv)
     
     Mix_Chunk* snd1 = Mix_LoadWAV("snd.wav");
     
-    //int channel = Mix_PlayChannel(-1, snd1, -1);
+    int channel = Mix_PlayChannel(-1, snd1, -1);
     
     Sint16 angle = 0;
 
@@ -44,7 +44,7 @@ int main(int argc, char** argv)
     {
         fEngine.Update(true);
         
-        //Mix_SetPosition(channel,angle++,0);
+        Mix_SetPosition(channel,angle++,0);
     }
     
     Mix_FreeChunk(snd1);

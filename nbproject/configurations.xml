@@ -157,7 +157,7 @@
       </item>
       <item path="Transformable.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="main.old.cpp" ex="false" tool="1" flavor2="0">
+      <item path="newmain.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="test/TestRectangle.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -260,7 +260,7 @@
       </item>
       <item path="Transformable.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="main.old.cpp" ex="false" tool="1" flavor2="0">
+      <item path="newmain.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="test/TestRectangle.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -382,7 +382,7 @@
       </item>
       <item path="Transformable.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="main.old.cpp" ex="false" tool="1" flavor2="0">
+      <item path="newmain.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="test/TestRectangle.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -501,7 +501,7 @@
       </item>
       <item path="Transformable.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="main.old.cpp" ex="false" tool="1" flavor2="0">
+      <item path="newmain.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="test/TestRectangle.cpp" ex="false" tool="1" flavor2="0">
       </item>
