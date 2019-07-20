@@ -1,0 +1,54 @@
+.TH "Laphony::Graphics::Image" 3 "Tue May 7 2019" "Laphony Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Laphony::Graphics::Image
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBLaphony::Graphics::Displayable\fP, and \fBLaphony::Transformable\fP\&.
+.PP
+Inherited by \fBTestRectangle\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBImage\fP (std::string const &filename, \fBEngine\fP *engine, \fBRect\fP const &srcRect={\-1})"
+.br
+.ti -1c
+.RI "\fBImage\fP (int w, int h, Color const &color, \fBEngine\fP *engine, \fBRect\fP const &srcRect={\-1})"
+.br
+.ti -1c
+.RI "\fBImage\fP (\fBImage\fP const &orig)"
+.br
+.ti -1c
+.RI "\fBImage\fP (\fBImage\fP const &orig, \fBRect\fP const &rect)"
+.br
+.ti -1c
+.RI "\fBRect\fP \fBSize\fP () const"
+.br
+.ti -1c
+.RI "\fBRect\fP \fBSrcRect\fP () const"
+.br
+.ti -1c
+.RI "void \fBSrcRect\fP (\fBRect\fP const &srcRect)"
+.br
+.ti -1c
+.RI "virtual void \fBDisplay\fP (\fBEngine\fP *engine)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBSurface\fP * \fB_surface\fP"
+.br
+.ti -1c
+.RI "\fBRect\fP \fB_srcRect\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Laphony Engine from the source code\&.

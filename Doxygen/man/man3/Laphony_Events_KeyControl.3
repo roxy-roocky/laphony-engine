@@ -1,0 +1,101 @@
+.TH "Laphony::Events::KeyControl" 3 "Tue May 7 2019" "Laphony Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Laphony::Events::KeyControl \- \fBControl\fP representing a keyboard key\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Control\&.h>\fP
+.PP
+Inherits \fBLaphony::Events::Control\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fBControl::Type\fP \fBIsType\fP () const"
+.br
+.ti -1c
+.RI "\fBKeyControl\fP (std::string const &keyName)"
+.br
+.ti -1c
+.RI "virtual int \fBValue\fP () const"
+.br
+.ti -1c
+.RI "virtual void \fBValue\fP (int value)"
+.br
+.ti -1c
+.RI "std::string \fBKeyName\fP () const"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBControl\fP representing a keyboard key\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Laphony::Events::KeyControl::KeyControl (std::string const & keyName)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkeyName\fP The name of the key as a string Exemples of name: 
+.br
+'a' -> A key (whatever the keyboard mapping) 
+.br
+'f2' -> F2 key 
+.br
+'left' -> Left arrow 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual \fBControl::Type\fP Laphony::Events::KeyControl::IsType () const\fC [inline]\fP, \fC [virtual]\fP"
+Return alltime the same type\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+\fBControl::KEY\fP 
+.RE
+.PP
+
+.PP
+Implements \fBLaphony::Events::Control\fP\&.
+.SS "std::string Laphony::Events::KeyControl::KeyName () const"
+Get the key name passed in constructor 
+.PP
+\fBReturns:\fP
+.RS 4
+the key name as string 
+.RE
+.PP
+
+.SS "int Laphony::Events::KeyControl::Value () const\fC [virtual]\fP"
+Get the current state of the key\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+1 if pressed, 0 if released 
+.RE
+.PP
+
+.PP
+Implements \fBLaphony::Events::Control\fP\&.
+.SS "void Laphony::Events::KeyControl::Value (int value)\fC [virtual]\fP"
+Set the value of the control\&. Use by \fBEvents::Engine\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalue\fP New value of the control as int 
+.RE
+.PP
+
+.PP
+Implements \fBLaphony::Events::Control\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Laphony Engine from the source code\&.

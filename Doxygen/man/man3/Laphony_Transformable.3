@@ -1,0 +1,202 @@
+.TH "Laphony::Transformable" 3 "Tue May 7 2019" "Laphony Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Laphony::Transformable \- Make an object transformable with position, rotation and scale\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Transformable\&.h>\fP
+.PP
+Inherited by \fBLaphony::Graphics::BasicText\fP, and \fBLaphony::Graphics::Image\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTransformable\fP ()"
+.br
+.RI "Default constructor\&. "
+.ti -1c
+.RI "\fBTransformable\fP (\fBPoint\fP const &position, double angle, \fBVector2d\fP const &scale, \fBPoint\fP const &pivot={\-1, \-1})"
+.br
+.RI "Contructs with custom values\&. "
+.ti -1c
+.RI "\fBTransformable\fP (\fBTransformable\fP const &o)=default"
+.br
+.RI "Copy constructor\&. Is the default copy constructor\&. "
+.ti -1c
+.RI "virtual \fBPoint\fP \fBPosition\fP () const"
+.br
+.RI "Get the current position as Point(x, y) "
+.ti -1c
+.RI "virtual double \fBAngle\fP () const"
+.br
+.RI "Get the current angle in DEG modulo 360 degrees\&. "
+.ti -1c
+.RI "virtual \fBVector2d\fP \fBScale\fP () const"
+.br
+.RI "Get the current scale as Vector2d(x, y) "
+.ti -1c
+.RI "virtual \fBPoint\fP \fBPivot\fP () const"
+.br
+.RI "Get the current center point\&. "
+.ti -1c
+.RI "virtual void \fBPosition\fP (\fBPoint\fP const &point)"
+.br
+.ti -1c
+.RI "virtual void \fBAngle\fP (double const &angle)"
+.br
+.ti -1c
+.RI "virtual void \fBScale\fP (\fBVector2d\fP const &scale)"
+.br
+.ti -1c
+.RI "virtual void \fBPivot\fP (\fBPoint\fP const &pivot)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBPoint\fP \fB_position\fP"
+.br
+.ti -1c
+.RI "double \fB_angle\fP"
+.br
+.ti -1c
+.RI "\fBVector2d\fP \fB_scale\fP"
+.br
+.ti -1c
+.RI "\fBPoint\fP \fB_pivot\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Make an object transformable with position, rotation and scale\&. 
+
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Laphony::Transformable::Transformable ()"
+
+.PP
+Default constructor\&. Construct with default values\&. 
+.br
+Position = {0,0}, angle = 0, scale = {1,1}, center = {-1, -1}\&. 
+.br
+A {x < 0, y < 0} center represent default center value which is {weight/2, height/2} 
+.SS "Laphony::Transformable::Transformable (\fBPoint\fP const & position, double angle, \fBVector2d\fP const & scale, \fBPoint\fP const & pivot = \fC{\-1, \-1}\fP)"
+
+.PP
+Contructs with custom values\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIposition\fP Position of the object 
+.br
+\fIangle\fP Rotation of the object in DEG 
+.br
+\fI(in]\fP scale Scale of the object 
+.br
+\fI(in]\fP center Rotation et position center of the object 
+.RE
+.PP
+
+.SS "Laphony::Transformable::Transformable (\fBTransformable\fP const & o)\fC [default]\fP"
+
+.PP
+Copy constructor\&. Is the default copy constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIo\fP Transform object to copy 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "double Laphony::Transformable::Angle () const\fC [virtual]\fP"
+
+.PP
+Get the current angle in DEG modulo 360 degrees\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+double with scale 
+.RE
+.PP
+
+.SS "void Laphony::Transformable::Angle (double const & angle)\fC [virtual]\fP"
+Set the current angle 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIangle\fP New angle in DEG as double 
+.RE
+.PP
+
+.SS "\fBPoint\fP Laphony::Transformable::Pivot () const\fC [virtual]\fP"
+
+.PP
+Get the current center point\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPoint\fP with current pivot 
+.RE
+.PP
+
+.SS "void Laphony::Transformable::Pivot (\fBPoint\fP const & pivot)\fC [virtual]\fP"
+Set the pivot point 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpivot\fP new pivot as Point(x, y) 
+.RE
+.PP
+
+.SS "\fBPoint\fP Laphony::Transformable::Position () const\fC [virtual]\fP"
+
+.PP
+Get the current position as Point(x, y) 
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPoint\fP with position 
+.RE
+.PP
+
+.SS "void Laphony::Transformable::Position (\fBPoint\fP const & point)\fC [virtual]\fP"
+Set the current position 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpoint\fP New position as Point(x, y) 
+.RE
+.PP
+
+.SS "\fBVector2d\fP Laphony::Transformable::Scale () const\fC [virtual]\fP"
+
+.PP
+Get the current scale as Vector2d(x, y) 
+.PP
+\fBReturns:\fP
+.RS 4
+\fBVector2d\fP with scale 
+.RE
+.PP
+
+.SS "void Laphony::Transformable::Scale (\fBVector2d\fP const & scale)\fC [virtual]\fP"
+Set the current scale 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIscale\fP New scale as Vector2d(x, y) 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Laphony Engine from the source code\&.

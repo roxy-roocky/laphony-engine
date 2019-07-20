@@ -1,0 +1,85 @@
+.TH "Laphony::Graphics::BasicText" 3 "Tue May 7 2019" "Laphony Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Laphony::Graphics::BasicText
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBLaphony::Graphics::Displayable\fP, and \fBLaphony::Transformable\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBasicText\fP (std::string const &text, \fBPoint\fP const &position, double renderSize=1\&.0, bool isStickOnScreen=false, Color const &colorText={255, 255, 255, 255}, Color const &colorBackground={0, 0, 0, 255})"
+.br
+.ti -1c
+.RI "\fBBasicText\fP (const \fBBasicText\fP &orig)"
+.br
+.ti -1c
+.RI "virtual void \fBDisplay\fP (\fBEngine\fP *engine)"
+.br
+.ti -1c
+.RI "std::string \fBText\fP () const"
+.br
+.ti -1c
+.RI "void \fBText\fP (std::string const &text)"
+.br
+.ti -1c
+.RI "Color \fBColorText\fP () const"
+.br
+.ti -1c
+.RI "void \fBColorText\fP (Color const &colorText)"
+.br
+.ti -1c
+.RI "Color \fBColorBackground\fP () const"
+.br
+.ti -1c
+.RI "void \fBColorBackground\fP (Color const &colorBackground)"
+.br
+.ti -1c
+.RI "bool \fBIsStickOnScreen\fP () const"
+.br
+.ti -1c
+.RI "void \fBIsStickOnScreen\fP (bool isStickOnScreen)"
+.br
+.ti -1c
+.RI "void \fBRenderTextNow\fP (SDL_Renderer *renderer)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::string \fB_text\fP"
+.br
+.ti -1c
+.RI "Color \fB_colorText\fP"
+.br
+.ti -1c
+.RI "Color \fB_colorBackground\fP"
+.br
+.ti -1c
+.RI "bool \fB_isStickOnScreen\fP"
+.br
+.ti -1c
+.RI "SDL_Texture * \fB_renderedText\fP"
+.br
+.ti -1c
+.RI "bool \fB_mustBeRender\fP"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static const int \fBFONT_SIZE\fP = 8"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Laphony Engine from the source code\&.

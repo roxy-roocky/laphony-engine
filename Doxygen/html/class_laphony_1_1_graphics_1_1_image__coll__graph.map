@@ -1,0 +1,7 @@
+<map id="Laphony::Graphics::Image" name="Laphony::Graphics::Image">
+<area shape="rect" id="node1" title=" " alt="" coords="179,199,317,240"/>
+<area shape="rect" id="node2" href="$class_laphony_1_1_graphics_1_1_displayable.html" title=" " alt="" coords="5,95,144,136"/>
+<area shape="rect" id="node3" href="$class_laphony_1_1_transformable.html" title="Make an object transformable with position, rotation and scale." alt="" coords="168,102,328,129"/>
+<area shape="rect" id="node4" href="$struct_laphony_1_1_vector2d.html" title="Represents a vector of 2 elements." alt="" coords="183,5,313,32"/>
+<area shape="rect" id="node5" href="$class_laphony_1_1_graphics_1_1_surface.html" title=" " alt="" coords="352,95,491,136"/>
+</map>

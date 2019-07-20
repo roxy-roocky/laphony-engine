@@ -1,0 +1,87 @@
+.TH "Laphony::Graphics::Animation" 3 "Tue May 7 2019" "Laphony Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Laphony::Graphics::Animation \- Represent an animation from images sequence\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Animation\&.h>\fP
+.PP
+Inherits \fBLaphony::Graphics::Displayable\fP, and \fBLaphony::Frames::Updatable\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAnimation\fP (\fBImage\fP *image, std::vector< Frame > frames)"
+.br
+.RI "Create an animation with already created frames\&. "
+.ti -1c
+.RI "\fBAnimation\fP (\fBImage\fP *image, \fBRect\fP const &rect, int duration, \fBPoint\fP const &pivot)"
+.br
+.RI "Create an animation with rect of equal size\&. The image will be cut in rect from the left to the right\&. "
+.ti -1c
+.RI "virtual void \fBDisplay\fP (\fBEngine\fP *engine) override"
+.br
+.RI "Display the animation in current state\&. "
+.ti -1c
+.RI "virtual void \fBUpdate\fP () override"
+.br
+.RI "Forward the animation to one frame\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Represent an animation from images sequence\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Laphony::Graphics::Animation::Animation (\fBImage\fP * image, std::vector< Frame > frames)"
+
+.PP
+Create an animation with already created frames\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIimage\fP The image containing the animation sequence 
+.br
+\fIframes\fP The frames of the animation 
+.RE
+.PP
+
+.SS "Laphony::Graphics::Animation::Animation (\fBImage\fP * image, \fBRect\fP const & rect, int duration, \fBPoint\fP const & pivot)"
+
+.PP
+Create an animation with rect of equal size\&. The image will be cut in rect from the left to the right\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIimage\fP 
+.br
+\fIrect\fP 
+.br
+\fIduration\fP 
+.br
+\fIpivot\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Laphony::Graphics::Animation::Display (\fBEngine\fP * engine)\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Display the animation in current state\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIengine\fP \fBEngine\fP where the animation must be blit\&. Must be the same as image 
+.RE
+.PP
+
+.PP
+Implements \fBLaphony::Graphics::Displayable\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Laphony Engine from the source code\&.
