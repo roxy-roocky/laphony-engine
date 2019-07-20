@@ -44,7 +44,7 @@ int main(int argc, char** argv)
     {
         fEngine.Update(true);
         
-        Mix_SetPosition(channel,angle++,0);
+        Mix_SetPosition(channel,angle+=2,0);
     }
     
     Mix_FreeChunk(snd1);
