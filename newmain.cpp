@@ -4,7 +4,7 @@
  */
 /* 
  * File:   newmain.cpp
- * Author: nathan
+ * Author: Nathan Baumann
  *
  * Created on June 20, 2019, 8:19 PM
  */
