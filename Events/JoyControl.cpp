@@ -49,9 +49,51 @@ namespace Laphony
             return oss.str();
         }
 
-        int JoyButtonControl::LastState() const 
+        int JoyButtonControl::LastValue() const 
         {
             return static_cast<int>(_lastState);
+        }
+        
+        
+        
+        //Hat
+
+        JoyHatControl::JoyHatControl(int joyID, int hatID): _joyId(joyID), _hatId(hatID), _value(CENTER), _lastValue(CENTER)
+        {}
+        
+        
+        int JoyHatControl::Value() const
+        {
+            return _value;
+        }
+        
+        void JoyHatControl::Value(int value)
+        {
+            _lastValue = _value;
+            _value = value;
+        }
+        
+        int JoyHatControl::JoyID() const 
+        {
+            return _joyId;
+        }
+        
+        int JoyHatControl::HatID() const 
+        {
+            return _hatId;
+        }
+        
+        std::string JoyHatControl::ToString() const
+        {
+            std::ostringstream oss;
+            oss << "joy " << _joyId << " hat " << _hatId;
+            
+            return oss.str();
+        }
+
+        int JoyHatControl::LastValue() const 
+        {
+            return _lastValue;
         }
 
     }

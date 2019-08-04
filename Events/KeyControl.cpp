@@ -36,7 +36,7 @@ namespace Laphony
             return _keyName;
         }
         
-        int KeyControl::LastState() const
+        int KeyControl::LastValue() const
         {
             return _lastState;
         }

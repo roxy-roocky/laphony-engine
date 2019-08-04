@@ -142,7 +142,7 @@ int main(int argc, char** argv)
             text.Angle(text.Angle()-2);
       
         
-        if(keyPause->Value() && !keyPause->LastState())
+        if(keyPause->Value() && !keyPause->LastValue())
             anim.Pause(!anim.Paused());
         
         bool persoMove = false;
@@ -161,7 +161,7 @@ int main(int argc, char** argv)
             anim.Scale({2,2});
         }
         
-        if(jb->Value() != jb->LastState())
+        if(jb->Value() != jb->LastValue())
         {
             std::cout << jb->ToString() << ": " << jb->Value() << std::endl;
         }

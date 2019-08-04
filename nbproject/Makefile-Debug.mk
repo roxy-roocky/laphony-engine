@@ -49,7 +49,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Sound/Engine.o \
 	${OBJECTDIR}/Structs.o \
 	${OBJECTDIR}/Transformable.o \
-	${OBJECTDIR}/newmain.o \
+	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/test/TestRectangle.o \
 	${OBJECTDIR}/test/TestText.o
 
@@ -148,10 +148,10 @@ ${OBJECTDIR}/Transformable.o: Transformable.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -DDEBUG -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Transformable.o Transformable.cpp
 
-${OBJECTDIR}/newmain.o: newmain.cpp
+${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -DDEBUG -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/newmain.o newmain.cpp
+	$(COMPILE.cc) -g -DDEBUG -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 ${OBJECTDIR}/test/TestRectangle.o: test/TestRectangle.cpp
 	${MKDIR} -p ${OBJECTDIR}/test

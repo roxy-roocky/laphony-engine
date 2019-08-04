@@ -59,7 +59,7 @@ namespace Laphony
                  */
                 virtual Type IsType() const = 0;
                 
-                virtual int LastState() const = 0;
+                virtual int LastValue() const = 0;
                 
                 virtual std::string ToString() const = 0;
                 

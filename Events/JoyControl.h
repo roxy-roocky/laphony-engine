@@ -49,7 +49,7 @@ namespace Laphony
                 int JoyID() const;
                 int ButtonID() const;
                 
-                virtual int LastState() const;
+                virtual int LastValue() const override;
                 
                 virtual std::string ToString() const override;
 
@@ -59,6 +59,46 @@ namespace Laphony
                 bool _isPressed;
                 
                 bool _lastState;
+        };
+        
+        
+        class JoyHatControl: public Control
+        {
+            public: enum
+                    {
+                        CENTER = SDL_HAT_CENTERED,
+                        UP = SDL_HAT_UP,
+                        RIGHT = SDL_HAT_RIGHT,
+                        DOWN = SDL_HAT_DOWN,
+                        LEFT = SDL_HAT_LEFT,
+                        RIGHTUP = SDL_HAT_RIGHTUP,
+                        RIGHTDOWN = SDL_HAT_RIGHTDOWN,
+                        LEFTUP = SDL_HAT_LEFTUP,
+                        LEFTDOWN = SDL_HAT_LEFTDOWN
+                    };
+            
+            public:
+                JoyHatControl(int joyID, int hatID);
+                
+                virtual Control::Type IsType() const {return Control::JOY_HAT;}
+                
+                virtual int Value() const override;
+                
+                virtual void Value(int value) override;
+                
+                int JoyID() const;
+                int HatID() const;
+                
+                virtual int LastValue() const;
+                
+                virtual std::string ToString() const override;
+                
+            
+            private:
+                int _joyId, _hatId;
+                int _value;
+
+                int _lastValue;
         };
     }
 }

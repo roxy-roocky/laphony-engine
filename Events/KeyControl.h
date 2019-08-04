@@ -56,7 +56,7 @@ namespace Laphony
                  */
                 std::string KeyName() const;
                 
-                virtual int LastState() const override;
+                virtual int LastValue() const override;
                 
                 virtual std::string ToString() const;
                 
