@@ -84,6 +84,22 @@ namespace Laphony
                             }
                         } 
                         break;
+                        
+                        case Control::JOY_HAT:
+                        {
+                            JoyHatControl* jb = dynamic_cast<JoyHatControl*>(entry.second);
+                            
+                            if(jb->JoyID() < _joysticks.size())
+                            {
+                                JoyInfo joy = _joysticks[jb->JoyID()];
+                            
+                                if(joy.joy)
+                                {
+                                    jb->Value(SDL_JoystickGetHat(joy.joy, jb->HatID()));
+                                }
+                            }
+                        }
+                        break;
                     }
                 }
             LookingJoysticks();

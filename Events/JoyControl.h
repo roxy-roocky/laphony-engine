@@ -71,10 +71,10 @@ namespace Laphony
                         RIGHT = SDL_HAT_RIGHT,
                         DOWN = SDL_HAT_DOWN,
                         LEFT = SDL_HAT_LEFT,
-                        RIGHTUP = SDL_HAT_RIGHTUP,
-                        RIGHTDOWN = SDL_HAT_RIGHTDOWN,
-                        LEFTUP = SDL_HAT_LEFTUP,
-                        LEFTDOWN = SDL_HAT_LEFTDOWN
+                        RIGHTUP = (RIGHT|UP),
+                        RIGHTDOWN = (RIGHT|DOWN),
+                        LEFTUP = (LEFT|UP),
+                        LEFTDOWN = (LEFT|DOWN)
                     };
             
             public:

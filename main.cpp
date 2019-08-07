@@ -87,8 +87,11 @@ int main(int argc, char** argv)
     evEngine.Register("Camera Left", new Laphony::Events::KeyControl("left"));
     evEngine.Register("Camera Right", new Laphony::Events::KeyControl("right"));
     
-    evEngine.Register("left", new Laphony::Events::KeyControl("left"));
-    evEngine.Register("right", new Laphony::Events::KeyControl("right"));
+    //evEngine.Register("left", new Laphony::Events::KeyControl("left"));
+    //evEngine.Register("right", new Laphony::Events::KeyControl("right"));
+    
+    Laphony::Events::JoyHatControl* hat = new Laphony::Events::JoyHatControl(0,0);
+    evEngine.Register("move", hat);
     
     Laphony::Events::JoyButtonControl* jb = new Laphony::Events::JoyButtonControl(0,0);
     evEngine.Register("joytest", jb);
@@ -128,7 +131,7 @@ int main(int argc, char** argv)
         if(evEngine.GetValueOf("Camera up"))
             anim.Scale({anim.Scale().x, anim.Scale().y + 0.01});
         if(evEngine.GetValueOf("Camera down"))
-            anim.Scale({anim.Scale().x, anim.Scale().y - 0.01});
+            anim.Scale({anim.Scale(). x, anim.Scale().y - 0.01});
        /* if(evEngine.GetValueOf("Camera left"))
             camera.x -=5;
         if(evEngine.GetValueOf("Camera right"))
@@ -147,14 +150,14 @@ int main(int argc, char** argv)
         
         bool persoMove = false;
         
-        if(evEngine.GetValueOf("left"))
+        if(evEngine.GetValueOf("move") & Laphony::Events::JoyHatControl::LEFT)
         {
             anim.Translate({-2,0});
             persoMove = true;
             anim.Scale({-2,2});
         }
             
-        if(evEngine.GetValueOf("right"))
+        if(evEngine.GetValueOf("move") & Laphony::Events::JoyHatControl::RIGHT)
         {
             anim.Translate({2,0});
             persoMove = true;
