@@ -21,7 +21,7 @@ namespace Laphony
 {
     namespace Graphics
     {
-        class Image: public Displayable, public Transformable
+        class Image: public virtual Displayable, public virtual Transformable
         {
             //TODO: std::map<SDL_Texture*> for multi context image 
             protected:

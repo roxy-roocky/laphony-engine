@@ -26,7 +26,7 @@ namespace Laphony
     {
         class Animation;
         
-        class Animator: public Transformable, public Frames::Updatable, public Displayable
+        class Animator: public virtual Transformable, public virtual Frames::Updatable, public virtual Displayable
         {
             public: static const std::string NONE;
             public:

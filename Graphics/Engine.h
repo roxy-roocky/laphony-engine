@@ -34,7 +34,7 @@ namespace Laphony
         typedef SDL_Color Color;
         bool operator==(Color& c1, Color& c2);
 
-        class Engine: public Frames::Updatable
+        class Engine: public virtual Frames::Updatable
         {
             public:
                 Engine(std::string const& title, int w, int h, bool resizable, bool fixedSize);

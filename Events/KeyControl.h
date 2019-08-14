@@ -60,6 +60,8 @@ namespace Laphony
                 
                 virtual std::string ToString() const;
                 
+                virtual void Update() override;
+                
                 
             private:
                 std::string _keyName;

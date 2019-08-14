@@ -54,7 +54,7 @@ namespace Laphony
             
             _appQuit = (event.type == SDL_QUIT);
             
-            const Uint8* keys = SDL_GetKeyboardState(nullptr);
+       
             
             for(std::pair<std::string, Control*> entry : _map)
                 if(entry.second)
@@ -64,7 +64,7 @@ namespace Laphony
                         case Control::KEY:
                         {
                             KeyControl* kc = dynamic_cast<KeyControl*>(entry.second);
-                            kc->Value(keys[SDL_GetScancodeFromKey(SDL_GetKeyFromName(kc->KeyName().c_str()))]);
+                            kc->Value();
                         }
                         break;
                         
@@ -72,16 +72,7 @@ namespace Laphony
                         {
                             JoyButtonControl* jb = dynamic_cast<JoyButtonControl*>(entry.second);
                             
-                            if(jb->JoyID() < _joysticks.size())
-                            {
-                                JoyInfo joy = _joysticks[jb->JoyID()];
                             
-                                if(joy.joy)
-                                {
-                                    jb->Value(SDL_JoystickGetButton(joy.joy, jb->ButtonID()));
-                                  
-                                }
-                            }
                         } 
                         break;
                         
@@ -211,7 +202,13 @@ namespace Laphony
                 std::cout << "Events: Joystick " << joy->id << " doesn't have feedback force (haptic): " << SDL_GetError() << std::endl;
         }
         
-
+        Engine::JoyInfo* Engine::GetJoystick(int id)
+        {
+            if(id < _joysticks.size())
+                return _joysticks[id];
+            
+            return nullptr;
+        }
         
     }
 }

@@ -22,7 +22,7 @@ namespace Laphony
         /**
          * \brief Represent an animation from images sequence
          */
-        class Animation: public Displayable, public Frames::Updatable, public Transformable
+        class Animation: public virtual Displayable, public virtual Frames::Updatable, public virtual Transformable
         {
             /**
              * \brief A frame of the animation

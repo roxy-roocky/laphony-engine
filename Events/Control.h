@@ -35,7 +35,9 @@ namespace Laphony
             public: enum Type
             {
                 KEY             = 0b00000001, /*!< A key from the keyboard */
+                
                 MOUSE_BUTTON    = 0b00000010, /*!< Button from the mouse */
+                
                 JOY_BUTTON      = 0b00000100, /*!< Button from the joy */
                 JOY_HAT         = 0b00001000, /*!< hat from the joy */
                 JOY_BALLAXIS    = 0b00010000, /*!< ball axis from the joy */
@@ -48,11 +50,7 @@ namespace Laphony
                  * @return Current value of the control as int
                  */
                 virtual int Value() const = 0;
-                /**
-                 * Set the value of the control. Use by Events::Engine
-                 * @param value New value of the control as int
-                 */
-                virtual void Value(int value) = 0;
+
                 /**
                  * Get the type of the control. 
                  * @return Type of the control. Define by the derivated class.
@@ -62,6 +60,8 @@ namespace Laphony
                 virtual int LastValue() const = 0;
                 
                 virtual std::string ToString() const = 0;
+                
+                virtual void Update() = 0;
                 
         };
         

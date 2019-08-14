@@ -21,7 +21,7 @@ namespace Laphony
 {
     namespace Graphics
     {
-        class BasicText: public Displayable, public Transformable
+        class BasicText: public virtual Displayable, public virtual Transformable
         {
             public: static const int FONT_SIZE = 8;
             public:

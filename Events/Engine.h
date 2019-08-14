@@ -34,7 +34,7 @@ namespace Laphony
         /**
          * \brief This engine manage all events. If you want to know the state of input, you must ask it.
          */
-        class Engine: public Frames::Updatable
+        class Engine: public virtual Frames::Updatable
         {
             public:
                 /**
@@ -87,6 +87,8 @@ namespace Laphony
                 Point GetMousePosition() const;
                 
                 Control* GetLastEvent(int controlType);
+                
+                JoyInfo GetJoystick(int id);
                 
             private:
                 //Common
