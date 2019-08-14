@@ -46,12 +46,6 @@ namespace Laphony
             return _keyName;
         }
         
-        void KeyControl::Update()
-        {
-            const Uint8* keys = SDL_GetKeyboardState(nullptr);
-            
-            _isPressed = keys[SDL_GetScancodeFromKey(SDL_GetKeyFromName(_keyName.c_str()))];
-        }
     }
 }
 

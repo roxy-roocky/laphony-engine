@@ -50,6 +50,8 @@ namespace Laphony
                  * @return Current value of the control as int
                  */
                 virtual int Value() const = 0;
+                
+                virtual void Value(int value) = 0;
 
                 /**
                  * Get the type of the control. 
@@ -61,7 +63,7 @@ namespace Laphony
                 
                 virtual std::string ToString() const = 0;
                 
-                virtual void Update() = 0;
+               
                 
         };
         

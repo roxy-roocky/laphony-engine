@@ -36,6 +36,14 @@ namespace Laphony
          */
         class Engine: public virtual Frames::Updatable
         {
+            public: struct JoyInfo
+            {
+                SDL_JoystickGUID guid;
+                SDL_Joystick* joy;
+                int id;
+                SDL_Haptic* haptic;
+            };
+                
             public:
                 /**
                  * \brief Construct the events engine.
@@ -88,26 +96,20 @@ namespace Laphony
                 
                 Control* GetLastEvent(int controlType);
                 
-                JoyInfo GetJoystick(int id);
+                JoyInfo* GetJoystick(int id);
+                
+                
                 
             private:
                 //Common
                 std::map<std::string, Control*> _map;
                 bool _autoFree, _appQuit;
                 
-                //Joysticks 
-                struct JoyInfo
-                {
-                    SDL_JoystickGUID guid;
-                    SDL_Joystick* joy;
-                    int id;
-                    SDL_Haptic* haptic;
-                };
-                int _currentJoyID;
+                
                 
                 std::vector<JoyInfo> _joysticks;
                 
-                
+                int _currentJoyID;
                 
                 static void InitJoystickHaptic(JoyInfo* joy);
                 

@@ -54,19 +54,6 @@ namespace Laphony
             return static_cast<int>(_lastState);
         }
         
-        void JoyButtonControl::Update()
-        {
-            if(_joyId < _joysticks.size())
-            {
-                JoyInfo joy = _joysticks[jb->JoyID()];
-
-                if(joy.joy)
-                {
-                    jb->Value(SDL_JoystickGetButton(joy.joy, jb->ButtonID()));
-
-                }
-            }
-        }
         
         
         
@@ -113,7 +100,7 @@ namespace Laphony
         
         //axis
         
-        JoyAxisControl::JoyAxisControl(int joyID, int hatID)
+        //JoyAxisControl::JoyAxisControl(int joyID, int hatID)
 
     }
 }

@@ -53,8 +53,6 @@ namespace Laphony
                 
                 virtual std::string ToString() const override;
                 
-                virtual void Update() override;
-
                 
             private:
                 int _joyId, _buttonId;
@@ -95,8 +93,6 @@ namespace Laphony
                 
                 virtual std::string ToString() const override;
                 
-                virtual void Update() override;
-                
             
             private:
                 int _joyId, _hatId;
@@ -106,7 +102,7 @@ namespace Laphony
         };
         
         
-        class JoyAxisControl: public Control
+        /*class JoyAxisControl: public Control
         {
             public:
                 JoyAxisControl(int joyID, int hatID);
@@ -132,7 +128,7 @@ namespace Laphony
                 int _value;
 
                 int _lastValue;
-        };
+        };*/
     }
 }
 

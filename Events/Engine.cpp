@@ -205,7 +205,7 @@ namespace Laphony
         Engine::JoyInfo* Engine::GetJoystick(int id)
         {
             if(id < _joysticks.size())
-                return _joysticks[id];
+                return &_joysticks[id];
             
             return nullptr;
         }
