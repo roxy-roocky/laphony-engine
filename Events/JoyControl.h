@@ -102,10 +102,10 @@ namespace Laphony
         };
         
         
-        /*class JoyAxisControl: public Control
+        class JoyAxisControl: public Control
         {
             public:
-                JoyAxisControl(int joyID, int hatID);
+                JoyAxisControl(int joyId, int axisId);
                 
                 virtual Control::Type IsType() const {return Control::JOY_AXIS;}
                 
@@ -120,7 +120,6 @@ namespace Laphony
                 
                 virtual std::string ToString() const override;
                 
-                virtual void Update() override;
                 
             
             private:
@@ -128,7 +127,7 @@ namespace Laphony
                 int _value;
 
                 int _lastValue;
-        };*/
+        };
     }
 }
 

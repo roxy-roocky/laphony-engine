@@ -31,13 +31,13 @@ CND_PACKAGE_DIR_Windows_i686=dist/Windows_i686/Mingw32-Linux/package
 CND_PACKAGE_NAME_Windows_i686=laphonyengine.tar
 CND_PACKAGE_PATH_Windows_i686=dist/Windows_i686/Mingw32-Linux/package/laphonyengine.tar
 # Windows_x86_64 configuration
-CND_PLATFORM_Windows_x86_64=Mingw64-Linux
-CND_ARTIFACT_DIR_Windows_x86_64=dist/Windows_x86_64/Mingw64-Linux
+CND_PLATFORM_Windows_x86_64=Mingw_x86_64-Linux
+CND_ARTIFACT_DIR_Windows_x86_64=dist/Windows_x86_64/Mingw_x86_64-Linux
 CND_ARTIFACT_NAME_Windows_x86_64=laphonyengine.exe
-CND_ARTIFACT_PATH_Windows_x86_64=dist/Windows_x86_64/Mingw64-Linux/laphonyengine.exe
-CND_PACKAGE_DIR_Windows_x86_64=dist/Windows_x86_64/Mingw64-Linux/package
+CND_ARTIFACT_PATH_Windows_x86_64=dist/Windows_x86_64/Mingw_x86_64-Linux/laphonyengine.exe
+CND_PACKAGE_DIR_Windows_x86_64=dist/Windows_x86_64/Mingw_x86_64-Linux/package
 CND_PACKAGE_NAME_Windows_x86_64=laphonyengine.tar
-CND_PACKAGE_PATH_Windows_x86_64=dist/Windows_x86_64/Mingw64-Linux/package/laphonyengine.tar
+CND_PACKAGE_PATH_Windows_x86_64=dist/Windows_x86_64/Mingw_x86_64-Linux/package/laphonyengine.tar
 #
 # include compiler specific variables
 #

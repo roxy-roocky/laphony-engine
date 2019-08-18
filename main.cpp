@@ -93,6 +93,9 @@ int main(int argc, char** argv)
     Laphony::Events::JoyHatControl* hat = new Laphony::Events::JoyHatControl(0,0);
     evEngine.Register("move", hat);
     
+    Laphony::Events::JoyAxisControl* axis = new Laphony::Events::JoyAxisControl(0,0);
+    evEngine.Register("move_axis", axis);
+    
     Laphony::Events::JoyButtonControl* jb = new Laphony::Events::JoyButtonControl(0,0);
     evEngine.Register("joytest", jb);
     
@@ -150,14 +153,14 @@ int main(int argc, char** argv)
         
         bool persoMove = false;
         
-        if(evEngine.GetValueOf("move") & Laphony::Events::JoyHatControl::LEFT)
+        if(evEngine.GetValueOf("move") & Laphony::Events::JoyHatControl::LEFT || evEngine.GetValueOf("move_axis") < -5)
         {
             anim.Translate({-2,0});
             persoMove = true;
             anim.Scale({-2,2});
         }
             
-        if(evEngine.GetValueOf("move") & Laphony::Events::JoyHatControl::RIGHT)
+        if(evEngine.GetValueOf("move") & Laphony::Events::JoyHatControl::RIGHT || evEngine.GetValueOf("move_axis") > 5)
         {
             anim.Translate({2,0});
             persoMove = true;

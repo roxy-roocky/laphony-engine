@@ -395,7 +395,7 @@
     </conf>
     <conf name="Windows_x86_64" type="1">
       <toolsSet>
-        <compilerSet>Mingw64|GNU</compilerSet>
+        <compilerSet>Mingw_x86_64|GNU</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>

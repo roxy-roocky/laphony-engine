@@ -91,6 +91,22 @@ namespace Laphony
                             }
                         }
                         break;
+                        
+                        case Control::JOY_AXIS:
+                        {
+                            JoyAxisControl* jb = dynamic_cast<JoyAxisControl*>(entry.second);
+                            
+                            if(jb->JoyID() < _joysticks.size())
+                            {
+                                JoyInfo joy = _joysticks[jb->JoyID()];
+                            
+                                if(joy.joy)
+                                {
+                                    jb->Value(SDL_JoystickGetAxis(joy.joy, jb->AxisID()));
+                                }
+                            }
+                        }
+                        break;
                     }
                 }
             LookingJoysticks();

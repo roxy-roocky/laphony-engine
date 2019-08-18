@@ -18,10 +18,10 @@ CC=x86_64-w64-mingw32-gcc
 CCC=x86_64-w64-mingw32-g++
 CXX=x86_64-w64-mingw32-g++
 FC=gfortran
-AS=x86_64-w64-mingw32-ar
+AS=as
 
 # Macros
-CND_PLATFORM=Mingw64-Linux
+CND_PLATFORM=Mingw_x86_64-Linux
 CND_DLIB_EXT=so
 CND_CONF=Windows_x86_64
 CND_DISTDIR=dist

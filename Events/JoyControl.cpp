@@ -100,7 +100,44 @@ namespace Laphony
         
         //axis
         
-        //JoyAxisControl::JoyAxisControl(int joyID, int hatID)
+        JoyAxisControl::JoyAxisControl(int joyId, int axisId): _joyId(joyId), _axisId(axisId), _value(0), _lastValue(0)
+        {
+            
+        }
+        
+                
+        int JoyAxisControl::Value() const
+        {
+            return _value;
+        }
+
+        void JoyAxisControl::Value(int value)
+        {
+            _value = value;
+        }
+
+        int JoyAxisControl::JoyID() const
+        {
+            return _joyId;
+        }
+        
+        int JoyAxisControl::AxisID() const
+        {
+            return _axisId;
+        }
+
+        int JoyAxisControl::LastValue() const
+        {
+            return _lastValue;
+        }
+
+        std::string JoyAxisControl::ToString() const
+        {
+            std::ostringstream oss;
+            oss << "joy " << _joyId << " axis " << _axisId;
+            
+            return oss.str();
+        }
 
     }
 }
