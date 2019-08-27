@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['events',['Events',['../namespace_laphony_1_1_events.html',1,'Laphony']]],
-  ['frames',['Frames',['../namespace_laphony_1_1_frames.html',1,'Laphony']]],
-  ['laphony_20engine',['Laphony Engine',['../index.html',1,'']]],
-  ['lastfps',['LastFPS',['../class_laphony_1_1_frames_1_1_engine.html#a4e642697c542d5aa6746e78560842d81',1,'Laphony::Frames::Engine']]]
+  ['haptic',['haptic',['../struct_laphony_1_1_events_1_1_engine_1_1_joy_info.html#a39931c1c3a7c9531d6de4d3d93391a77',1,'Laphony::Events::Engine::JoyInfo']]],
+  ['hatid',['HatID',['../class_laphony_1_1_events_1_1_joy_hat_control.html#a285d457e65327740d868623b6e15f48a',1,'Laphony::Events::JoyHatControl::HatID() const '],['../class_laphony_1_1_events_1_1_joy_hat_control.html#a285d457e65327740d868623b6e15f48a',1,'Laphony::Events::JoyHatControl::HatID() const ']]]
 ];

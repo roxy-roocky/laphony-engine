@@ -1,45 +1,91 @@
-.TH "Laphony::Graphics::BasicText" 3 "Tue May 7 2019" "Laphony Engine" \" -*- nroff -*-
+.TH "Laphony::Graphics::BasicText" 3 "Tue Aug 27 2019" "Laphony Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-Laphony::Graphics::BasicText
+Laphony::Graphics::BasicText \- 
 .SH SYNOPSIS
 .br
 .PP
 .PP
-Inherits \fBLaphony::Graphics::Displayable\fP, and \fBLaphony::Transformable\fP\&.
+\fC#include <BasicText\&.h>\fP
+.PP
+Inherits \fBLaphony::Graphics::Displayable\fP, \fBLaphony::Transformable\fP, \fBLaphony::Graphics::Displayable\fP, and \fBLaphony::Transformable\fP\&.
+.PP
+Inherited by \fBTestText\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBBasicText\fP (std::string const &text, \fBPoint\fP const &position, double renderSize=1\&.0, bool isStickOnScreen=false, Color const &colorText={255, 255, 255, 255}, Color const &colorBackground={0, 0, 0, 255})"
+.RI "\fBBasicText\fP (std::string const &text, \fBPoint\fP const &position, double renderSize=1\&.0, bool isStickOnScreen=false, \fBColor\fP const &colorText={255, 255, 255, 255}, \fBColor\fP const &colorBackground={0, 0, 0, 0})"
 .br
 .ti -1c
 .RI "\fBBasicText\fP (const \fBBasicText\fP &orig)"
 .br
 .ti -1c
+.RI "virtual \fB~BasicText\fP ()"
+.br
+.ti -1c
 .RI "virtual void \fBDisplay\fP (\fBEngine\fP *engine)"
 .br
 .ti -1c
-.RI "std::string \fBText\fP () const"
+.RI "std::string \fBText\fP () const "
 .br
 .ti -1c
 .RI "void \fBText\fP (std::string const &text)"
 .br
 .ti -1c
-.RI "Color \fBColorText\fP () const"
+.RI "\fBColor\fP \fBColorText\fP () const "
 .br
 .ti -1c
-.RI "void \fBColorText\fP (Color const &colorText)"
+.RI "void \fBColorText\fP (\fBColor\fP const &colorText)"
 .br
 .ti -1c
-.RI "Color \fBColorBackground\fP () const"
+.RI "\fBColor\fP \fBColorBackground\fP () const "
 .br
 .ti -1c
-.RI "void \fBColorBackground\fP (Color const &colorBackground)"
+.RI "void \fBColorBackground\fP (\fBColor\fP const &colorBackground)"
 .br
 .ti -1c
-.RI "bool \fBIsStickOnScreen\fP () const"
+.RI "bool \fBIsStickOnScreen\fP () const "
+.br
+.ti -1c
+.RI "void \fBIsStickOnScreen\fP (bool isStickOnScreen)"
+.br
+.ti -1c
+.RI "void \fBRenderTextNow\fP (SDL_Renderer *renderer)"
+.br
+.ti -1c
+.RI "\fBBasicText\fP (std::string const &text, \fBPoint\fP const &position, double renderSize=1\&.0, bool isStickOnScreen=false, \fBColor\fP const &colorText={255, 255, 255, 255}, \fBColor\fP const &colorBackground={0, 0, 0, 0})"
+.br
+.ti -1c
+.RI "\fBBasicText\fP (const \fBBasicText\fP &orig)"
+.br
+.ti -1c
+.RI "virtual \fB~BasicText\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBDisplay\fP (\fBEngine\fP *engine)"
+.br
+.ti -1c
+.RI "std::string \fBText\fP () const "
+.br
+.ti -1c
+.RI "void \fBText\fP (std::string const &text)"
+.br
+.ti -1c
+.RI "\fBColor\fP \fBColorText\fP () const "
+.br
+.ti -1c
+.RI "void \fBColorText\fP (\fBColor\fP const &colorText)"
+.br
+.ti -1c
+.RI "\fBColor\fP \fBColorBackground\fP () const "
+.br
+.ti -1c
+.RI "void \fBColorBackground\fP (\fBColor\fP const &colorBackground)"
+.br
+.ti -1c
+.RI "bool \fBIsStickOnScreen\fP () const "
 .br
 .ti -1c
 .RI "void \fBIsStickOnScreen\fP (bool isStickOnScreen)"
@@ -55,10 +101,10 @@ Inherits \fBLaphony::Graphics::Displayable\fP, and \fBLaphony::Transformable\fP\
 .RI "std::string \fB_text\fP"
 .br
 .ti -1c
-.RI "Color \fB_colorText\fP"
+.RI "\fBColor\fP \fB_colorText\fP"
 .br
 .ti -1c
-.RI "Color \fB_colorBackground\fP"
+.RI "\fBColor\fP \fB_colorBackground\fP"
 .br
 .ti -1c
 .RI "bool \fB_isStickOnScreen\fP"
@@ -78,6 +124,81 @@ Inherits \fBLaphony::Graphics::Displayable\fP, and \fBLaphony::Transformable\fP\
 .br
 .in -1c
 .SS "Additional Inherited Members"
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Laphony::Graphics::BasicText::BasicText (std::string const & text, \fBPoint\fP const & position, double renderSize = \fC1\&.0\fP, bool isStickOnScreen = \fCfalse\fP, \fBColor\fP const & colorText = \fC{255,255,255,255}\fP, \fBColor\fP const & colorBackground = \fC{0,0,0,0}\fP)"
+
+.SS "Laphony::Graphics::BasicText::BasicText (const \fBBasicText\fP & orig)"
+
+.SS "Laphony::Graphics::BasicText::~BasicText ()\fC [virtual]\fP"
+
+.SS "Laphony::Graphics::BasicText::BasicText (std::string const & text, \fBPoint\fP const & position, double renderSize = \fC1\&.0\fP, bool isStickOnScreen = \fCfalse\fP, \fBColor\fP const & colorText = \fC{255, 255, 255, 255}\fP, \fBColor\fP const & colorBackground = \fC{0, 0, 0, 0}\fP)"
+
+.SS "Laphony::Graphics::BasicText::BasicText (const \fBBasicText\fP & orig)"
+
+.SS "virtual Laphony::Graphics::BasicText::~BasicText ()\fC [virtual]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBColor\fP Laphony::Graphics::BasicText::ColorBackground () const"
+
+.SS "\fBColor\fP Laphony::Graphics::BasicText::ColorBackground () const"
+
+.SS "void Laphony::Graphics::BasicText::ColorBackground (\fBColor\fP const & colorBackground)"
+
+.SS "void Laphony::Graphics::BasicText::ColorBackground (\fBColor\fP const & colorBackground)"
+
+.SS "\fBColor\fP Laphony::Graphics::BasicText::ColorText () const"
+
+.SS "\fBColor\fP Laphony::Graphics::BasicText::ColorText () const"
+
+.SS "void Laphony::Graphics::BasicText::ColorText (\fBColor\fP const & colorText)"
+
+.SS "void Laphony::Graphics::BasicText::ColorText (\fBColor\fP const & colorText)"
+
+.SS "void Laphony::Graphics::BasicText::Display (\fBEngine\fP * engine)\fC [virtual]\fP"
+
+.PP
+Implements \fBLaphony::Graphics::Displayable\fP\&.
+.SS "virtual void Laphony::Graphics::BasicText::Display (\fBEngine\fP * engine)\fC [virtual]\fP"
+
+.PP
+Implements \fBLaphony::Graphics::Displayable\fP\&.
+.SS "bool Laphony::Graphics::BasicText::IsStickOnScreen () const"
+
+.SS "bool Laphony::Graphics::BasicText::IsStickOnScreen () const"
+
+.SS "void Laphony::Graphics::BasicText::IsStickOnScreen (bool isStickOnScreen)"
+
+.SS "void Laphony::Graphics::BasicText::IsStickOnScreen (bool isStickOnScreen)"
+
+.SS "void Laphony::Graphics::BasicText::RenderTextNow (SDL_Renderer * renderer)"
+
+.SS "void Laphony::Graphics::BasicText::RenderTextNow (SDL_Renderer * renderer)"
+
+.SS "std::string Laphony::Graphics::BasicText::Text () const"
+
+.SS "std::string Laphony::Graphics::BasicText::Text () const"
+
+.SS "void Laphony::Graphics::BasicText::Text (std::string const & text)"
+
+.SS "void Laphony::Graphics::BasicText::Text (std::string const & text)"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBColor\fP Laphony::Graphics::BasicText::_colorBackground"
+
+.SS "\fBColor\fP Laphony::Graphics::BasicText::_colorText"
+
+.SS "bool Laphony::Graphics::BasicText::_isStickOnScreen"
+
+.SS "bool Laphony::Graphics::BasicText::_mustBeRender"
+
+.SS "SDL_Texture * Laphony::Graphics::BasicText::_renderedText"
+
+.SS "std::string Laphony::Graphics::BasicText::_text"
+
+.SS "static const int Laphony::Graphics::BasicText::FONT_SIZE = 8\fC [static]\fP"
 
 
 .SH "Author"

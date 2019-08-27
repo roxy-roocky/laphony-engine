@@ -31,7 +31,7 @@ DEFAULTCONF=Debug
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=Debug Linux Windows_i686 Windows_x86_64 
+ALLCONFS=Debug Linux Windows_i686 Windows_x86_64 Linux_lib Windows_i686_Lib Windows_x86_64_Lib 
 
 
 # build

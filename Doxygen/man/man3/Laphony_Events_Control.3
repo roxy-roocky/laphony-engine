@@ -1,4 +1,4 @@
-.TH "Laphony::Events::Control" 3 "Tue May 7 2019" "Laphony Engine" \" -*- nroff -*-
+.TH "Laphony::Events::Control" 3 "Tue Aug 27 2019" "Laphony Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -10,12 +10,15 @@ Laphony::Events::Control \- Represent a control whatever kind of control\&.
 .PP
 \fC#include <Control\&.h>\fP
 .PP
-Inherited by \fBLaphony::Events::KeyControl\fP\&.
+Inherited by \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyButtonControl\fP, \fBLaphony::Events::JoyButtonControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::KeyControl\fP, and \fBLaphony::Events::KeyControl\fP\&.
 .SS "Public Types"
 
 .in +1c
 .ti -1c
-.RI "enum \fBType\fP { \fBKEY\fP, \fBMOUSE_BUTTON\fP }"
+.RI "enum \fBType\fP { \fBKEY\fP = 0b00000001, \fBMOUSE_BUTTON\fP = 0b00000010, \fBJOY_BUTTON\fP = 0b00000100, \fBJOY_HAT\fP = 0b00001000, \fBJOY_BALLAXIS\fP = 0b00010000, \fBJOY_AXIS\fP = 0b00100000, \fBKEY\fP = 0b00000001, \fBMOUSE_BUTTON\fP = 0b00000010, \fBJOY_BUTTON\fP = 0b00000100, \fBJOY_HAT\fP = 0b00001000, \fBJOY_BALLAXIS\fP = 0b00010000, \fBJOY_AXIS\fP = 0b00100000 }"
+.br
+.ti -1c
+.RI "enum \fBType\fP { \fBKEY\fP = 0b00000001, \fBMOUSE_BUTTON\fP = 0b00000010, \fBJOY_BUTTON\fP = 0b00000100, \fBJOY_HAT\fP = 0b00001000, \fBJOY_BALLAXIS\fP = 0b00010000, \fBJOY_AXIS\fP = 0b00100000, \fBKEY\fP = 0b00000001, \fBMOUSE_BUTTON\fP = 0b00000010, \fBJOY_BUTTON\fP = 0b00000100, \fBJOY_HAT\fP = 0b00001000, \fBJOY_BALLAXIS\fP = 0b00010000, \fBJOY_AXIS\fP = 0b00100000 }"
 .br
 .in -1c
 .SS "Public Member Functions"
@@ -29,6 +32,27 @@ Inherited by \fBLaphony::Events::KeyControl\fP\&.
 .br
 .ti -1c
 .RI "virtual \fBType\fP \fBIsType\fP () const =0"
+.br
+.ti -1c
+.RI "virtual int \fBLastValue\fP () const =0"
+.br
+.ti -1c
+.RI "virtual std::string \fBToString\fP () const =0"
+.br
+.ti -1c
+.RI "virtual int \fBValue\fP () const =0"
+.br
+.ti -1c
+.RI "virtual void \fBValue\fP (int value)=0"
+.br
+.ti -1c
+.RI "virtual \fBType\fP \fBIsType\fP () const =0"
+.br
+.ti -1c
+.RI "virtual int \fBLastValue\fP () const =0"
+.br
+.ti -1c
+.RI "virtual std::string \fBToString\fP () const =0"
 .br
 .in -1c
 .SH "Detailed Description"
@@ -47,6 +71,77 @@ A key from the keyboard
 .TP
 \fB\fIMOUSE_BUTTON \fP\fP
 Button from the mouse 
+.TP
+\fB\fIJOY_BUTTON \fP\fP
+Button from the joy 
+.TP
+\fB\fIJOY_HAT \fP\fP
+hat from the joy 
+.TP
+\fB\fIJOY_BALLAXIS \fP\fP
+ball axis from the joy 
+.TP
+\fB\fIJOY_AXIS \fP\fP
+joystick axis from the joy 
+.TP
+\fB\fIKEY \fP\fP
+A key from the keyboard 
+.TP
+\fB\fIMOUSE_BUTTON \fP\fP
+Button from the mouse 
+.TP
+\fB\fIJOY_BUTTON \fP\fP
+Button from the joy 
+.TP
+\fB\fIJOY_HAT \fP\fP
+hat from the joy 
+.TP
+\fB\fIJOY_BALLAXIS \fP\fP
+ball axis from the joy 
+.TP
+\fB\fIJOY_AXIS \fP\fP
+joystick axis from the joy 
+.SS "enum \fBLaphony::Events::Control::Type\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIKEY \fP\fP
+A key from the keyboard 
+.TP
+\fB\fIMOUSE_BUTTON \fP\fP
+Button from the mouse 
+.TP
+\fB\fIJOY_BUTTON \fP\fP
+Button from the joy 
+.TP
+\fB\fIJOY_HAT \fP\fP
+hat from the joy 
+.TP
+\fB\fIJOY_BALLAXIS \fP\fP
+ball axis from the joy 
+.TP
+\fB\fIJOY_AXIS \fP\fP
+joystick axis from the joy 
+.TP
+\fB\fIKEY \fP\fP
+A key from the keyboard 
+.TP
+\fB\fIMOUSE_BUTTON \fP\fP
+Button from the mouse 
+.TP
+\fB\fIJOY_BUTTON \fP\fP
+Button from the joy 
+.TP
+\fB\fIJOY_HAT \fP\fP
+hat from the joy 
+.TP
+\fB\fIJOY_BALLAXIS \fP\fP
+ball axis from the joy 
+.TP
+\fB\fIJOY_AXIS \fP\fP
+joystick axis from the joy 
 .SH "Member Function Documentation"
 .PP 
 .SS "virtual \fBType\fP Laphony::Events::Control::IsType () const\fC [pure virtual]\fP"
@@ -59,29 +154,64 @@ Type of the control\&. Define by the derivated class\&.
 .PP
 
 .PP
-Implemented in \fBLaphony::Events::KeyControl\fP\&.
+Implemented in \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::JoyButtonControl\fP, \fBLaphony::Events::KeyControl\fP, \fBLaphony::Events::JoyButtonControl\fP, and \fBLaphony::Events::KeyControl\fP\&.
+.SS "virtual \fBType\fP Laphony::Events::Control::IsType () const\fC [pure virtual]\fP"
+Get the type of the control\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Type of the control\&. Define by the derivated class\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::JoyButtonControl\fP, \fBLaphony::Events::KeyControl\fP, \fBLaphony::Events::JoyButtonControl\fP, and \fBLaphony::Events::KeyControl\fP\&.
+.SS "virtual int Laphony::Events::Control::LastValue () const\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::KeyControl\fP, \fBLaphony::Events::KeyControl\fP, \fBLaphony::Events::JoyButtonControl\fP, and \fBLaphony::Events::JoyButtonControl\fP\&.
+.SS "virtual int Laphony::Events::Control::LastValue () const\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::KeyControl\fP, \fBLaphony::Events::KeyControl\fP, \fBLaphony::Events::JoyButtonControl\fP, and \fBLaphony::Events::JoyButtonControl\fP\&.
+.SS "virtual std::string Laphony::Events::Control::ToString () const\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::KeyControl\fP, \fBLaphony::Events::KeyControl\fP, \fBLaphony::Events::JoyButtonControl\fP, and \fBLaphony::Events::JoyButtonControl\fP\&.
+.SS "virtual std::string Laphony::Events::Control::ToString () const\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::KeyControl\fP, \fBLaphony::Events::KeyControl\fP, \fBLaphony::Events::JoyButtonControl\fP, and \fBLaphony::Events::JoyButtonControl\fP\&.
 .SS "virtual int Laphony::Events::Control::Value () const\fC [pure virtual]\fP"
 Get the current value of the control 
 .PP
 \fBReturns:\fP
 .RS 4
-Current vaue of the control as int 
+Current value of the control as int 
 .RE
 .PP
 
 .PP
-Implemented in \fBLaphony::Events::KeyControl\fP\&.
-.SS "virtual void Laphony::Events::Control::Value (int value)\fC [pure virtual]\fP"
-Set the value of the control\&. Use by \fBEvents::Engine\fP 
+Implemented in \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::KeyControl\fP, \fBLaphony::Events::KeyControl\fP, \fBLaphony::Events::JoyButtonControl\fP, and \fBLaphony::Events::JoyButtonControl\fP\&.
+.SS "virtual int Laphony::Events::Control::Value () const\fC [pure virtual]\fP"
+Get the current value of the control 
 .PP
-\fBParameters:\fP
+\fBReturns:\fP
 .RS 4
-\fIvalue\fP New value of the control as int 
+Current value of the control as int 
 .RE
 .PP
 
 .PP
-Implemented in \fBLaphony::Events::KeyControl\fP\&.
+Implemented in \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::KeyControl\fP, \fBLaphony::Events::KeyControl\fP, \fBLaphony::Events::JoyButtonControl\fP, and \fBLaphony::Events::JoyButtonControl\fP\&.
+.SS "virtual void Laphony::Events::Control::Value (int value)\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::KeyControl\fP, \fBLaphony::Events::KeyControl\fP, \fBLaphony::Events::JoyButtonControl\fP, and \fBLaphony::Events::JoyButtonControl\fP\&.
+.SS "virtual void Laphony::Events::Control::Value (int value)\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyAxisControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::JoyHatControl\fP, \fBLaphony::Events::KeyControl\fP, \fBLaphony::Events::KeyControl\fP, \fBLaphony::Events::JoyButtonControl\fP, and \fBLaphony::Events::JoyButtonControl\fP\&.
 
 .SH "Author"
 .PP 

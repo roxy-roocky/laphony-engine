@@ -3,11 +3,13 @@
  * Copyright 2019 Nathan Baumann. All rights reserved.
  */
 
-/* 
- * File:   Surface.h
- * Author: Nathan Baumann
- *
- * Created on 20 mars 2019, 20:57
+
+/** 
+ * \file   Surface.h
+ * \author Nathan Baumann
+ * \brief Represent a base bitmap surface * \date mars 20 2019, 08:57 pm
+
+ * \date mars 20 2019, 08:57 pm
  */
 
 #ifndef SURFACE_H
@@ -15,13 +17,15 @@
 
 #include "Engine.h"
 
-
 namespace Laphony
 {
     namespace Graphics
     {
         class Engine;
 
+        /**
+         * \class Surface
+         */
         class Surface 
         {
             public:

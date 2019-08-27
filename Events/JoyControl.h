@@ -3,10 +3,10 @@
  * Copyright 2019 Nathan Baumann. All rights reserved.
  */
 /* 
- * File:   JoyControl.h
- * Author: nathan
+ * \file   Events/JoyControl.h
+ * \author Nathan
  *
- * Created on June 22, 2019, 10:17 AM
+ * \date June 22, 2019, 10:17 AM
  */
 
 #ifndef JOYCONTROL_H

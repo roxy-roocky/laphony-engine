@@ -38,6 +38,30 @@ CND_ARTIFACT_PATH_Windows_x86_64=dist/Windows_x86_64/Mingw_x86_64-Linux/laphonye
 CND_PACKAGE_DIR_Windows_x86_64=dist/Windows_x86_64/Mingw_x86_64-Linux/package
 CND_PACKAGE_NAME_Windows_x86_64=laphonyengine.tar
 CND_PACKAGE_PATH_Windows_x86_64=dist/Windows_x86_64/Mingw_x86_64-Linux/package/laphonyengine.tar
+# Linux_lib configuration
+CND_PLATFORM_Linux_lib=GNU-Linux
+CND_ARTIFACT_DIR_Linux_lib=dist/Linux_lib/GNU-Linux
+CND_ARTIFACT_NAME_Linux_lib=LaphonyEngine.so
+CND_ARTIFACT_PATH_Linux_lib=dist/Linux_lib/GNU-Linux/LaphonyEngine.so
+CND_PACKAGE_DIR_Linux_lib=dist/Linux_lib/GNU-Linux/package
+CND_PACKAGE_NAME_Linux_lib=libLaphonyEngine.so.tar
+CND_PACKAGE_PATH_Linux_lib=dist/Linux_lib/GNU-Linux/package/libLaphonyEngine.so.tar
+# Windows_i686_Lib configuration
+CND_PLATFORM_Windows_i686_Lib=Mingw_i686-Linux
+CND_ARTIFACT_DIR_Windows_i686_Lib=dist/Windows_i686_Lib/Mingw_i686-Linux
+CND_ARTIFACT_NAME_Windows_i686_Lib=LaphonyEngine.dll
+CND_ARTIFACT_PATH_Windows_i686_Lib=dist/Windows_i686_Lib/Mingw_i686-Linux/LaphonyEngine.dll
+CND_PACKAGE_DIR_Windows_i686_Lib=dist/Windows_i686_Lib/Mingw_i686-Linux/package
+CND_PACKAGE_NAME_Windows_i686_Lib=libLaphonyEngine.so.tar
+CND_PACKAGE_PATH_Windows_i686_Lib=dist/Windows_i686_Lib/Mingw_i686-Linux/package/libLaphonyEngine.so.tar
+# Windows_x86_64_Lib configuration
+CND_PLATFORM_Windows_x86_64_Lib=Mingw_x86_64-Linux
+CND_ARTIFACT_DIR_Windows_x86_64_Lib=dist/Windows_x86_64_Lib/Mingw_x86_64-Linux
+CND_ARTIFACT_NAME_Windows_x86_64_Lib=LaphonyEngine.dll
+CND_ARTIFACT_PATH_Windows_x86_64_Lib=dist/Windows_x86_64_Lib/Mingw_x86_64-Linux/LaphonyEngine.dll
+CND_PACKAGE_DIR_Windows_x86_64_Lib=dist/Windows_x86_64_Lib/Mingw_x86_64-Linux/package
+CND_PACKAGE_NAME_Windows_x86_64_Lib=libLaphonyEngine.so.tar
+CND_PACKAGE_PATH_Windows_x86_64_Lib=dist/Windows_x86_64_Lib/Mingw_x86_64-Linux/package/libLaphonyEngine.so.tar
 #
 # include compiler specific variables
 #

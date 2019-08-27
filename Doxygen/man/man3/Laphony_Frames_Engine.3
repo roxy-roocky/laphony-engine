@@ -1,4 +1,4 @@
-.TH "Laphony::Frames::Engine" 3 "Tue May 7 2019" "Laphony Engine" \" -*- nroff -*-
+.TH "Laphony::Frames::Engine" 3 "Tue Aug 27 2019" "Laphony Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -15,26 +15,48 @@ Laphony::Frames::Engine \- This engine lets you manage the time in your app\&. I
 .ti -1c
 .RI "\fBEngine\fP (int fps)"
 .br
-.RI "Create a frame engine with specific framerate\&. "
+.RI "\fICreate a frame engine with specific framerate\&. \fP"
 .ti -1c
 .RI "void \fBUpdate\fP (bool wait=true)"
 .br
-.RI "Raise objects update if not already raised this frame\&. "
+.RI "\fIRaise objects update if not already raised this frame\&. \fP"
 .ti -1c
 .RI "void \fBRegister\fP (\fBUpdatable\fP *updatable, bool placeFront=false)"
 .br
-.RI "Register an object to be updated each engine frame\&. "
+.RI "\fIRegister an object to be updated each engine frame\&. \fP"
 .ti -1c
 .RI "void \fBUnregister\fP (\fBUpdatable\fP *updatable)"
 .br
-.RI "Remove an object from the update list\&. The object will not be freed\&. "
+.RI "\fIRemove an object from the update list\&. The object will not be freed\&. \fP"
 .ti -1c
-.RI "int \fBLastFPS\fP () const"
+.RI "int \fBLastFPS\fP () const "
+.br
+.ti -1c
+.RI "\fBEngine\fP (int fps)"
+.br
+.RI "\fICreate a frame engine with specific framerate\&. \fP"
+.ti -1c
+.RI "void \fBUpdate\fP (bool wait=true)"
+.br
+.RI "\fIRaise objects update if not already raised this frame\&. \fP"
+.ti -1c
+.RI "void \fBRegister\fP (\fBUpdatable\fP *updatable, bool placeFront=false)"
+.br
+.RI "\fIRegister an object to be updated each engine frame\&. \fP"
+.ti -1c
+.RI "void \fBUnregister\fP (\fBUpdatable\fP *updatable)"
+.br
+.RI "\fIRemove an object from the update list\&. The object will not be freed\&. \fP"
+.ti -1c
+.RI "int \fBLastFPS\fP () const "
 .br
 .in -1c
 .SS "Static Public Member Functions"
 
 .in +1c
+.ti -1c
+.RI "static uint32_t \fBMillis\fP ()"
+.br
 .ti -1c
 .RI "static uint32_t \fBMillis\fP ()"
 .br
@@ -55,6 +77,17 @@ Create a frame engine with specific framerate\&.
 .RE
 .PP
 
+.SS "Laphony::Frames::Engine::Engine (int fps)"
+
+.PP
+Create a frame engine with specific framerate\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfps\fP The count of frames per second 
+.RE
+.PP
+
 .SH "Member Function Documentation"
 .PP 
 .SS "int Laphony::Frames::Engine::LastFPS () const"
@@ -63,6 +96,32 @@ Retrive the frames count of the last second
 \fBReturns:\fP
 .RS 4
 
+.RE
+.PP
+
+.SS "int Laphony::Frames::Engine::LastFPS () const"
+Retrive the frames count of the last second 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "uint32_t Laphony::Frames::Engine::Millis ()\fC [static]\fP"
+
+.SS "static uint32_t Laphony::Frames::Engine::Millis ()\fC [static]\fP"
+
+.SS "void Laphony::Frames::Engine::Register (\fBUpdatable\fP * updatable, bool placeFront = \fCfalse\fP)"
+
+.PP
+Register an object to be updated each engine frame\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIupdatable\fP A pointer to the object 
+.br
+\fIplaceFront\fP If true, the object will be place at the head of the update list 
 .RE
 .PP
 
@@ -87,6 +146,28 @@ Remove an object from the update list\&. The object will not be freed\&.
 \fBParameters:\fP
 .RS 4
 \fIupdatable\fP A pointer to the object to remove\&. 
+.RE
+.PP
+
+.SS "void Laphony::Frames::Engine::Unregister (\fBUpdatable\fP * updatable)"
+
+.PP
+Remove an object from the update list\&. The object will not be freed\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIupdatable\fP A pointer to the object to remove\&. 
+.RE
+.PP
+
+.SS "void Laphony::Frames::Engine::Update (bool wait = \fCtrue\fP)"
+
+.PP
+Raise objects update if not already raised this frame\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwait\fP if true, the method will wait until frame end\&. TODO: wait = false 
 .RE
 .PP
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['point',['Point',['../struct_laphony_1_1_point.html',1,'Laphony']]]
+  ['keycontrol',['KeyControl',['../class_laphony_1_1_events_1_1_key_control.html',1,'Laphony::Events']]]
 ];

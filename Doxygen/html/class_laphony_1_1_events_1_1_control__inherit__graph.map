@@ -1,4 +1,0 @@
-<map id="Laphony::Events::Control" name="Laphony::Events::Control">
-<area shape="rect" id="node1" title="Represent a control whatever kind of control." alt="" coords="17,5,184,32"/>
-<area shape="rect" id="node2" href="$class_laphony_1_1_events_1_1_key_control.html" title="Control representing a keyboard key." alt="" coords="5,80,196,107"/>
-</map>

@@ -71,13 +71,33 @@ namespace Laphony
                  */
                 virtual void Update() override;
                 
-
+                /**
+                 * Get if the animation is playing in reverse
+                 * @return true if the animation is playing in reverse
+                 */
                 bool ReversePlay() const;
+                
+                /**
+                 * Specify if the animation must be played is reverse
+                 * @param reverse True for reverse playing
+                 */
                 void ReversePlay(bool reverse);
                 
+                /**
+                 * Get the current speed of the animation
+                 * @return The current speed
+                 */
                 double Speed() const;
+                
+                /**
+                 * Set the speed of the animation
+                 * @param speed New speed(must be greater than 0)
+                 */
                 void Speed(double speed);
                 
+                /**
+                 * Reset the position of the animation to the start (or the end if reversed playing)
+                 */
                 void Rewind();
                 
             private:

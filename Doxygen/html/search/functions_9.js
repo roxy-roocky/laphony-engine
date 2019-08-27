@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['scale',['Scale',['../class_laphony_1_1_transformable.html#a3c7848f77dbf77ab9f8cdcc3b6e7a462',1,'Laphony::Transformable::Scale() const'],['../class_laphony_1_1_transformable.html#a0b0398754208e1603ea2f58eb3f2e96d',1,'Laphony::Transformable::Scale(Vector2d const &amp;scale)']]]
+  ['keycontrol',['KeyControl',['../class_laphony_1_1_events_1_1_key_control.html#a4954c6586b49faeff506c5c00423e682',1,'Laphony::Events::KeyControl::KeyControl(std::string const &amp;keyName)'],['../class_laphony_1_1_events_1_1_key_control.html#a4954c6586b49faeff506c5c00423e682',1,'Laphony::Events::KeyControl::KeyControl(std::string const &amp;keyName)']]],
+  ['keyname',['KeyName',['../class_laphony_1_1_events_1_1_key_control.html#a743948c62a647b56d08332a30fa9de9a',1,'Laphony::Events::KeyControl::KeyName() const '],['../class_laphony_1_1_events_1_1_key_control.html#a743948c62a647b56d08332a30fa9de9a',1,'Laphony::Events::KeyControl::KeyName() const ']]]
 ];

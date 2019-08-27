@@ -1,4 +1,0 @@
-<map id="Laphony::Events::Engine" name="Laphony::Events::Engine">
-<area shape="rect" id="node1" title="This engine manage all events. If you want to know the state of input, you must ask it." alt="" coords="17,80,183,107"/>
-<area shape="rect" id="node2" href="$class_laphony_1_1_frames_1_1_updatable.html" title=" " alt="" coords="5,5,195,32"/>
-</map>

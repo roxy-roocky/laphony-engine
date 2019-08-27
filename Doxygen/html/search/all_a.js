@@ -1,6 +1,26 @@
 var searchData=
 [
-  ['pivot',['Pivot',['../class_laphony_1_1_transformable.html#ac344d023c81440b6086778c54331dc74',1,'Laphony::Transformable::Pivot() const'],['../class_laphony_1_1_transformable.html#a541aa66fa23542cfe3b9e97c59c77b7b',1,'Laphony::Transformable::Pivot(Point const &amp;pivot)']]],
-  ['point',['Point',['../struct_laphony_1_1_point.html',1,'Laphony']]],
-  ['position',['Position',['../class_laphony_1_1_transformable.html#aa33d4bb7cd8683d276c3fc6f7e412702',1,'Laphony::Transformable::Position() const'],['../class_laphony_1_1_transformable.html#aeecc733f7be98e14b13962f1a7cbcc26',1,'Laphony::Transformable::Position(Point const &amp;point)']]]
+  ['joy',['joy',['../struct_laphony_1_1_events_1_1_engine_1_1_joy_info.html#ab5e1efd81b2d66ca84ba9b5971e0fd10',1,'Laphony::Events::Engine::JoyInfo']]],
+  ['joy_5faxis',['JOY_AXIS',['../class_laphony_1_1_events_1_1_control.html#a4aea1f87aa36f9157f2ce114a14537a7acf408768007e97b53f9e57cc4c547c77',1,'Laphony::Events::Control']]],
+  ['joy_5fballaxis',['JOY_BALLAXIS',['../class_laphony_1_1_events_1_1_control.html#a4aea1f87aa36f9157f2ce114a14537a7ad0da4d9ad6112f41d28ed68d74e14841',1,'Laphony::Events::Control']]],
+  ['joy_5fbutton',['JOY_BUTTON',['../class_laphony_1_1_events_1_1_control.html#a4aea1f87aa36f9157f2ce114a14537a7abd543645681c121b6f112e21d2d6e8b7',1,'Laphony::Events::Control']]],
+  ['joy_5fhat',['JOY_HAT',['../class_laphony_1_1_events_1_1_control.html#a4aea1f87aa36f9157f2ce114a14537a7ad2b876ef193df41dc1ea5b8a0ad61a48',1,'Laphony::Events::Control']]],
+  ['joyaxiscontrol',['JoyAxisControl',['../class_laphony_1_1_events_1_1_joy_axis_control.html#afaef9274e8a7bf74c211694769bb79b3',1,'Laphony::Events::JoyAxisControl::JoyAxisControl(int joyId, int axisId)'],['../class_laphony_1_1_events_1_1_joy_axis_control.html#afaef9274e8a7bf74c211694769bb79b3',1,'Laphony::Events::JoyAxisControl::JoyAxisControl(int joyId, int axisId)']]],
+  ['joyaxiscontrol',['JoyAxisControl',['../class_laphony_1_1_events_1_1_joy_axis_control.html',1,'Laphony::Events']]],
+  ['joybuttoncontrol',['JoyButtonControl',['../class_laphony_1_1_events_1_1_joy_button_control.html',1,'Laphony::Events']]],
+  ['joybuttoncontrol',['JoyButtonControl',['../class_laphony_1_1_events_1_1_joy_button_control.html#a024e18cb2ad63c717a674d2f26c54bae',1,'Laphony::Events::JoyButtonControl::JoyButtonControl(int joyID, int buttonID)'],['../class_laphony_1_1_events_1_1_joy_button_control.html#a024e18cb2ad63c717a674d2f26c54bae',1,'Laphony::Events::JoyButtonControl::JoyButtonControl(int joyID, int buttonID)']]],
+  ['joycontrol_2ecpp',['JoyControl.cpp',['../_joy_control_8cpp.html',1,'']]],
+  ['joycontrol_2eh',['JoyControl.h',['../_events_2_joy_control_8h.html',1,'']]],
+  ['joycontrol_2eh',['JoyControl.h',['../dist_2_linux__lib_2_g_n_u-_linux_2include_2_events_2_joy_control_8h.html',1,'']]],
+  ['joycontrol_2eo_2ed',['JoyControl.o.d',['../_debug_2_g_n_u-_linux_2_events_2_joy_control_8o_8d.html',1,'']]],
+  ['joycontrol_2eo_2ed',['JoyControl.o.d',['../_windows__x86__64___lib_2_mingw__x86__64-_linux_2_events_2_joy_control_8o_8d.html',1,'']]],
+  ['joycontrol_2eo_2ed',['JoyControl.o.d',['../_windows__i686_2_mingw32-_linux_2_events_2_joy_control_8o_8d.html',1,'']]],
+  ['joycontrol_2eo_2ed',['JoyControl.o.d',['../_windows__i686___lib_2_mingw__i686-_linux_2_events_2_joy_control_8o_8d.html',1,'']]],
+  ['joycontrol_2eo_2ed',['JoyControl.o.d',['../_windows__x86__64_2_mingw__x86__64-_linux_2_events_2_joy_control_8o_8d.html',1,'']]],
+  ['joycontrol_2eo_2ed',['JoyControl.o.d',['../_linux__lib_2_g_n_u-_linux_2_events_2_joy_control_8o_8d.html',1,'']]],
+  ['joycontrol_2eo_2ed',['JoyControl.o.d',['../_linux_2_g_n_u-_linux_2_events_2_joy_control_8o_8d.html',1,'']]],
+  ['joyhatcontrol',['JoyHatControl',['../class_laphony_1_1_events_1_1_joy_hat_control.html',1,'Laphony::Events']]],
+  ['joyhatcontrol',['JoyHatControl',['../class_laphony_1_1_events_1_1_joy_hat_control.html#a2255eb11e5ccc47e284bae08439f8e73',1,'Laphony::Events::JoyHatControl::JoyHatControl(int joyID, int hatID)'],['../class_laphony_1_1_events_1_1_joy_hat_control.html#a2255eb11e5ccc47e284bae08439f8e73',1,'Laphony::Events::JoyHatControl::JoyHatControl(int joyID, int hatID)']]],
+  ['joyid',['JoyID',['../class_laphony_1_1_events_1_1_joy_button_control.html#aa873f7a84a41c6014cedd59d73a8afc9',1,'Laphony::Events::JoyButtonControl::JoyID()'],['../class_laphony_1_1_events_1_1_joy_hat_control.html#aa02191965dec5bebb390fe62d74481ca',1,'Laphony::Events::JoyHatControl::JoyID()'],['../class_laphony_1_1_events_1_1_joy_axis_control.html#a077ac9f4b45a5b260c1837a26e5e4e42',1,'Laphony::Events::JoyAxisControl::JoyID()'],['../class_laphony_1_1_events_1_1_joy_button_control.html#aa873f7a84a41c6014cedd59d73a8afc9',1,'Laphony::Events::JoyButtonControl::JoyID()'],['../class_laphony_1_1_events_1_1_joy_hat_control.html#aa02191965dec5bebb390fe62d74481ca',1,'Laphony::Events::JoyHatControl::JoyID()'],['../class_laphony_1_1_events_1_1_joy_axis_control.html#a077ac9f4b45a5b260c1837a26e5e4e42',1,'Laphony::Events::JoyAxisControl::JoyID()']]],
+  ['joyinfo',['JoyInfo',['../struct_laphony_1_1_events_1_1_engine_1_1_joy_info.html',1,'Laphony::Events::Engine']]]
 ];

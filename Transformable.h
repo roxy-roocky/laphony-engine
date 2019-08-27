@@ -18,7 +18,7 @@
 namespace Laphony
 {
     /**
-     * \brief Make an object transformable with position, rotation and scale
+     * \brief Make an object transformable with position, rotation and scale. Define a pivot point.
      * 
      * 
      */
@@ -56,8 +56,16 @@ namespace Laphony
              */
             Transformable(Transformable const& o) = default;
             
+            /**
+             * \brief Assignment operator. Is the default implementation
+             * @param o Transform object to take like model
+             */
             Transformable& operator=(Transformable const& t) = default;
             
+            /**
+             * \brief Assignment and additive operator. Add positions and angles, multiply scales. Pivot not affect.
+             * @param o Transform object to take for operation.
+             */
             Transformable& operator+=(Transformable const& t);
             
             

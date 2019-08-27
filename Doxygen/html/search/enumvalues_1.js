@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mouse_5fbutton',['MOUSE_BUTTON',['../class_laphony_1_1_events_1_1_control.html#a4aea1f87aa36f9157f2ce114a14537a7a7be17d64cbcacaddf06404db41389d43',1,'Laphony::Events::Control']]]
+  ['down',['DOWN',['../class_laphony_1_1_events_1_1_joy_hat_control.html#a53c697c642ed3cb73aeb6cd511dc29caaae0bf3a529bb29ae42c8d3dd844f5998',1,'Laphony::Events::JoyHatControl']]]
 ];

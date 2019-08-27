@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vector2d',['Vector2d',['../struct_laphony_1_1_vector2d.html',1,'Laphony']]]
+  ['updatable',['Updatable',['../class_laphony_1_1_frames_1_1_updatable.html',1,'Laphony::Frames']]]
 ];

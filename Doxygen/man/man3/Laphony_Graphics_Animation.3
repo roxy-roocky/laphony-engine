@@ -1,4 +1,4 @@
-.TH "Laphony::Graphics::Animation" 3 "Tue May 7 2019" "Laphony Engine" \" -*- nroff -*-
+.TH "Laphony::Graphics::Animation" 3 "Tue Aug 27 2019" "Laphony Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -10,33 +10,86 @@ Laphony::Graphics::Animation \- Represent an animation from images sequence\&.
 .PP
 \fC#include <Animation\&.h>\fP
 .PP
-Inherits \fBLaphony::Graphics::Displayable\fP, and \fBLaphony::Frames::Updatable\fP\&.
+Inherits \fBLaphony::Graphics::Displayable\fP, \fBLaphony::Frames::Updatable\fP, \fBLaphony::Transformable\fP, \fBLaphony::Graphics::Displayable\fP, \fBLaphony::Frames::Updatable\fP, and \fBLaphony::Transformable\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBAnimation\fP (\fBImage\fP *image, std::vector< Frame > frames)"
+.RI "\fBAnimation\fP (\fBImage\fP *image, std::vector< Frame > frames, bool autofree, bool reverseLoop=false)"
 .br
-.RI "Create an animation with already created frames\&. "
+.RI "\fICreate an animation with already created frames\&. \fP"
 .ti -1c
-.RI "\fBAnimation\fP (\fBImage\fP *image, \fBRect\fP const &rect, int duration, \fBPoint\fP const &pivot)"
+.RI "\fBAnimation\fP (\fBImage\fP *image, \fBRect\fP const &rect, int duration, bool autofree, \fBPoint\fP const &pivot={\-1}, bool reverseLoop=false)"
 .br
-.RI "Create an animation with rect of equal size\&. The image will be cut in rect from the left to the right\&. "
+.RI "\fICreate an animation with rect of equal size\&. The image will be cut in rect from the left to the right\&. \fP"
+.ti -1c
+.RI "\fB~Animation\fP ()"
+.br
 .ti -1c
 .RI "virtual void \fBDisplay\fP (\fBEngine\fP *engine) override"
 .br
-.RI "Display the animation in current state\&. "
+.RI "\fIDisplay the animation in current state\&. \fP"
 .ti -1c
 .RI "virtual void \fBUpdate\fP () override"
 .br
-.RI "Forward the animation to one frame\&. "
+.RI "\fIForward the animation to one frame\&. \fP"
+.ti -1c
+.RI "bool \fBReversePlay\fP () const "
+.br
+.ti -1c
+.RI "void \fBReversePlay\fP (bool reverse)"
+.br
+.ti -1c
+.RI "double \fBSpeed\fP () const "
+.br
+.ti -1c
+.RI "void \fBSpeed\fP (double speed)"
+.br
+.ti -1c
+.RI "void \fBRewind\fP ()"
+.br
+.ti -1c
+.RI "\fBAnimation\fP (\fBImage\fP *image, std::vector< Frame > frames, bool autofree, bool reverseLoop=false)"
+.br
+.RI "\fICreate an animation with already created frames\&. \fP"
+.ti -1c
+.RI "\fBAnimation\fP (\fBImage\fP *image, \fBRect\fP const &rect, int duration, bool autofree, \fBPoint\fP const &pivot={\-1}, bool reverseLoop=false)"
+.br
+.RI "\fICreate an animation with rect of equal size\&. The image will be cut in rect from the left to the right\&. \fP"
+.ti -1c
+.RI "\fB~Animation\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBDisplay\fP (\fBEngine\fP *engine) override"
+.br
+.RI "\fIDisplay the animation in current state\&. \fP"
+.ti -1c
+.RI "virtual void \fBUpdate\fP () override"
+.br
+.RI "\fIForward the animation to one frame\&. \fP"
+.ti -1c
+.RI "bool \fBReversePlay\fP () const "
+.br
+.ti -1c
+.RI "void \fBReversePlay\fP (bool reverse)"
+.br
+.ti -1c
+.RI "double \fBSpeed\fP () const "
+.br
+.ti -1c
+.RI "void \fBSpeed\fP (double speed)"
+.br
+.ti -1c
+.RI "void \fBRewind\fP ()"
+.br
 .in -1c
+.SS "Additional Inherited Members"
 .SH "Detailed Description"
 .PP 
 Represent an animation from images sequence\&. 
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "Laphony::Graphics::Animation::Animation (\fBImage\fP * image, std::vector< Frame > frames)"
+.SS "Laphony::Graphics::Animation::Animation (\fBImage\fP * image, std::vector< Frame > frames, bool autofree, bool reverseLoop = \fCfalse\fP)"
 
 .PP
 Create an animation with already created frames\&. 
@@ -49,7 +102,7 @@ Create an animation with already created frames\&.
 .RE
 .PP
 
-.SS "Laphony::Graphics::Animation::Animation (\fBImage\fP * image, \fBRect\fP const & rect, int duration, \fBPoint\fP const & pivot)"
+.SS "Laphony::Graphics::Animation::Animation (\fBImage\fP * image, \fBRect\fP const & rect, int duration, bool autofree, \fBPoint\fP const & pivot = \fC{\-1}\fP, bool reverseLoop = \fCfalse\fP)"
 
 .PP
 Create an animation with rect of equal size\&. The image will be cut in rect from the left to the right\&. 
@@ -66,6 +119,40 @@ Create an animation with rect of equal size\&. The image will be cut in rect fro
 .RE
 .PP
 
+.SS "Laphony::Graphics::Animation::~Animation ()"
+
+.SS "Laphony::Graphics::Animation::Animation (\fBImage\fP * image, std::vector< Frame > frames, bool autofree, bool reverseLoop = \fCfalse\fP)"
+
+.PP
+Create an animation with already created frames\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIimage\fP The image containing the animation sequence 
+.br
+\fIframes\fP The frames of the animation 
+.RE
+.PP
+
+.SS "Laphony::Graphics::Animation::Animation (\fBImage\fP * image, \fBRect\fP const & rect, int duration, bool autofree, \fBPoint\fP const & pivot = \fC{\-1}\fP, bool reverseLoop = \fCfalse\fP)"
+
+.PP
+Create an animation with rect of equal size\&. The image will be cut in rect from the left to the right\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIimage\fP 
+.br
+\fIrect\fP 
+.br
+\fIduration\fP 
+.br
+\fIpivot\fP 
+.RE
+.PP
+
+.SS "Laphony::Graphics::Animation::~Animation ()"
+
 .SH "Member Function Documentation"
 .PP 
 .SS "void Laphony::Graphics::Animation::Display (\fBEngine\fP * engine)\fC [override]\fP, \fC [virtual]\fP"
@@ -81,6 +168,51 @@ Display the animation in current state\&.
 
 .PP
 Implements \fBLaphony::Graphics::Displayable\fP\&.
+.SS "virtual void Laphony::Graphics::Animation::Display (\fBEngine\fP * engine)\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Display the animation in current state\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIengine\fP \fBEngine\fP where the animation must be blit\&. Must be the same as image 
+.RE
+.PP
+
+.PP
+Implements \fBLaphony::Graphics::Displayable\fP\&.
+.SS "bool Laphony::Graphics::Animation::ReversePlay () const"
+
+.SS "bool Laphony::Graphics::Animation::ReversePlay () const"
+
+.SS "void Laphony::Graphics::Animation::ReversePlay (bool reverse)"
+
+.SS "void Laphony::Graphics::Animation::ReversePlay (bool reverse)"
+
+.SS "void Laphony::Graphics::Animation::Rewind ()"
+
+.SS "void Laphony::Graphics::Animation::Rewind ()"
+
+.SS "double Laphony::Graphics::Animation::Speed () const"
+
+.SS "double Laphony::Graphics::Animation::Speed () const"
+
+.SS "void Laphony::Graphics::Animation::Speed (double speed)"
+
+.SS "void Laphony::Graphics::Animation::Speed (double speed)"
+
+.SS "void Laphony::Graphics::Animation::Update ()\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Forward the animation to one frame\&. 
+.PP
+Implements \fBLaphony::Frames::Updatable\fP\&.
+.SS "virtual void Laphony::Graphics::Animation::Update ()\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Forward the animation to one frame\&. 
+.PP
+Implements \fBLaphony::Frames::Updatable\fP\&.
 
 .SH "Author"
 .PP 

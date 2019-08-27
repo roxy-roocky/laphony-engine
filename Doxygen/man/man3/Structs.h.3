@@ -1,13 +1,12 @@
-.TH "Structs.h" 3 "Tue May 7 2019" "Laphony Engine" \" -*- nroff -*-
+.TH "/home/nathan/Documents/NetBeansProjects/LaphonyEngine/Structs.h" 3 "Tue Aug 27 2019" "Laphony Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-Structs.h \- Commons structures\&.  
-
+/home/nathan/Documents/NetBeansProjects/LaphonyEngine/Structs.h \- 
 .SH SYNOPSIS
 .br
 .PP
-\fC#include <SDL\&.h>\fP
+\fC#include <SDL2/SDL\&.h>\fP
 .br
 
 .SS "Classes"
@@ -16,34 +15,56 @@ Structs.h \- Commons structures\&.
 .ti -1c
 .RI "struct \fBLaphony::Vector2d\fP"
 .br
-.RI "Represents a vector of 2 elements\&. "
+.RI "\fIRepresents a vector of 2 elements\&. \fP"
 .in -1c
-.SS "Typedefs"
+.SS "Namespaces"
 
 .in +1c
 .ti -1c
-.RI "typedef SDL_Rect \fBLaphony::Rect\fP"
-.br
-.ti -1c
-.RI "typedef SDL_Point \fBLaphony::Point\fP"
+.RI " \fBLaphony\fP"
 .br
 .in -1c
-.SH "Detailed Description"
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBAUTOFREE\fP   true"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "Rect \fBLaphony::operator+\fP (Rect const &r1, Rect const &r2)"
+.br
+.ti -1c
+.RI "Rect \fBLaphony::operator\-\fP (Rect const &r1, Rect const &r2)"
+.br
+.ti -1c
+.RI "Rect \fBLaphony::operator*\fP (Rect const &r, double d)"
+.br
+.ti -1c
+.RI "Point \fBLaphony::operator+\fP (Point const &p1, Point const &p2)"
+.br
+.ti -1c
+.RI "Point \fBLaphony::operator\-\fP (Point const &p1, Point const &p2)"
+.br
+.ti -1c
+.RI "Point \fBLaphony::operator*\fP (Point const &p, double d)"
+.br
+.ti -1c
+.RI "Vector2d \fBLaphony::operator+\fP (Vector2d const &p1, Vector2d const &p2)"
+.br
+.ti -1c
+.RI "Vector2d \fBLaphony::operator\-\fP (Vector2d const &p1, Vector2d const &p2)"
+.br
+.ti -1c
+.RI "Vector2d \fBLaphony::operator*\fP (Vector2d const &p, double d)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
 .PP 
-Commons structures\&. 
-
-
-.PP
-\fBAuthor:\fP
-.RS 4
-Nathan Baumann 
-.RE
-.PP
-\fBDate:\fP
-.RS 4
-march 21 2019, 07:04 am 
-.RE
-.PP
+.SS "#define AUTOFREE   true"
 
 .SH "Author"
 .PP 

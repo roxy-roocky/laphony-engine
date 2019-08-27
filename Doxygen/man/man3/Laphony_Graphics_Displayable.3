@@ -1,20 +1,67 @@
-.TH "Laphony::Graphics::Displayable" 3 "Tue May 7 2019" "Laphony Engine" \" -*- nroff -*-
+.TH "Laphony::Graphics::Displayable" 3 "Tue Aug 27 2019" "Laphony Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-Laphony::Graphics::Displayable
+Laphony::Graphics::Displayable \- 
 .SH SYNOPSIS
 .br
 .PP
 .PP
-Inherited by \fBLaphony::Graphics::Animation\fP, \fBLaphony::Graphics::BasicText\fP, and \fBLaphony::Graphics::Image\fP\&.
+\fC#include <Displayable\&.h>\fP
+.PP
+Inherited by \fBLaphony::Graphics::Animation\fP\fC [virtual]\fP, \fBLaphony::Graphics::Animation\fP\fC [virtual]\fP, \fBLaphony::Graphics::Animator\fP\fC [virtual]\fP, \fBLaphony::Graphics::Animator\fP\fC [virtual]\fP, \fBLaphony::Graphics::BasicText\fP\fC [virtual]\fP, \fBLaphony::Graphics::BasicText\fP\fC [virtual]\fP, \fBLaphony::Graphics::Image\fP\fC [virtual]\fP, and \fBLaphony::Graphics::Image\fP\fC [virtual]\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
 .ti -1c
+.RI "\fBDisplayable\fP ()"
+.br
+.ti -1c
 .RI "virtual void \fBDisplay\fP (\fBEngine\fP *engine)=0"
 .br
+.ti -1c
+.RI "virtual bool \fBVisible\fP () const "
+.br
+.ti -1c
+.RI "virtual void \fBVisible\fP (bool visible)"
+.br
+.ti -1c
+.RI "\fBDisplayable\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBDisplay\fP (\fBEngine\fP *engine)=0"
+.br
+.ti -1c
+.RI "virtual bool \fBVisible\fP () const "
+.br
+.ti -1c
+.RI "virtual void \fBVisible\fP (bool visible)"
+.br
 .in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Laphony::Graphics::Displayable::Displayable ()\fC [inline]\fP"
+
+.SS "Laphony::Graphics::Displayable::Displayable ()\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual void Laphony::Graphics::Displayable::Display (\fBEngine\fP * engine)\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBLaphony::Graphics::Animation\fP, \fBLaphony::Graphics::Animation\fP, \fBLaphony::Graphics::Animator\fP, \fBLaphony::Graphics::Image\fP, \fBLaphony::Graphics::Animator\fP, \fBLaphony::Graphics::Image\fP, \fBLaphony::Graphics::BasicText\fP, and \fBLaphony::Graphics::BasicText\fP\&.
+.SS "virtual void Laphony::Graphics::Displayable::Display (\fBEngine\fP * engine)\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBLaphony::Graphics::Animation\fP, \fBLaphony::Graphics::Animation\fP, \fBLaphony::Graphics::Animator\fP, \fBLaphony::Graphics::Image\fP, \fBLaphony::Graphics::Animator\fP, \fBLaphony::Graphics::Image\fP, \fBLaphony::Graphics::BasicText\fP, and \fBLaphony::Graphics::BasicText\fP\&.
+.SS "virtual bool Laphony::Graphics::Displayable::Visible () const\fC [inline]\fP, \fC [virtual]\fP"
+
+.SS "virtual bool Laphony::Graphics::Displayable::Visible () const\fC [inline]\fP, \fC [virtual]\fP"
+
+.SS "virtual void Laphony::Graphics::Displayable::Visible (bool visible)\fC [inline]\fP, \fC [virtual]\fP"
+
+.SS "virtual void Laphony::Graphics::Displayable::Visible (bool visible)\fC [inline]\fP, \fC [virtual]\fP"
+
 
 .SH "Author"
 .PP 

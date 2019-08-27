@@ -1,0 +1,116 @@
+.TH "Laphony" 3 "Tue Aug 27 2019" "Laphony Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Laphony \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI " \fBEvents\fP"
+.br
+.RI "\fIContains all events relatives classes and fonctions\&. \fP"
+.ti -1c
+.RI " \fBFrames\fP"
+.br
+.RI "\fIContains all entities relative to the time and the frames management\&. \fP"
+.ti -1c
+.RI " \fBGraphics\fP"
+.br
+.ti -1c
+.RI " \fBSound\fP"
+.br
+.in -1c
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPoint\fP"
+.br
+.RI "\fIRepresents a (x, y) point\&. \fP"
+.ti -1c
+.RI "struct \fBRect\fP"
+.br
+.RI "\fIRepresents a (x, y, w, h) rectangle\&. \fP"
+.ti -1c
+.RI "class \fBTransformable\fP"
+.br
+.RI "\fIMake an object transformable with position, rotation and scale\&. Define a pivot point\&. \fP"
+.ti -1c
+.RI "struct \fBVector2d\fP"
+.br
+.RI "\fIRepresents a vector of 2 elements\&. \fP"
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef SDL_Rect \fBRect\fP"
+.br
+.ti -1c
+.RI "typedef SDL_Point \fBPoint\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRect\fP \fBoperator+\fP (\fBRect\fP const &r1, \fBRect\fP const &r2)"
+.br
+.ti -1c
+.RI "\fBRect\fP \fBoperator\-\fP (\fBRect\fP const &r1, \fBRect\fP const &r2)"
+.br
+.ti -1c
+.RI "\fBRect\fP \fBoperator*\fP (\fBRect\fP const &r, double d)"
+.br
+.ti -1c
+.RI "\fBPoint\fP \fBoperator+\fP (\fBPoint\fP const &p1, \fBPoint\fP const &p2)"
+.br
+.ti -1c
+.RI "\fBPoint\fP \fBoperator\-\fP (\fBPoint\fP const &p1, \fBPoint\fP const &p2)"
+.br
+.ti -1c
+.RI "\fBPoint\fP \fBoperator*\fP (\fBPoint\fP const &p, double d)"
+.br
+.ti -1c
+.RI "\fBVector2d\fP \fBoperator+\fP (\fBVector2d\fP const &p1, \fBVector2d\fP const &p2)"
+.br
+.ti -1c
+.RI "\fBVector2d\fP \fBoperator\-\fP (\fBVector2d\fP const &p1, \fBVector2d\fP const &p2)"
+.br
+.ti -1c
+.RI "\fBVector2d\fP \fBoperator*\fP (\fBVector2d\fP const &p, double d)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef SDL_Point \fBLaphony::Point\fP"
+
+.SS "typedef SDL_Rect \fBLaphony::Rect\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "\fBRect\fP Laphony::operator* (\fBRect\fP const & r, double d)"
+
+.SS "\fBPoint\fP Laphony::operator* (\fBPoint\fP const & p, double d)"
+
+.SS "\fBVector2d\fP Laphony::operator* (\fBVector2d\fP const & p, double d)"
+
+.SS "\fBRect\fP Laphony::operator+ (\fBRect\fP const & r1, \fBRect\fP const & r2)"
+
+.SS "\fBPoint\fP Laphony::operator+ (\fBPoint\fP const & p1, \fBPoint\fP const & p2)"
+
+.SS "\fBVector2d\fP Laphony::operator+ (\fBVector2d\fP const & p1, \fBVector2d\fP const & p2)"
+
+.SS "\fBRect\fP Laphony::operator\- (\fBRect\fP const & r1, \fBRect\fP const & r2)"
+
+.SS "\fBPoint\fP Laphony::operator\- (\fBPoint\fP const & p1, \fBPoint\fP const & p2)"
+
+.SS "\fBVector2d\fP Laphony::operator\- (\fBVector2d\fP const & p1, \fBVector2d\fP const & p2)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Laphony Engine from the source code\&.

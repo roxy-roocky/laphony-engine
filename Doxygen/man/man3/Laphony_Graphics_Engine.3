@@ -1,27 +1,32 @@
-.TH "Laphony::Graphics::Engine" 3 "Tue May 7 2019" "Laphony Engine" \" -*- nroff -*-
+.TH "Laphony::Graphics::Engine" 3 "Tue Aug 27 2019" "Laphony Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-Laphony::Graphics::Engine
+Laphony::Graphics::Engine \- 
 .SH SYNOPSIS
 .br
 .PP
 .PP
-Inherits \fBLaphony::Frames::Updatable\fP\&.
+\fC#include <Engine\&.h>\fP
+.PP
+Inherits \fBLaphony::Frames::Updatable\fP, and \fBLaphony::Frames::Updatable\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBEngine\fP (std::string const &title, int w, int h, bool resizable)"
+.RI "\fBEngine\fP (std::string const &title, int w, int h, bool resizable, bool fixedSize)"
 .br
 .ti -1c
-.RI "\fBEngine\fP (std::string const &title, int w, int h, bool resizable, \fBRect\fP const &camera)"
+.RI "\fBEngine\fP (std::string const &title, int w, int h, bool resizable, bool fixedSize, \fBRect\fP const &camera)"
+.br
+.ti -1c
+.RI "virtual \fB~Engine\fP ()"
 .br
 .ti -1c
 .RI "\fBSurface\fP * \fBCreateSurface\fP (std::string const &filename)"
 .br
 .ti -1c
-.RI "\fBSurface\fP * \fBCreateSurface\fP (int w, int h, Color const &color)"
+.RI "\fBSurface\fP * \fBCreateSurface\fP (int w, int h, \fBColor\fP const &color)"
 .br
 .ti -1c
 .RI "void \fBRefresh\fP ()"
@@ -32,7 +37,7 @@ Inherits \fBLaphony::Frames::Updatable\fP\&.
 .ti -1c
 .RI "virtual void \fBUpdate\fP () override"
 .br
-.RI "This method will be called by the frame engine\&. "
+.RI "\fIThis method will be called by the frame engine\&. \fP"
 .ti -1c
 .RI "SDL_Renderer * \fBRenderer\fP ()"
 .br
@@ -40,7 +45,50 @@ Inherits \fBLaphony::Frames::Updatable\fP\&.
 .RI "SDL_Window * \fBWindow\fP ()"
 .br
 .ti -1c
-.RI "\fBRect\fP \fBCamera\fP () const"
+.RI "\fBRect\fP \fBCamera\fP () const "
+.br
+.ti -1c
+.RI "void \fBCamera\fP (\fBRect\fP camera)"
+.br
+.ti -1c
+.RI "void \fBRegister\fP (\fBDisplayable\fP *displayable, bool foreground=false)"
+.br
+.ti -1c
+.RI "void \fBUnregister\fP (\fBDisplayable\fP *displayable)"
+.br
+.ti -1c
+.RI "\fBEngine\fP (std::string const &title, int w, int h, bool resizable, bool fixedSize)"
+.br
+.ti -1c
+.RI "\fBEngine\fP (std::string const &title, int w, int h, bool resizable, bool fixedSize, \fBRect\fP const &camera)"
+.br
+.ti -1c
+.RI "virtual \fB~Engine\fP ()"
+.br
+.ti -1c
+.RI "\fBSurface\fP * \fBCreateSurface\fP (std::string const &filename)"
+.br
+.ti -1c
+.RI "\fBSurface\fP * \fBCreateSurface\fP (int w, int h, \fBColor\fP const &color)"
+.br
+.ti -1c
+.RI "void \fBRefresh\fP ()"
+.br
+.ti -1c
+.RI "void \fBClear\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBUpdate\fP () override"
+.br
+.RI "\fIThis method will be called by the frame engine\&. \fP"
+.ti -1c
+.RI "SDL_Renderer * \fBRenderer\fP ()"
+.br
+.ti -1c
+.RI "SDL_Window * \fBWindow\fP ()"
+.br
+.ti -1c
+.RI "\fBRect\fP \fBCamera\fP () const "
 .br
 .ti -1c
 .RI "void \fBCamera\fP (\fBRect\fP camera)"
@@ -52,6 +100,74 @@ Inherits \fBLaphony::Frames::Updatable\fP\&.
 .RI "void \fBUnregister\fP (\fBDisplayable\fP *displayable)"
 .br
 .in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Laphony::Graphics::Engine::Engine (std::string const & title, int w, int h, bool resizable, bool fixedSize)"
+
+.SS "Laphony::Graphics::Engine::Engine (std::string const & title, int w, int h, bool resizable, bool fixedSize, \fBRect\fP const & camera)"
+
+.SS "Laphony::Graphics::Engine::~Engine ()\fC [virtual]\fP"
+
+.SS "Laphony::Graphics::Engine::Engine (std::string const & title, int w, int h, bool resizable, bool fixedSize)"
+
+.SS "Laphony::Graphics::Engine::Engine (std::string const & title, int w, int h, bool resizable, bool fixedSize, \fBRect\fP const & camera)"
+
+.SS "virtual Laphony::Graphics::Engine::~Engine ()\fC [virtual]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBRect\fP Laphony::Graphics::Engine::Camera () const"
+
+.SS "\fBRect\fP Laphony::Graphics::Engine::Camera () const"
+
+.SS "void Laphony::Graphics::Engine::Camera (\fBRect\fP camera)"
+
+.SS "void Laphony::Graphics::Engine::Camera (\fBRect\fP camera)"
+
+.SS "void Laphony::Graphics::Engine::Clear ()"
+
+.SS "void Laphony::Graphics::Engine::Clear ()"
+
+.SS "\fBSurface\fP * Laphony::Graphics::Engine::CreateSurface (std::string const & filename)"
+
+.SS "\fBSurface\fP* Laphony::Graphics::Engine::CreateSurface (std::string const & filename)"
+
+.SS "\fBSurface\fP * Laphony::Graphics::Engine::CreateSurface (int w, int h, \fBColor\fP const & color)"
+
+.SS "\fBSurface\fP* Laphony::Graphics::Engine::CreateSurface (int w, int h, \fBColor\fP const & color)"
+
+.SS "void Laphony::Graphics::Engine::Refresh ()"
+
+.SS "void Laphony::Graphics::Engine::Refresh ()"
+
+.SS "void Laphony::Graphics::Engine::Register (\fBDisplayable\fP * displayable, bool foreground = \fCfalse\fP)"
+
+.SS "void Laphony::Graphics::Engine::Register (\fBDisplayable\fP * displayable, bool foreground = \fCfalse\fP)"
+
+.SS "SDL_Renderer* Laphony::Graphics::Engine::Renderer ()"
+
+.SS "SDL_Renderer * Laphony::Graphics::Engine::Renderer ()"
+
+.SS "void Laphony::Graphics::Engine::Unregister (\fBDisplayable\fP * displayable)"
+
+.SS "void Laphony::Graphics::Engine::Unregister (\fBDisplayable\fP * displayable)"
+
+.SS "void Laphony::Graphics::Engine::Update ()\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+This method will be called by the frame engine\&. 
+.PP
+Implements \fBLaphony::Frames::Updatable\fP\&.
+.SS "virtual void Laphony::Graphics::Engine::Update ()\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+This method will be called by the frame engine\&. 
+.PP
+Implements \fBLaphony::Frames::Updatable\fP\&.
+.SS "SDL_Window * Laphony::Graphics::Engine::Window ()"
+
+.SS "SDL_Window* Laphony::Graphics::Engine::Window ()"
+
 
 .SH "Author"
 .PP 

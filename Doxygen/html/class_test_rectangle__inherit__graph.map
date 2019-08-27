@@ -1,7 +1,0 @@
-<map id="TestRectangle" name="TestRectangle">
-<area shape="rect" id="node1" title=" " alt="" coords="202,184,307,211"/>
-<area shape="rect" id="node2" href="$class_laphony_1_1_graphics_1_1_image.html" title=" " alt="" coords="92,95,231,136"/>
-<area shape="rect" id="node3" href="$class_laphony_1_1_graphics_1_1_displayable.html" title=" " alt="" coords="5,5,144,47"/>
-<area shape="rect" id="node4" href="$class_laphony_1_1_transformable.html" title="Make an object transformable with position, rotation and scale." alt="" coords="168,13,328,39"/>
-<area shape="rect" id="node5" href="$class_laphony_1_1_frames_1_1_updatable.html" title="Interface. Let you register your object to the frame engine, to be updated automatically." alt="" coords="255,102,444,129"/>
-</map>

@@ -29,7 +29,16 @@ namespace Laphony
                  */
                 virtual void Update() = 0;
                 
+                /**
+                 * Check if the object is paused
+                 * @return 
+                 */
                 virtual bool Paused() const {return _paused;}
+                
+                /**
+                 * Pause or resume the update of the object
+                 * @param pause New pause state of the object
+                 */
                 virtual void Pause(bool pause) {_paused = pause;}
                 
             private:

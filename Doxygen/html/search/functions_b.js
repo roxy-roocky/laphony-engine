@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['unregister',['Unregister',['../class_laphony_1_1_events_1_1_engine.html#a0f139da40491a75ef02f52481dde852a',1,'Laphony::Events::Engine::Unregister()'],['../class_laphony_1_1_frames_1_1_engine.html#ad76df0e6a672bea75bb1a88180c40cfb',1,'Laphony::Frames::Engine::Unregister()']]],
-  ['update',['Update',['../class_laphony_1_1_events_1_1_engine.html#a104b463778d1856560658fcd33f03296',1,'Laphony::Events::Engine::Update()'],['../class_laphony_1_1_frames_1_1_engine.html#a5c646ad53a92f896117d95fbf3fdd100',1,'Laphony::Frames::Engine::Update()'],['../class_laphony_1_1_frames_1_1_updatable.html#afee4e512265ad802f64bb9b94a7899f6',1,'Laphony::Frames::Updatable::Update()'],['../class_laphony_1_1_graphics_1_1_animation.html#af977e7a658cbfa17abc476650da7762b',1,'Laphony::Graphics::Animation::Update()'],['../class_laphony_1_1_graphics_1_1_engine.html#a2b52e64196f6a4f9e314fb7b1c7aad90',1,'Laphony::Graphics::Engine::Update()'],['../class_test_rectangle.html#a0246c5bdc70ecb09ecebb25f4ce67944',1,'TestRectangle::Update()']]]
+  ['main',['main',['../main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;main.cpp'],['../newmain_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;newmain.cpp']]],
+  ['millis',['Millis',['../class_laphony_1_1_frames_1_1_engine.html#ace10eb71ae2d6c0396b0ca62df0fbd16',1,'Laphony::Frames::Engine::Millis()'],['../class_laphony_1_1_frames_1_1_engine.html#af2f163615cf849156926bb7de820d9e4',1,'Laphony::Frames::Engine::Millis()']]]
 ];

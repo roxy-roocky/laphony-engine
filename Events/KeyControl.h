@@ -3,10 +3,9 @@
  * Copyright 2019 Nathan Baumann. All rights reserved.
  */
 /* 
- * File:   KeyControl.h
- * Author: nathan
- *
- * Created on June 22, 2019, 10:11 AM
+ * \file   Events/KeyControl.h
+ * \author Nathan
+ * \date June 22, 2019, 10:11 AM
  */
 
 #ifndef KEYCONTROL_H
@@ -56,8 +55,16 @@ namespace Laphony
                  */
                 std::string KeyName() const;
                 
+                /**
+                 * Get the last state of the key
+                 * @return an int which can be converted to boolean
+                 */
                 virtual int LastValue() const override;
                 
+                /**
+                 * Get a string which describes the key
+                 * @return a string which describes the key
+                 */
                 virtual std::string ToString() const;
                 
              

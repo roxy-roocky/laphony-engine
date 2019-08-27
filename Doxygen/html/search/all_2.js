@@ -1,5 +1,17 @@
 var searchData=
 [
-  ['control',['Control',['../class_laphony_1_1_events_1_1_control.html',1,'Laphony::Events']]],
-  ['control_2eh',['Control.h',['../_control_8h.html',1,'']]]
+  ['basictext',['BasicText',['../class_laphony_1_1_graphics_1_1_basic_text.html',1,'Laphony::Graphics']]],
+  ['basictext',['BasicText',['../class_laphony_1_1_graphics_1_1_basic_text.html#ad29eb439888f8baf65d337a26a5f6aff',1,'Laphony::Graphics::BasicText::BasicText(std::string const &amp;text, Point const &amp;position, double renderSize=1.0, bool isStickOnScreen=false, Color const &amp;colorText={255, 255, 255, 255}, Color const &amp;colorBackground={0, 0, 0, 0})'],['../class_laphony_1_1_graphics_1_1_basic_text.html#a283befda15e39cbdad04c2433b4f775c',1,'Laphony::Graphics::BasicText::BasicText(const BasicText &amp;orig)'],['../class_laphony_1_1_graphics_1_1_basic_text.html#ad29eb439888f8baf65d337a26a5f6aff',1,'Laphony::Graphics::BasicText::BasicText(std::string const &amp;text, Point const &amp;position, double renderSize=1.0, bool isStickOnScreen=false, Color const &amp;colorText={255, 255, 255, 255}, Color const &amp;colorBackground={0, 0, 0, 0})'],['../class_laphony_1_1_graphics_1_1_basic_text.html#a283befda15e39cbdad04c2433b4f775c',1,'Laphony::Graphics::BasicText::BasicText(const BasicText &amp;orig)']]],
+  ['basictext_2ecpp',['BasicText.cpp',['../_basic_text_8cpp.html',1,'']]],
+  ['basictext_2eh',['BasicText.h',['../dist_2_linux__lib_2_g_n_u-_linux_2include_2_graphics_2_basic_text_8h.html',1,'']]],
+  ['basictext_2eh',['BasicText.h',['../_graphics_2_basic_text_8h.html',1,'']]],
+  ['basictext_2eo_2ed',['BasicText.o.d',['../_debug_2_g_n_u-_linux_2_graphics_2_basic_text_8o_8d.html',1,'']]],
+  ['basictext_2eo_2ed',['BasicText.o.d',['../_windows__x86__64___lib_2_mingw__x86__64-_linux_2_graphics_2_basic_text_8o_8d.html',1,'']]],
+  ['basictext_2eo_2ed',['BasicText.o.d',['../_linux__lib_2_g_n_u-_linux_2_graphics_2_basic_text_8o_8d.html',1,'']]],
+  ['basictext_2eo_2ed',['BasicText.o.d',['../_windows__x86__64_2_mingw__x86__64-_linux_2_graphics_2_basic_text_8o_8d.html',1,'']]],
+  ['basictext_2eo_2ed',['BasicText.o.d',['../_windows__i686___lib_2_mingw__i686-_linux_2_graphics_2_basic_text_8o_8d.html',1,'']]],
+  ['basictext_2eo_2ed',['BasicText.o.d',['../_windows__i686_2_mingw32-_linux_2_graphics_2_basic_text_8o_8d.html',1,'']]],
+  ['basictext_2eo_2ed',['BasicText.o.d',['../_linux_2_g_n_u-_linux_2_graphics_2_basic_text_8o_8d.html',1,'']]],
+  ['blit',['Blit',['../class_laphony_1_1_graphics_1_1_surface.html#a1c35b74494353a640decfeaf75ed5c6a',1,'Laphony::Graphics::Surface::Blit(Rect const &amp;rect, Point pivot, double angle=0, Rect const &amp;srcRect={-1})'],['../class_laphony_1_1_graphics_1_1_surface.html#a1a181d561ab9b61ac5fe5a3dd70c517a',1,'Laphony::Graphics::Surface::Blit(Point const &amp;point, Point pivot, double angle=0, Rect const &amp;srcRect={-1})'],['../class_laphony_1_1_graphics_1_1_surface.html#a1c35b74494353a640decfeaf75ed5c6a',1,'Laphony::Graphics::Surface::Blit(Rect const &amp;rect, Point pivot, double angle=0, Rect const &amp;srcRect={-1})'],['../class_laphony_1_1_graphics_1_1_surface.html#a1a181d561ab9b61ac5fe5a3dd70c517a',1,'Laphony::Graphics::Surface::Blit(Point const &amp;point, Point pivot, double angle=0, Rect const &amp;srcRect={-1})']]],
+  ['buttonid',['ButtonID',['../class_laphony_1_1_events_1_1_joy_button_control.html#a9de48c17789b18f2476183d964b80da8',1,'Laphony::Events::JoyButtonControl::ButtonID() const '],['../class_laphony_1_1_events_1_1_joy_button_control.html#a9de48c17789b18f2476183d964b80da8',1,'Laphony::Events::JoyButtonControl::ButtonID() const ']]]
 ];

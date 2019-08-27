@@ -1,7 +1,0 @@
-<map id="Laphony::Frames::Updatable" name="Laphony::Frames::Updatable">
-<area shape="rect" id="node1" title="Interface. Let you register your object to the frame engine, to be updated automatically." alt="" coords="5,97,195,124"/>
-<area shape="rect" id="node2" href="$class_laphony_1_1_events_1_1_engine.html" title="This engine manage all events. If you want to know the state of input, you must ask it." alt="" coords="243,5,409,32"/>
-<area shape="rect" id="node3" href="$class_laphony_1_1_graphics_1_1_animation.html" title="Represent an animation from images sequence." alt="" coords="257,57,395,98"/>
-<area shape="rect" id="node4" href="$class_laphony_1_1_graphics_1_1_engine.html" title=" " alt="" coords="257,122,395,163"/>
-<area shape="rect" id="node5" href="$class_test_rectangle.html" title=" " alt="" coords="273,188,379,215"/>
-</map>

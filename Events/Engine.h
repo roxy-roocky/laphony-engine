@@ -7,7 +7,7 @@
  * \file   Events/Engine.h
  * \author Nathan
  *
- * \date april 21 2019, 07:38 pm
+ * \date april 21 2019, 07:38 PM
  */
 
 #ifndef EVENTS_ENGINE_H
@@ -94,9 +94,21 @@ namespace Laphony
                  */
                 Point GetMousePosition() const;
                 
+                /**
+                 * \brief Get the last detected event
+                 * @param controlType Specify event types to scan
+                 * @return A pointer to the control
+                 * 
+                 * This method does not depend from the engine update. The scan occured when called.
+                 */
                 Control* GetLastEvent(int controlType);
                 
-                JoyInfo* GetJoystick(int id);
+                /**
+                 * \brief Get informations about joystick from id
+                 * @param id ID of the joystick you want informations
+                 * @return Informations about the joystick
+                 */
+                JoyInfo* GetJoystickInfo(int id);
                 
                 
                 
