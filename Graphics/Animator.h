@@ -42,12 +42,12 @@ namespace Laphony
                 Animator();
                 
                 /**
-                 * Destructor which release all animations marked autofree 
+                 * \brief Destructor which release all animations marked autofree 
                  */
                 virtual ~Animator();
                 
                 /**
-                 * Register an animation with a key
+                 * \brief Register an animation with a key
                  * @param name The name (key) of the animation. Use for switch to this animation
                  * @param anim A pointer to the animation
                  * @param autofree True if the animation must be free by the Animator destroyer
@@ -55,7 +55,7 @@ namespace Laphony
                 void Register(std::string name, Animation* anim, bool autofree);
                 
                 /**
-                 * Unregister the animation with the specified name
+                 * \brief Unregister the animation with the specified name
                  * @param name Name (key) of the animation to unregister
                  * 
                  * The unregistered animation is automatically freed if is marked as autofree
@@ -63,7 +63,11 @@ namespace Laphony
                 void Unregister(std::string name);
                 
                 
-                
+                /**
+                 * 
+                 * @param name
+                 * @return 
+                 */
                 Animation* AnimationFromName(std::string name);
                 
                 std::string NameFromAnimation(Animation* anim);
