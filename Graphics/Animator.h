@@ -64,14 +64,23 @@ namespace Laphony
                 
                 
                 /**
-                 * 
-                 * @param name
-                 * @return 
+                 * \brief Retrieve the Animation from a name (key)
+                 * @param name The name of the animation to retrieve
+                 * @return A pointer to the animation
                  */
                 Animation* AnimationFromName(std::string name);
                 
+                /**
+                 * \brief Retrieve the name (key) corresponding to the animation passed to parameter
+                 * @param anim A ointer to the animation you want to retrieve the name (key)
+                 * @return The name of the animation
+                 */
                 std::string NameFromAnimation(Animation* anim);
                 
+                /**
+                 * \brief Get the name of the animation which is currently played
+                 * @return 
+                 */
                 std::string CurrentAnimationName();
                 void SetCurrentAnimation(std::string name);
                 
