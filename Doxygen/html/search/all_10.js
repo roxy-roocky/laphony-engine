@@ -1,9 +1,0 @@
-var searchData=
-[
-  ['pause',['Pause',['../class_laphony_1_1_frames_1_1_updatable.html#a35619242df006150d6bcc5518c519657',1,'Laphony::Frames::Updatable::Pause(bool pause)'],['../class_laphony_1_1_frames_1_1_updatable.html#a35619242df006150d6bcc5518c519657',1,'Laphony::Frames::Updatable::Pause(bool pause)']]],
-  ['paused',['Paused',['../class_laphony_1_1_frames_1_1_updatable.html#a4f575a529db81e8ec2a94ec7e8dd6edf',1,'Laphony::Frames::Updatable::Paused() const '],['../class_laphony_1_1_frames_1_1_updatable.html#a4f575a529db81e8ec2a94ec7e8dd6edf',1,'Laphony::Frames::Updatable::Paused() const ']]],
-  ['pivot',['Pivot',['../class_laphony_1_1_transformable.html#a5037dea3cd95d3c421811e6635330854',1,'Laphony::Transformable::Pivot() const '],['../class_laphony_1_1_transformable.html#a541aa66fa23542cfe3b9e97c59c77b7b',1,'Laphony::Transformable::Pivot(Point const &amp;pivot)'],['../class_laphony_1_1_transformable.html#a5ddae3d5988882274b7c1cfde8b167b0',1,'Laphony::Transformable::Pivot() const '],['../class_laphony_1_1_transformable.html#ac84416853944b390bcb57e9584cbf429',1,'Laphony::Transformable::Pivot(Point const &amp;pivot)']]],
-  ['point',['Point',['../struct_laphony_1_1_point.html',1,'Laphony']]],
-  ['point',['Point',['../namespace_laphony.html#a22751490df22533aa1754e37f5381ad1',1,'Laphony']]],
-  ['position',['Position',['../class_laphony_1_1_transformable.html#a32457b518255fabaea9df549c3268be5',1,'Laphony::Transformable::Position() const '],['../class_laphony_1_1_transformable.html#aeecc733f7be98e14b13962f1a7cbcc26',1,'Laphony::Transformable::Position(Point const &amp;point)'],['../class_laphony_1_1_transformable.html#a15f935a678971010c27eaddd8d046f64',1,'Laphony::Transformable::Position() const '],['../class_laphony_1_1_transformable.html#af20fef0d33efed86cb3e27514ee36b12',1,'Laphony::Transformable::Position(Point const &amp;point)']]]
-];
