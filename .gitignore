@@ -8,4 +8,6 @@ nbactions.xml
 nb-configuration.xml
 .nb-gradle/
 Doxygen/
+.dep.inc
+Makefile
 
