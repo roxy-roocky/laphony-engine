@@ -218,7 +218,7 @@ namespace Laphony
                 std::cout << "Events: Joystick " << joy->id << " doesn't have feedback force (haptic): " << SDL_GetError() << std::endl;
         }
         
-        Engine::JoyInfo* Engine::GetJoystick(int id)
+        Engine::JoyInfo* Engine::GetJoystickInfo(int id)
         {
             if(id < _joysticks.size())
                 return &_joysticks[id];

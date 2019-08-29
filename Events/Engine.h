@@ -26,6 +26,7 @@
 #include <list>
 #include <string>
 #include <algorithm>
+#include <vector>
 
 namespace Laphony
 {

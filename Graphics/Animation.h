@@ -13,6 +13,7 @@
 #ifndef ANIMATION_H
 #define ANIMATION_H
 
+#include <vector>
 #include "Image.h"
 
 namespace Laphony
