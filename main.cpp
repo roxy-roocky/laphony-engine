@@ -22,12 +22,12 @@
 
 #include "Frames/Engine.h"
 
-#include "test/TestRectangle.h"
+#include "Test/TestRectangle.h"
 
 #include "Graphics/BasicText.h"
 
 #include "Events/Engine.h"
-#include "test/TestText.h"
+#include "Test/TestText.h"
 #include "Graphics/Animation.h"
 #include "Graphics/Animator.h"
 /*
