@@ -1,6 +1,15 @@
+
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This file is a part of the Laphony Engine.
+ * Copyright 2019 Nathan Baumann. All rights reserved.
  */
+
+/* 
+ * \file   BasicPhysic/Collider.cpp
+ * \author Nathan Baumann
+ *
+ * \date august 29 2019, 5:19 PM
+ */
+
+#include "Collider.h"
 
