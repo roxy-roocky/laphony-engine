@@ -1,22 +1,22 @@
-#TODO Laphony Engine
+# TODO Laphony Engine
 ---
 
-##BasicPhysic
+## BasicPhysic
 - [ ] Implement all colliders types
 - [ ] Static bodies
 - [ ] Dynamics bodies
 - [ ] Physic engine
 
-##Events
+## Events
 - [ ] Mouse button control
 - [ ] Rumble gamepad
 - [ ] Controls map system with save file
 
-##Frames
+## Frames
 - [ ] Update engine in other thread
 
-##Graphics
+## Graphics
 - [ ] TTF text support 
 
-##Sound
+## Sound
 - [ ] Sound engine (DJ system)
