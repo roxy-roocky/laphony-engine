@@ -46,7 +46,8 @@ namespace Laphony
                 bool IsStickOnScreen() const;
                 void IsStickOnScreen(bool isStickOnScreen);
                 
-                                
+            private:
+            
                 void RenderTextNow(SDL_Renderer* renderer);
                 
                 

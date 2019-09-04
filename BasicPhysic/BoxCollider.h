@@ -24,13 +24,20 @@ namespace Laphony
         {
             public:
                 BoxCollider(std::string const& tag);
+                
+                Rect ComputeRealBox() const;
 
                 virtual Type GetType() const {return Type::BOX;}
+                
+                virtual bool CollisionWith(Collider* collider);
             
-            private:
-                virtual bool CheckCollision(BoxCollider* collider) const = 0;
-                virtual bool CheckCollision(CircleCollider* collider) const = 0;
-                virtual bool CheckCollision(MultiBoxesCollider* collider) const = 0;
+            protected:
+                virtual bool CheckCollision(BoxCollider* collider) const;
+                virtual bool CheckCollision(CircleCollider* collider) const;
+                virtual bool CheckCollision(MultiCollider* collider) const;
+                
+                Rect _box;
+                
         };
     }
 }

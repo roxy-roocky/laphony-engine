@@ -6,6 +6,8 @@
 - [ ] Static bodies
 - [ ] Dynamics bodies
 - [ ] Physic engine
+- [ ] Gravity
+- [ ] Slippery factor
 
 ## Events
 - [ ] Mouse button control
@@ -20,3 +22,9 @@
 
 ## Sound
 - [ ] Sound engine (DJ system)
+- [ ] Automix music system
+
+## Game
+- [ ] Sprite
+- [ ] Tileset system
+- [ ] Map

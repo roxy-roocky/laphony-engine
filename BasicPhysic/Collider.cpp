@@ -13,3 +13,24 @@
 
 #include "Collider.h"
 
+namespace Laphony
+{
+    namespace BasicPhysic
+    {
+        Collider::Collider(std::string const& tag): _tag(tag)
+        {
+            
+        }
+        
+        std::string Collider::GetTag() const 
+        {
+            return _tag;
+        }
+        
+        void Collider::SetTag(std::string const& tag)
+        {
+            _tag = tag;
+        }
+    }
+}
+

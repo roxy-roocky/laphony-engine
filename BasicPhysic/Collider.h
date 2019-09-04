@@ -14,6 +14,7 @@
 #define COLLIDER_H
 
 #include <string>
+#include <cmath>
 #include "../Transformable.h"
 
 namespace Laphony
@@ -22,7 +23,7 @@ namespace Laphony
     {
         class BoxCollider;
         class CircleCollider;
-        class MultiBoxesCollider;
+        class MultiCollider;
         
         class Collider: public virtual Transformable
         {
@@ -30,26 +31,31 @@ namespace Laphony
             {
                 BOX,
                 CIRCLE,
-                MULTIPLEBOXES
+                MULTIPLE
             };
             
-            private:
+            protected:
                 std::string _tag;
                 
             public:
                 Collider(std::string const& tag);
                 
                 std::string GetTag() const;
-                void SetTag();
+                void SetTag(std::string const& tag);
                 
-                bool CollisionWith(Collider* collider) const;
+                virtual bool CollisionWith(Collider* collider) = 0;
                 
                 virtual Type GetType() const = 0;
             
-            private:
-                virtual bool CheckCollision(BoxCollider* collider) const = 0;
+            protected:
+                
+                friend BoxCollider;
+                friend CircleCollider;
+                friend MultiCollider;
+                
+                virtual bool CheckCollision(BoxCollider* collider) const;
                 virtual bool CheckCollision(CircleCollider* collider) const = 0;
-                virtual bool CheckCollision(MultiBoxesCollider* collider) const = 0;
+                virtual bool CheckCollision(MultiCollider* collider) const = 0;
         };
     }
 }

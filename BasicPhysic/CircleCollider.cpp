@@ -13,12 +13,32 @@
 
 #include "CircleCollider.h"
 
-CircleCollider::CircleCollider() {
+namespace Laphony
+{
+    namespace BasicPhysic
+    {
+        CircleCollider::CircleCollider(std::string const& tag): Collider(tag)
+        {
+            
+        }
+        
+        Point CircleCollider::ComputeRealCenter() const
+        {
+            Point realCenter = _center;
+            realCenter.x += _position.x;
+            realCenter.y += _position.y;
+            
+            return realCenter;
+        }
+        
+        int CircleCollider::ComputeRealRadius() const
+        {
+            double averrageScale = std::abs(_scale.x) + std::abs(_scale.y) / 2.0;
+            
+            return _radius * averrageScale;
+        }
+    }
 }
 
-CircleCollider::CircleCollider(const CircleCollider& orig) {
-}
 
-CircleCollider::~CircleCollider() {
-}
 

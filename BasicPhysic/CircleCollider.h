@@ -25,12 +25,20 @@ namespace Laphony
             public:
                 CircleCollider(std::string const& tag);
                 
+                Point ComputeRealCenter() const;
+                int ComputeRealRadius() const;
+                
                 virtual Type GetType() const {return Type::CIRCLE;}
             
-            private:
-                virtual bool CheckCollision(BoxCollider* collider) const = 0;
-                virtual bool CheckCollision(CircleCollider* collider) const = 0;
-                virtual bool CheckCollision(MultiBoxesCollider* collider) const = 0;
+                virtual bool CollisionWith(Collider* collider);
+            
+            protected:
+                virtual bool CheckCollision(BoxCollider* collider) const;
+                virtual bool CheckCollision(CircleCollider* collider) const;
+                virtual bool CheckCollision(MultiCollider* collider) const;
+                
+                Point _center;
+                int _radius;
 
         };
     }

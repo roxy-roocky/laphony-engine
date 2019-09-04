@@ -4,11 +4,11 @@
 */
 
 /* 
- * \file   BasicPhysic/MultiBoxesCollider.cpp
+ * \file   BasicPhysic/MultiCollider.cpp
  * \author Nathan Baumann
  *
  * \date  September 2, 2019, 10:12 PM
  */
 
-#include "MultiBoxesCollider.h"
+#include "MultiCollider.h"
 
