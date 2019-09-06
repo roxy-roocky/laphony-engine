@@ -5,7 +5,7 @@
 - [ ] Implement all colliders types
 - [ ] Static bodies
 - [ ] Dynamics bodies
-- [ ] Physic engine
+- [ ] Physic engine: manage collisions
 - [ ] Gravity
 - [ ] Slippery factor
 

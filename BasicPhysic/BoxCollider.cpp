@@ -12,7 +12,6 @@
 
 #include "BoxCollider.h"
 #include "CircleCollider.h"
-#include "MultiCollider.h"
 
 namespace Laphony
 {
@@ -26,7 +25,7 @@ namespace Laphony
         
         bool BoxCollider::CollisionWith(Collider* collider)
         {
-            return collider->CheckCollision(this);
+            return CheckCollision(this);
         }
         
         Rect BoxCollider::ComputeRealBox() const
@@ -40,7 +39,7 @@ namespace Laphony
         
         
         //CHECK
-        bool BoxCollider::CheckCollision(BoxCollider* collider) const 
+        bool BoxCollider::CheckCollision(BoxCollider* collider)
         {
             if(!collider)
                 return false;
@@ -78,7 +77,7 @@ namespace Laphony
             
         }
 
-        bool BoxCollider::CheckCollision(CircleCollider* collider) const
+        bool BoxCollider::CheckCollision(CircleCollider* collider)
         {
             if(!collider)
                 return false;
@@ -121,13 +120,7 @@ namespace Laphony
         }
         
         
-        
-        bool BoxCollider::CheckCollision(MultiCollider* collider) const
-        {
-            //Implement in MultipleCollider
-            return collider->CollisionWith(this);
-        }
-
+ 
     }
 }
 

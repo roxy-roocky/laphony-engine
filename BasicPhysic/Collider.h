@@ -23,15 +23,13 @@ namespace Laphony
     {
         class BoxCollider;
         class CircleCollider;
-        class MultiCollider;
         
         class Collider: public virtual Transformable
         {
             public: enum Type
             {
                 BOX,
-                CIRCLE,
-                MULTIPLE
+                CIRCLE
             };
             
             protected:
@@ -51,11 +49,9 @@ namespace Laphony
                 
                 friend BoxCollider;
                 friend CircleCollider;
-                friend MultiCollider;
                 
-                virtual bool CheckCollision(BoxCollider* collider) const;
-                virtual bool CheckCollision(CircleCollider* collider) const = 0;
-                virtual bool CheckCollision(MultiCollider* collider) const = 0;
+                virtual bool CheckCollision(BoxCollider* collider) = 0;
+                virtual bool CheckCollision(CircleCollider* collider) = 0;
         };
     }
 }

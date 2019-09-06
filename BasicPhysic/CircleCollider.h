@@ -30,12 +30,11 @@ namespace Laphony
                 
                 virtual Type GetType() const {return Type::CIRCLE;}
             
-                virtual bool CollisionWith(Collider* collider);
+                virtual bool CollisionWith(Collider* collider) override;
             
             protected:
-                virtual bool CheckCollision(BoxCollider* collider) const;
-                virtual bool CheckCollision(CircleCollider* collider) const;
-                virtual bool CheckCollision(MultiCollider* collider) const;
+                virtual bool CheckCollision(BoxCollider* collider) override;
+                virtual bool CheckCollision(CircleCollider* collider) override;
                 
                 Point _center;
                 int _radius;

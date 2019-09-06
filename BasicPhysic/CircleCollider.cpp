@@ -12,6 +12,7 @@
  */
 
 #include "CircleCollider.h"
+#include "BoxCollider.h"
 
 namespace Laphony
 {
@@ -36,7 +37,33 @@ namespace Laphony
             double averrageScale = std::abs(_scale.x) + std::abs(_scale.y) / 2.0;
             
             return _radius * averrageScale;
+        } 
+        
+        
+        bool CircleCollider::CollisionWith(Collider* collider)
+        {
+            return CheckCollision(this);
         }
+        
+        bool CircleCollider::CheckCollision(BoxCollider* collider)
+        {
+            return collider->CollisionWith(this);
+        }
+        
+        bool CircleCollider::CheckCollision(CircleCollider* collider)
+        {
+            if(!collider)
+                return false;
+            
+            Point realCenter = ComputeRealCenter();
+            Point realOtherCenter = collider->ComputeRealCenter();
+            
+            int distance = std::sqrt(std::pow(realCenter.x - realOtherCenter.x, 2) + std::pow(realCenter.y - realOtherCenter.y, 2));
+            
+            return distance <= ComputeRealRadius() + collider->ComputeRealRadius();
+        }
+        
+     
     }
 }
 

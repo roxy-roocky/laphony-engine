@@ -29,12 +29,11 @@ namespace Laphony
 
                 virtual Type GetType() const {return Type::BOX;}
                 
-                virtual bool CollisionWith(Collider* collider);
+                virtual bool CollisionWith(Collider* collider) override;
             
             protected:
-                virtual bool CheckCollision(BoxCollider* collider) const;
-                virtual bool CheckCollision(CircleCollider* collider) const;
-                virtual bool CheckCollision(MultiCollider* collider) const;
+                virtual bool CheckCollision(BoxCollider* collider) override;
+                virtual bool CheckCollision(CircleCollider* collider) override;
                 
                 Rect _box;
                 
