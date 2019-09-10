@@ -36,7 +36,7 @@ namespace Laphony
             _bodies.remove(body);
         }
         
-        std::list<Body*>& Engine::GetBodies()
+        std::list<Body*>& Engine::GetBodiesList()
         {
             return _bodies;
         }

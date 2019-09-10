@@ -35,7 +35,7 @@ namespace Laphony
                 void Register(Body* body);
                 void Unregister(Body* body);
                 
-                std::list<Body*>& GetBodies();
+                std::list<Body*>& GetBodiesList();
                 
             private:
                 std::list<Body*> _bodies;

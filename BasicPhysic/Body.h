@@ -30,17 +30,29 @@ namespace Laphony
         class Body: public virtual Transformable
         {
             public:
+                struct Collision
+                {
+                    Collision();
+                    Collider* collider;
+                    Collider* otherCollider;
+                    Vector2d diff;
+                };
+                
+            public:
                 Body();
                 
                 virtual void PhysicUpdate(Engine* engine) = 0;
+                virtual std::string GetIdentifierString() const = 0;
+                virtual bool CheckIfManageCollision(Collision const& collision) = 0;
                 
-                std::list<Collider*>& GetColliders();                
+                std::list<Collider*>& GetCollidersList();
+   
             
             protected:
 
                 std::list<Collider*> _colliders;
 
-                std::vector<Collider*> _currentCollisions;
+                std::vector<Collision> _currentCollisions;
         };
     }
 }

@@ -24,33 +24,41 @@ namespace Laphony
             if(!engine)
                 return;
             
-            _position.x += _velocity.x;
-            _position.y += _velocity.y;
-            
-            _currentCollisions.clear();
-            
-            for(Body* body : engine->GetBodies())
+            //For each bodies in engine
+            for(Body* body : engine->GetBodiesList())
                 if(body)
                 {
-                    for(Collider* collider : body->GetColliders())
+                    //for each of his colliders
+                    for(Collider* collider : body->GetCollidersList())
                         if(collider)
                         {
-                            for(Collider* myCollider : _colliders)
-                                if(myCollider)
+                            //for each of this body colliders
+                            for(Collider* thisCollider : this->GetCollidersList())
+                                if(thisCollider)
                                 {
-                                    if(collider->CheckCollision(myCollider))
-                                        _currentCollisions.push_back(collider);
+                                    Body::Collision collision;
+                                    
+                                    //if there is collision
+                                    if(thisCollider->CheckIfCollision(collider, _velocity, &collision.diff))
+                                    {
+                                        //Add collision
+                                        collision.otherCollider = collider;
+                                        _currentCollisions.push_back(collision);
+                                    }
                                 }
                         }
-                    
                 }
             
-            if(_currentCollisions.size() > 0)
+            //Manage collisions
+            for(Collision& collision: _currentCollisions)
             {
-                _position.x -= _velocity.x;
-                _position.y -= _velocity.y;
-                
-                _velocity = _velocity * 0.5;
+                if(CheckIfManageCollision(collision))
+                {
+                    //Move the body
+                    _position.x -= collision.diff.x;
+                    _position.y -= collision.diff.y;
+                    
+                }
             }
             
         }

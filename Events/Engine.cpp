@@ -114,13 +114,13 @@ namespace Laphony
 
         void Engine::Register(std::string name, Control* control)
         {
-            std::transform(name.begin(), name.end(), name.begin(), ::tolower);
+            //std::transform(name.begin(), name.end(), name.begin(), ::tolower);
             _map.insert(std::pair<std::string, Control*>(name, control));
         }
         
         void Engine::Unregister(std::string name)
         {
-            std::transform(name.begin(), name.end(), name.begin(), ::tolower);
+            //std::transform(name.begin(), name.end(), name.begin(), ::tolower);
             if(_autoFree)
             {
                 std::map<std::string, Control*>::iterator it = _map.find(name);
@@ -141,7 +141,7 @@ namespace Laphony
         
         int Engine::GetValueOf(std::string name) const
         {
-            std::transform(name.begin(), name.end(), name.begin(), ::tolower);
+            //std::transform(name.begin(), name.end(), name.begin(), ::tolower);
             if(_map.count(name))
                 return _map.at(name)->Value();
         }

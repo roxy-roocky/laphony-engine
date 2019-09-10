@@ -17,7 +17,12 @@ namespace Laphony
 {
     namespace BasicPhysic
     {
-        std::list<Collider*>& Body::GetColliders()
+        Body::Collision::Collision(): collider(nullptr), otherCollider(nullptr), diff{0,0}
+        {
+
+        }
+
+        std::list<Collider*>& Body::GetCollidersList()
         {
             return _colliders;
         }

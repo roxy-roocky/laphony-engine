@@ -75,8 +75,8 @@ int main(int argc, char** argv)
     
     anim.Position({200,400});
     
-    anim.Register("run", new Laphony::Graphics::Animation(new Laphony::Graphics::Image("run-46-93.png",&gEngine),{0,0,46,93}, 10, AUTOFREE, {23,93}), AUTOFREE);
-    anim.Register("idle", new Laphony::Graphics::Animation(new Laphony::Graphics::Image("idle-52-82.png",&gEngine),{0,0,52,82}, 14, AUTOFREE,  {26,82}), AUTOFREE);
+    anim.Register("run", new Laphony::Graphics::Animation(new Laphony::Graphics::Image("test/res/run-46-93.png",&gEngine),{0,0,46,93}, 10, AUTOFREE, {23,93}), AUTOFREE);
+    anim.Register("idle", new Laphony::Graphics::Animation(new Laphony::Graphics::Image("test/res/idle-52-82.png",&gEngine),{0,0,52,82}, 14, AUTOFREE,  {26,82}), AUTOFREE);
 
     gEngine.Register(&anim);
     fEngine.Register(&anim);

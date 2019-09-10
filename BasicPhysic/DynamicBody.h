@@ -28,6 +28,10 @@ namespace Laphony
         {
             public:
                 virtual void PhysicUpdate(Engine* engine) override;
+               
+                virtual std::string GetIdentifierString() const = 0;
+                
+                virtual bool CheckIfManageCollision(Collision const& collision) = 0;
                 
                 Vector2d GetVelocity() const;
                 void SetVelocity(Vector2d const& velocity);
