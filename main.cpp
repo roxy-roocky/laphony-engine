@@ -30,6 +30,8 @@
 #include "Test/TestText.h"
 #include "Graphics/Animation.h"
 #include "Graphics/Animator.h"
+
+#include "BasicPhysic/Engine.h"
 /*
  * 
  */
@@ -53,7 +55,8 @@ int main(int argc, char** argv)
     Laphony::Events::Engine evEngine(AUTOFREE);
         fEngine.Register(&evEngine);
         
-        
+    Laphony::BasicPhysic::Engine bpEngine;
+        fEngine.Register(bpEngine);
     
     Laphony::Graphics::BasicText vtFps("FPS", {0,0}, 1.2, true);
     vtFps.Pivot({0,0});

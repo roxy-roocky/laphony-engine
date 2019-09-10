@@ -15,43 +15,35 @@
 
 #include <string>
 #include <cmath>
+#include <vector>
 #include "../Transformable.h"
+#include "Engine.h"
 
 namespace Laphony
 {
     namespace BasicPhysic
     {
-        class BoxCollider;
-        class CircleCollider;
-        
-        class Collider: public virtual Transformable
-        {
-            public: enum Type
-            {
-                BOX,
-                CIRCLE
-            };
-            
-            protected:
-                std::string _tag;
-                
+        class Collider
+        {                
             public:
-                Collider(std::string const& tag);
+                Collider(std::string const& tag, Body* parent);
                 
                 std::string GetTag() const;
                 void SetTag(std::string const& tag);
                 
-                virtual bool CollisionWith(Collider* collider) = 0;
+                Body* GetParentBody();
                 
-                virtual Type GetType() const = 0;
-            
-            protected:
+                bool CheckIfCollision(Collider* collider, Vector2d const& thisColliderMove, Vector2d* diffenrence = nullptr);
+                Rect GetTransformedRect() const;
                 
-                friend BoxCollider;
-                friend CircleCollider;
+            private:
+                std::string _tag;
+                Rect _collider;
                 
-                virtual bool CheckCollision(BoxCollider* collider) = 0;
-                virtual bool CheckCollision(CircleCollider* collider) = 0;
+                Body* _parent;
+                
+                std::vector<Collider*> _collisions;
+                
         };
     }
 }

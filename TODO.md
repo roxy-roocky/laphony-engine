@@ -2,12 +2,11 @@
 ---
 
 ## BasicPhysic
-- [ ] Implement all colliders types
+### Basic
+- [x] Collider (box)
 - [ ] Static bodies
 - [ ] Dynamics bodies
 - [ ] Physic engine: manage collisions
-- [ ] Gravity
-- [ ] Slippery factor
 
 ## Events
 - [ ] Mouse button control
