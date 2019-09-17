@@ -33,7 +33,10 @@ namespace Laphony
      * 
      * Actually is a typedef of SDL_Rect.
      */
-    typedef SDL_Rect Rect;
+    struct Rect
+    {
+        double x, y, w, h;
+    };
     
     Rect operator+(Rect const& r1, Rect const& r2);
     
@@ -48,7 +51,10 @@ namespace Laphony
      * 
      * Actually is a typedef of SDL_Point.
      */
-    typedef SDL_Point Point;
+    struct Point
+    {
+        double x, y;
+    };
     
     Point operator+(Point const& p1, Point const& p2);
     

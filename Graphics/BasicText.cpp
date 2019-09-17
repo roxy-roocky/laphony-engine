@@ -117,8 +117,10 @@ namespace Laphony
                     dest.x -= camera.x;
                     dest.y -= camera.y;
                 }
-
-                SDL_RenderCopyEx(engine->Renderer(), _renderedText, nullptr, &dest, _angle, &pivot, SDL_FLIP_NONE);
+                
+                SDL_Point sdlPivot = {std::round(pivot.x), std::round(pivot.y)};
+                SDL_Rect sdlDest = {std::round(dest.x), std::round(dest.y), std::round(dest.w), std::round(dest.h)};
+                SDL_RenderCopyEx(engine->Renderer(), _renderedText, nullptr, &sdlDest, _angle, &sdlPivot, SDL_FLIP_NONE);
             }
         }
 

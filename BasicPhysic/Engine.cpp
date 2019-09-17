@@ -23,6 +23,10 @@ namespace Laphony
         {
             for(Body* body : _bodies)
                 if(body)
+                    body->GetCollisionsList().clear();
+            
+            for(Body* body : _bodies)
+                if(body)
                     body->PhysicUpdate(this);
         }
         

@@ -36,7 +36,7 @@ namespace Laphony
              * \brief Default constructor
              * 
              * Construct with default values. \n
-             * Position = {0,0}, angle = 0, scale = {1,1}, center = {-1, -1}. \n
+             * Position = {0,0}, angle = 0, scale = {1,1}, pivot = {0,0}. \n
              * A {x < 0, y < 0} center represent default center value which is {weight/2, height/2}
              */
             Transformable();
@@ -48,7 +48,7 @@ namespace Laphony
              * @param(in] scale Scale of the object
              * @param(in] center Rotation et position center of the object
              */
-            Transformable(Point const& position, double angle, Vector2d const& scale, Point const& pivot = {-1, -1});
+            Transformable(Point const& position, double angle, Vector2d const& scale, Point const& pivot);
             
             /**
              * \brief Copy constructor. Is the default copy constructor

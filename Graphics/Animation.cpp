@@ -26,6 +26,7 @@ namespace Laphony
         
         Animation::Animation(Image* image, Rect const& rect, int duration, bool autofree, Point const& pivot, bool reverseLoop): Transformable(), _image(image), _currentFrame(0), _currentTick(0), _reverseLoop(reverseLoop), _reversePlay(false), _speed(1.0), _autofree(autofree)
         {
+            Pivot(pivot);
             if(_image)
             {
                 for(int i=0; i<_image->Size().w/rect.w; i++)
@@ -141,6 +142,11 @@ namespace Laphony
                 _speed = speed;
         }
         
+        Rect Animation::GetCurrentRect() const
+        {
+            if(_currentFrame < _frames.size())
+                return _frames[_currentFrame].rect;
+        }
     }
 }
 

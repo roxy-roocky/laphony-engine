@@ -24,9 +24,12 @@ namespace Laphony
             if(!engine)
                 return;
             
+            _position.x += _velocity.x;
+            _position.y += _velocity.y;
+            
             //For each bodies in engine
             for(Body* body : engine->GetBodiesList())
-                if(body)
+                if(body && body != this)
                 {
                     //for each of his colliders
                     for(Collider* collider : body->GetCollidersList())
@@ -43,21 +46,36 @@ namespace Laphony
                                     {
                                         //Add collision
                                         collision.otherCollider = collider;
+                                        collision.collider = thisCollider;
                                         _currentCollisions.push_back(collision);
+                                        
+                                        
                                     }
                                 }
                         }
+                    
                 }
+            
+
             
             //Manage collisions
             for(Collision& collision: _currentCollisions)
             {
-                if(CheckIfManageCollision(collision))
+                if(ManageCollision(collision))
                 {
-                    //Move the body
-                    _position.x -= collision.diff.x;
-                    _position.y -= collision.diff.y;
+
+                    if(std::abs(collision.diff.x) < std::abs(collision.diff.y) && _velocity.x * collision.diff.x < 0)//if velocity and diff in opposite signed
+                    {
+                        _velocity.x = 0;
+                        _position.x += collision.diff.x;
+                    }
                     
+                    if(std::abs(collision.diff.y) < std::abs(collision.diff.x) && _velocity.y * collision.diff.y < 0)//if velocity and diff in opposite signed
+                    {
+                        _velocity.y = 0;
+                        _position.y += collision.diff.y;
+                    }
+                        
                 }
             }
             

@@ -28,7 +28,7 @@ namespace Laphony
                 virtual void PhysicUpdate(Engine* engine) override;
                 
                 virtual std::string GetIdentifierString() const = 0;
-                virtual bool CheckIfManageCollision(Collision const& collision) = 0;
+                
                
         };
     }

@@ -10,11 +10,13 @@
  * Created on 17 avril 2019, 22:36
  */
 
+#include <cmath>
+
 #include "Transformable.h"
 
 namespace Laphony
 {
-    Transformable::Transformable(): Transformable({0,0}, 0, {1,1}, {-1, -1})
+    Transformable::Transformable(): Transformable({0,0}, 0, {1,1}, {0, 0})
     {
         
     }
@@ -26,7 +28,7 @@ namespace Laphony
     
     Point Transformable::Position() const {return _position;}
     
-    Point Transformable::Pivot() const {return _pivot;}
+    Point Transformable::Pivot() const {return {std::round(_pivot.x *Scale().x), std::round(_pivot.y*Scale().y)};}
         
     double Transformable::Angle() const {return _angle;}
 
@@ -71,6 +73,7 @@ namespace Laphony
         
         _scale.x *= t._scale.x;
         _scale.y *= t._scale.y;
+        
     }
    
 }

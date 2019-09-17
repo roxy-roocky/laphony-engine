@@ -23,10 +23,12 @@ namespace Laphony
 {
     namespace BasicPhysic
     {
+        class Body;
+        
         class Collider
         {                
             public:
-                Collider(std::string const& tag, Body* parent);
+                Collider(std::string const& tag, Rect const& rect, Body* parent);
                 
                 std::string GetTag() const;
                 void SetTag(std::string const& tag);

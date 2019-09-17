@@ -32,6 +32,8 @@
 #include "Graphics/Animator.h"
 
 #include "BasicPhysic/Engine.h"
+#include "Test/TestGround.h"
+#include "Test/TestCharacter.h"
 /*
  * 
  */
@@ -47,7 +49,7 @@ int main(int argc, char** argv)
     #endif
 #endif
     
-    Laphony::Frames::Engine fEngine(100);
+    Laphony::Frames::Engine fEngine(50);
     
     Laphony::Graphics::Engine gEngine("Test", 800,600, true, true);
         fEngine.Register(&gEngine);
@@ -56,7 +58,7 @@ int main(int argc, char** argv)
         fEngine.Register(&evEngine);
         
     Laphony::BasicPhysic::Engine bpEngine;
-        fEngine.Register(bpEngine);
+        
     
     Laphony::Graphics::BasicText vtFps("FPS", {0,0}, 1.2, true);
     vtFps.Pivot({0,0});
@@ -67,46 +69,50 @@ int main(int argc, char** argv)
     gEngine.Register(&text);
     fEngine.Register(&text);
     
+    TestGround ground(&gEngine);
+    ground.Position({0,700});
     
-    Laphony::Graphics::Animator anim;
-    anim.Scale({2,2});
+    gEngine.Register(&ground);
+    bpEngine.Register(&ground);
     
-    anim.SetCurrentAnimation("idLE");
+    TestGround wall1(&gEngine, 10, 100);
+    wall1.Position({0, 200});
+    wall1.Pivot({0,0});
     
-    anim.Position({200,400});
+    gEngine.Register(&wall1);
+    bpEngine.Register(&wall1);
     
-    anim.Register("run", new Laphony::Graphics::Animation(new Laphony::Graphics::Image("test/res/run-46-93.png",&gEngine),{0,0,46,93}, 10, AUTOFREE, {23,93}), AUTOFREE);
-    anim.Register("idle", new Laphony::Graphics::Animation(new Laphony::Graphics::Image("test/res/idle-52-82.png",&gEngine),{0,0,52,82}, 14, AUTOFREE,  {26,82}), AUTOFREE);
+    
+    TestCharacter character(&gEngine);
 
-    gEngine.Register(&anim);
-    fEngine.Register(&anim);
+
+    gEngine.Register(&character);
+    fEngine.Register(&character);
+    bpEngine.Register(&character);
    
     //Mappage keys
-    evEngine.Register("Rotation Left", new Laphony::Events::KeyControl("Q"));
-    evEngine.Register("Rotation Right", new Laphony::Events::KeyControl("D"));
+    evEngine.Register("move_left", new Laphony::Events::KeyControl("d"));
+    evEngine.Register("move_right", new Laphony::Events::KeyControl("q"));
     
     evEngine.Register("Camera Up", new Laphony::Events::KeyControl("Up"));
     evEngine.Register("Camera Down", new Laphony::Events::KeyControl("Down"));
     evEngine.Register("Camera Left", new Laphony::Events::KeyControl("left"));
     evEngine.Register("Camera Right", new Laphony::Events::KeyControl("right"));
+
     
-    //evEngine.Register("left", new Laphony::Events::KeyControl("left"));
-    //evEngine.Register("right", new Laphony::Events::KeyControl("right"));
+    evEngine.Register("move_hat",  new Laphony::Events::JoyHatControl(0,0));
     
-    Laphony::Events::JoyHatControl* hat = new Laphony::Events::JoyHatControl(0,0);
-    evEngine.Register("move", hat);
+    evEngine.Register("move_axis", new Laphony::Events::JoyAxisControl(0,0));
     
-    Laphony::Events::JoyAxisControl* axis = new Laphony::Events::JoyAxisControl(0,0);
-    evEngine.Register("move_axis", axis);
-    
-    Laphony::Events::JoyButtonControl* jb = new Laphony::Events::JoyButtonControl(0,0);
-    evEngine.Register("joytest", jb);
+    evEngine.Register("joytest", new Laphony::Events::JoyButtonControl(0,0));
     
     Laphony::Events::KeyControl* keyPause = new Laphony::Events::KeyControl("p");
     evEngine.Register("pause", keyPause);
     
+    evEngine.Register("jump", new Laphony::Events::KeyControl("space"));
+    
     std::vector<TestRectangle*> testRectangles;
-    for(int i=0; i<100; i++)
+    for(int i=0; i<00; i++)
     {
         TestRectangle* t = new TestRectangle(&gEngine);
         testRectangles.push_back(t);
@@ -114,6 +120,8 @@ int main(int argc, char** argv)
         fEngine.Register(t);
     }
     
+    //Must be the last
+    fEngine.Register(&bpEngine);
         
     int lastFPS = 0;
     
@@ -132,12 +140,22 @@ int main(int argc, char** argv)
         }
  
         
-        SDL_Rect camera = gEngine.Camera();
+        Laphony::Rect camera = gEngine.Camera();
         
-        if(evEngine.GetValueOf("Camera up"))
-            anim.Scale({anim.Scale().x, anim.Scale().y + 0.01});
-        if(evEngine.GetValueOf("Camera down"))
-            anim.Scale({anim.Scale(). x, anim.Scale().y - 0.01});
+        if(evEngine.GetValueOf("Camera Up"))
+        {
+            std::cout << character.Scale().x << ";" << character.Scale().y << std::endl;
+            character.Scale({character.Scale().x, character.Scale().y + 0.01});
+        }
+            
+        if(evEngine.GetValueOf("Camera Down"))
+        {
+            std::cout << character.Scale().x << ";" << character.Scale().y << std::endl;
+            character.Scale({character.Scale(). x, character.Scale().y - 0.01});
+        }
+            
+        std::cout << "Vel: " << character.GetVelocity().x << ";" << character.GetVelocity().y << std::endl;
+            
        /* if(evEngine.GetValueOf("Camera left"))
             camera.x -=5;
         if(evEngine.GetValueOf("Camera right"))
@@ -145,40 +163,42 @@ int main(int argc, char** argv)
         
         gEngine.Camera(camera); 
         
-        if(evEngine.GetValueOf("RotaTIon right"))
+        if(evEngine.GetValueOf("Rotation right"))
             text.Angle(text.Angle()+2);
         if(evEngine.GetValueOf("Rotation Left"))
             text.Angle(text.Angle()-2);
       
         
         if(keyPause->Value() && !keyPause->LastValue())
-            anim.Pause(!anim.Paused());
+            character.Pause(!character.Paused());
         
         bool persoMove = false;
         
-        if(evEngine.GetValueOf("move") & Laphony::Events::JoyHatControl::LEFT || evEngine.GetValueOf("move_axis") < -5)
+         character.Move(0);
+        if(evEngine.GetValueOf("move_hat") & Laphony::Events::JoyHatControl::LEFT || evEngine.GetValueOf("move_axis") < -5 || evEngine.GetValueOf("move_right"))
         {
-            anim.Translate({-2,0});
+            character.Move(-2);
             persoMove = true;
-            anim.Scale({-2,2});
+            //character.Scale({-2,2});
         }
             
-        if(evEngine.GetValueOf("move") & Laphony::Events::JoyHatControl::RIGHT || evEngine.GetValueOf("move_axis") > 5)
+        if(evEngine.GetValueOf("move_hat") & Laphony::Events::JoyHatControl::RIGHT || evEngine.GetValueOf("move_axis") > 5 ||evEngine.GetValueOf("move_left"))
         {
-            anim.Translate({2,0});
+            character.Move(2);
             persoMove = true;
-            anim.Scale({2,2});
+            //character.Scale({2,2});
         }
         
-        if(jb->Value() != jb->LastValue())
+        if(evEngine.GetValueOf("jump") || evEngine.GetValueOf("jump_joy"))
         {
-            std::cout << jb->ToString() << ": " << jb->Value() << std::endl;
+            character.Jump();
         }
+        
             
         if(persoMove)
-            anim.SetCurrentAnimation("run");
+            character.SetCurrentAnimation("run");
         else
-            anim.SetCurrentAnimation("idle");
+            character.SetCurrentAnimation("idle");
             
         
         

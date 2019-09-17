@@ -38,14 +38,13 @@ namespace Laphony
                     Vector2d diff;
                 };
                 
-            public:
-                Body();
-                
+            public:                
                 virtual void PhysicUpdate(Engine* engine) = 0;
                 virtual std::string GetIdentifierString() const = 0;
-                virtual bool CheckIfManageCollision(Collision const& collision) = 0;
+                
                 
                 std::list<Collider*>& GetCollidersList();
+                std::vector<Body::Collision>& GetCollisionsList();
    
             
             protected:

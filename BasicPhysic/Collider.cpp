@@ -19,7 +19,7 @@ namespace Laphony
 {
     namespace BasicPhysic
     {
-        Collider::Collider(std::string const& tag, Rect const& rect, Body* parent): _tag(tag), _collider(rect), parent(parent)
+        Collider::Collider(std::string const& tag, Rect const& rect, Body* parent): _tag(tag), _collider(rect), _parent(parent)
         {
         }
         
@@ -36,8 +36,8 @@ namespace Laphony
         Rect Collider::GetTransformedRect() const
         {
             if(_parent)
-                return  {_collider.x + _parent->Position().x,
-                         _collider.y + _parent->Position().y,
+                return  {_collider.x + _parent->Position().x - _parent->Pivot().x,
+                         _collider.y + _parent->Position().y - _parent->Pivot().y,
                          _collider.w * _parent->Scale().x,
                          _collider.h * _parent->Scale().y};
             else
@@ -52,42 +52,52 @@ namespace Laphony
                 Rect thisTransCollider = GetTransformedRect();
                 Rect otherTranCollider = collider->GetTransformedRect();
                 
-                //Check on X
-                bool canHaveCollisionOnX = false;
-                if(thisColliderMove.x > 0 || thisColliderMove.x == 0)
-                {
-                    tmpDiff.x = thisTransCollider.x + thisTransCollider.w + thisColliderMove.x - otherTranCollider.x;
-                    canHaveCollisionOnX = tmpDiff.x > 0;
-                }
+                Rect newCollider = thisTransCollider + Rect{thisColliderMove.x, thisColliderMove.y, 0, 0};
                 
-                if(thisColliderMove.x < 0 || thisColliderMove.x == 0)
+                if(newCollider.x + newCollider.w >= otherTranCollider.x && 
+                   newCollider.x <= otherTranCollider.x + otherTranCollider.w &&
+                   newCollider.y + newCollider.h >= otherTranCollider.y && 
+                   newCollider.y <= otherTranCollider.y + otherTranCollider.h)
                 {
-                    tmpDiff.x = thisTransCollider.x + thisColliderMove.x - otherTranCollider.x + otherTranCollider.w;
-                    canHaveCollisionOnX = tmpDiff.x < 0;
+                    if(thisColliderMove.x >= 0)
+                    {
+                        tmpDiff.x += otherTranCollider.x - thisTransCollider.x - thisTransCollider.w;
+                    }
+
+                    if(thisColliderMove.x <= 0)
+                    {
+                        tmpDiff.x += otherTranCollider.x + otherTranCollider.w - thisTransCollider.x;                 
+                    }
+
+                    if(thisColliderMove.y >= 0)
+                    {
+                        tmpDiff.y += otherTranCollider.y - thisTransCollider.y - thisTransCollider.h;
+                    }
+
+                    if(thisColliderMove.y <= 0)
+                    {
+                        tmpDiff.y += otherTranCollider.y + otherTranCollider.h - thisTransCollider.y;
+
+                    }
                 }
-                
-                //Check on Y
-                bool canHaveCollisionOnY = false;
-                if(thisColliderMove.y > 0 || thisColliderMove.y == 0)
-                {
-                    tmpDiff.y = thisTransCollider.y + thisTransCollider.h + thisColliderMove.y + otherTranCollider.y;
-                    canHaveCollisionOnY = tmpDiff.y > 0;
-                }
-                
-                if(thisColliderMove.y < 0 || thisColliderMove.y == 0)
-                {
-                    tmpDiff.y = thisTransCollider.y + thisColliderMove.y - otherTranCollider.y + otherTranCollider.h;
-                    canHaveCollisionOnY = tmpDiff.y < 0;
-                }
+                else
+                    return false;
                 
                 if(diffenrence)
-                    (*diffenrence) = tmpDiff;
+                    *diffenrence = tmpDiff;
                 
-                return canHaveCollisionOnX && canHaveCollisionOnY;
+                return this;
+                    
             }
             
             return false;
         }
+        
+        Body* Collider::GetParentBody() 
+        {
+            return _parent;
+        }
+
     }
 }
 

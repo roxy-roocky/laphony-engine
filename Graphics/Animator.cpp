@@ -12,6 +12,7 @@
 
 #include <iostream>
 #include <algorithm>
+#include <SDL2/SDL2_gfxPrimitives.h>
 
 #include "Animator.h"
 
@@ -86,6 +87,7 @@ namespace Laphony
             return NONE;
         }
         
+      
         std::string Animator::CurrentAnimationName()
         {
             return _currentAnimation;
@@ -108,10 +110,14 @@ namespace Laphony
                
                _currentAnimationPtr->Rewind();
                
+               
+               
                if(!anim.anim)
                {
                    throw std::exception{};
                }
+               
+               _pivot = anim.anim->Pivot();
                
             }
             catch(std::exception ex)
@@ -140,6 +146,8 @@ namespace Laphony
                 
                 static_cast<Transformable*>(_currentAnimationPtr)->operator=(oldAnimTransform);
             }
+            
+            filledCircleRGBA(engine->Renderer(), Position().x, Position().y, 3, 255,0,0, 255);
         }
     }
 }

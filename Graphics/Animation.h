@@ -59,7 +59,7 @@ namespace Laphony
                  * @param duration
                  * @param pivot
                  */
-                Animation(Image* image, Rect const& rect, int duration, bool autofree,  Point const& pivot = {-1}, bool reverseLoop = false);
+                Animation(Image* image, Rect const& rect, int duration, bool autofree,  Point const& pivot = {0}, bool reverseLoop = false);
                 
                 ~Animation();
                 /**
@@ -100,6 +100,8 @@ namespace Laphony
                  * Reset the position of the animation to the start (or the end if reversed playing)
                  */
                 void Rewind();
+                
+                Rect GetCurrentRect() const;
                 
             private:
                 

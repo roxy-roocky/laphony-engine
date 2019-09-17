@@ -26,6 +26,11 @@ namespace Laphony
         {
             return _colliders;
         }
+        
+        std::vector<Body::Collision>& Body::GetCollisionsList()
+        {
+            return _currentCollisions;
+        }
     }
 }
 

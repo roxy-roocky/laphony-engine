@@ -31,8 +31,10 @@ namespace Laphony
         
         Surface::Surface(Surface const& o, Rect const& rect): _engine(o._engine)
         {
-            _surface = SDL_CreateRGBSurface(0, rect.w, rect.h, 32, 0,0,0,0);
-            SDL_BlitSurface(o._surface, &rect, _surface, nullptr);
+            SDL_Rect sdlRect = {std::round(rect.x), std::round(rect.y), std::round(rect.w), std::round(rect.h)};
+            
+            _surface = SDL_CreateRGBSurface(0, sdlRect.w, sdlRect.h, 32, 0,0,0,0);
+            SDL_BlitSurface(o._surface, &sdlRect, _surface, nullptr);
             
             _texture = SDL_CreateTextureFromSurface(o._engine->Renderer(), _surface);
             
@@ -58,8 +60,8 @@ namespace Laphony
         bool Surface::Blit(const Rect& rect, Point  pivot, double angle, Rect const& srcRect) 
         {
             
-            SDL_Rect camera = _engine->Camera();
-            SDL_Rect realRect = {rect.x, rect.y, std::abs(rect.w), std::abs(rect.h)};
+            Rect camera = _engine->Camera();
+            SDL_Rect realRect = {std::round(rect.x), std::round(rect.y), std::abs(std::round(rect.w)), std::abs(std::round(rect.h))};
             
             realRect.x -= camera.x;
             realRect.y -= camera.y;
@@ -77,14 +79,18 @@ namespace Laphony
             
             //std::cout << pivot.x << ";" << pivot.y << "\n";
             
+            SDL_Point sdlPivot = {std::round(pivot.x), std::round(pivot.y)};
+            SDL_Rect sdlRealDest = {std::round(realRect.x), std::round(realRect.y), std::round(realRect.w), std::round(realRect.h)};
+            
             if(srcRect.x == -1)
             {
                 
-                return SDL_RenderCopyEx(_engine->Renderer(), _texture, nullptr, &realRect, angle, &pivot, flip) == 0;
+                return SDL_RenderCopyEx(_engine->Renderer(), _texture, nullptr, &sdlRealDest, angle, &sdlPivot, flip) == 0;
             }
             else
-            {               
-                return SDL_RenderCopyEx(_engine->Renderer(), _texture, &srcRect, &realRect, angle, &pivot, flip) == 0;
+            {   
+                SDL_Rect sdlSrcRect = {std::round(srcRect.x), std::round(srcRect.y), std::round(srcRect.w), std::round(srcRect.h)};
+                return SDL_RenderCopyEx(_engine->Renderer(), _texture, &sdlSrcRect, &sdlRealDest, angle, &sdlPivot, flip) == 0;
             }
             
             

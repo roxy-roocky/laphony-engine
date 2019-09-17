@@ -54,7 +54,9 @@ namespace Laphony
             
             _appQuit = (event.type == SDL_QUIT);
             
-       
+            const Uint8* keys = nullptr;
+            
+            
             
             for(std::pair<std::string, Control*> entry : _map)
                 if(entry.second)
@@ -64,7 +66,11 @@ namespace Laphony
                         case Control::KEY:
                         {
                             KeyControl* kc = dynamic_cast<KeyControl*>(entry.second);
-                            kc->Value();
+                            
+                            if(!keys)
+                                keys = SDL_GetKeyboardState(nullptr);
+                            
+                            kc->Value(keys[SDL_GetScancodeFromKey(SDL_GetKeyFromName(kc->KeyName().c_str()))]);
                         }
                         break;
                         
@@ -72,7 +78,16 @@ namespace Laphony
                         {
                             JoyButtonControl* jb = dynamic_cast<JoyButtonControl*>(entry.second);
                             
+                            if(jb->JoyID() < _joysticks.size())
+                            {
+                                JoyInfo joy = _joysticks[jb->JoyID()];
                             
+                                if(joy.joy)
+                                {
+                                    jb->Value(SDL_JoystickGetButton(joy.joy, jb->ButtonID()));
+                                }
+                            }
+                                    
                         } 
                         break;
                         
@@ -148,11 +163,11 @@ namespace Laphony
 
         Point Engine::GetMousePosition() const 
         {
-            Point pt;
+            int x, y;
             
-            SDL_GetMouseState(&pt.x, &pt.y);
+            SDL_GetMouseState(&x, &y);
             
-            return pt;
+            return Point{x,y};
         }
 
         void Engine::LookingJoysticks()
