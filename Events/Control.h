@@ -63,8 +63,6 @@ namespace Laphony
                 
                 virtual std::string ToString() const = 0;
                 
-               
-                
         };
         
     }

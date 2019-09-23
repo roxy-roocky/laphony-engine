@@ -38,7 +38,7 @@ namespace Laphony
         
         int KeyControl::LastValue() const
         {
-            return _lastState;
+            return static_cast<int>(_lastState);
         }
         
         std::string KeyControl::ToString() const

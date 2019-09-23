@@ -11,6 +11,7 @@
  */
 
 #include "Engine.h"
+#include "MouseButtonControl.h"
 
 bool operator==(SDL_JoystickGUID const& g1, SDL_JoystickGUID const& g2)
 {
@@ -54,8 +55,8 @@ namespace Laphony
             
             _appQuit = (event.type == SDL_QUIT);
             
-            const Uint8* keys = nullptr;
-            
+            const Uint8* keys = SDL_GetKeyboardState(nullptr);
+            Uint32 mouseButtons = SDL_GetMouseState(nullptr, nullptr);
             
             
             for(std::pair<std::string, Control*> entry : _map)
@@ -67,10 +68,15 @@ namespace Laphony
                         {
                             KeyControl* kc = dynamic_cast<KeyControl*>(entry.second);
                             
-                            if(!keys)
-                                keys = SDL_GetKeyboardState(nullptr);
-                            
                             kc->Value(keys[SDL_GetScancodeFromKey(SDL_GetKeyFromName(kc->KeyName().c_str()))]);
+                        }
+                        break;
+                        
+                        case Control::MOUSE_BUTTON:
+                        {
+                            MouseButtonControl* mbc = dynamic_cast<MouseButtonControl*>(entry.second);
+
+                            mbc->Value(SDL_BUTTON(mbc->GetButton()) & mouseButtons);
                         }
                         break;
                         

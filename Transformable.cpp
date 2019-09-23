@@ -28,7 +28,7 @@ namespace Laphony
     
     Point Transformable::Position() const {return _position;}
     
-    Point Transformable::Pivot() const {return {std::round(_pivot.x *Scale().x), std::round(_pivot.y*Scale().y)};}
+    Point Transformable::Pivot() const {return {std::round(_pivot.x * std::abs(_scale.x)), std::round(_pivot.y * std::abs(_scale.y))};}
         
     double Transformable::Angle() const {return _angle;}
 
