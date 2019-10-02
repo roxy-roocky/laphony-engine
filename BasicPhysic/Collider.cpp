@@ -38,8 +38,8 @@ namespace Laphony
             if(_parent)
                 return  {_collider.x + _parent->Position().x - _parent->Pivot().x,
                          _collider.y + _parent->Position().y - _parent->Pivot().y,
-                         _collider.w * _parent->Scale().x,
-                         _collider.h * _parent->Scale().y};
+                         _collider.w * std::abs(_parent->Scale().x),
+                         _collider.h * std::abs(_parent->Scale().y)};
             else
                 return _collider;
         }
@@ -66,18 +66,22 @@ namespace Laphony
 
                     if(thisColliderMove.x <= 0)
                     {
-                        tmpDiff.x += otherTranCollider.x + otherTranCollider.w - thisTransCollider.x;                 
+                        double diff = otherTranCollider.x + otherTranCollider.w - thisTransCollider.x;
+                        if(tmpDiff.x == 0 || std::abs(diff) < std::abs(tmpDiff.x))
+                            tmpDiff.x = diff;                 
                     }
 
                     if(thisColliderMove.y >= 0)
                     {
-                        tmpDiff.y += otherTranCollider.y - thisTransCollider.y - thisTransCollider.h;
+                        tmpDiff.y = otherTranCollider.y - thisTransCollider.y - thisTransCollider.h;
+
                     }
 
                     if(thisColliderMove.y <= 0)
                     {
-                        tmpDiff.y += otherTranCollider.y + otherTranCollider.h - thisTransCollider.y;
-
+                        double diff = otherTranCollider.y + otherTranCollider.h - thisTransCollider.y;
+                         if(tmpDiff.y == 0 || std::abs(diff) < std::abs(tmpDiff.y))
+                            tmpDiff.y = diff;       
                     }
                 }
                 else
@@ -85,6 +89,7 @@ namespace Laphony
                 
                 if(diffenrence)
                     *diffenrence = tmpDiff;
+                
                 
                 return this;
                     

@@ -44,5 +44,30 @@ namespace Laphony
         {
             return _bodies;
         }
+        
+        bool Engine::CheckIfIsValid(Body* ptr) const 
+        {
+            for(Body* body: _bodies)
+                if(body == ptr)
+                    return true;
+            
+            return false;
+        }
+        
+        bool Engine::CheckIfIsValid(Collider* ptr) const
+        {
+            for(Body* body: _bodies)
+                if(body)
+                {
+                    for(Collider* collider: body->GetCollidersList())
+                        if(collider == ptr)
+                        {
+                            return true;
+                        }
+                }
+                    
+            return false;
+        }
+
     }
 }

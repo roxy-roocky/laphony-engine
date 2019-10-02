@@ -18,7 +18,7 @@
 
 TestCharacter::TestCharacter(Laphony::Graphics::Engine* gEngine): _onGround(false)
 {
-    Scale({1.5,1.5});
+    Scale({1.2,1.2});
     
     SetCurrentAnimation("idLE");
     
@@ -36,11 +36,26 @@ TestCharacter::TestCharacter(Laphony::Graphics::Engine* gEngine): _onGround(fals
 
 bool TestCharacter::ManageCollision(const Collision& collision)
 {
-    if(collision.otherCollider && collision.otherCollider->GetParentBody()->GetIdentifierString() == "ground")
+    if(collision.otherCollider)
     {
-        if(collision.diff.y < 0 && std::abs(collision.diff.x) > collision.diff.y*-1)
+        if((collision.otherCollider->GetParentBody()->GetIdentifierString() == "ground" || collision.otherCollider->GetParentBody()->GetIdentifierString().find("slope") != std::string::npos) && collision.diff.y < 0 && std::abs(collision.diff.x) > collision.diff.y*-1)
         {
             _onGround = true;
+        }
+        
+        if(_velocity.x != 0)
+        {
+            if(collision.otherCollider->GetParentBody()->GetIdentifierString() == "slopelr")
+            {
+                _velocity.y += 0.005;
+               
+            }
+
+            if(collision.otherCollider->GetParentBody()->GetIdentifierString() == "sloperl" )
+            {
+                _velocity.y -= 0.005;
+               
+            }
         }
     }
     
@@ -84,7 +99,7 @@ void TestCharacter::Update()
 void TestCharacter::Jump()
 {
     if(_onGround)
-        _velocity.y = -5;
+        _velocity.y = -8;
 }
 
 void TestCharacter::Move(double x)

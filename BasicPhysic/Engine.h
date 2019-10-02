@@ -24,6 +24,7 @@ namespace Laphony
     namespace BasicPhysic
     {
         class Body;
+        class Collider;
         
         class Engine: public Frames::Updatable
         {
@@ -36,6 +37,9 @@ namespace Laphony
                 void Unregister(Body* body);
                 
                 std::list<Body*>& GetBodiesList();
+                
+                bool CheckIfIsValid(Collider* ptr) const;
+                bool CheckIfIsValid(Body* ptr) const;
                 
             private:
                 std::list<Body*> _bodies;

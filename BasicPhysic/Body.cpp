@@ -17,6 +17,13 @@ namespace Laphony
 {
     namespace BasicPhysic
     {
+        Body::~Body(){
+            for (auto c : _colliders) {
+                delete c;
+            }
+
+        }
+        
         Body::Collision::Collision(): collider(nullptr), otherCollider(nullptr), diff{0,0}
         {
 

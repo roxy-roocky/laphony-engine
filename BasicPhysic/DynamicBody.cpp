@@ -15,6 +15,8 @@
 #include "Engine.h"
 #include "Collider.h"
 
+#include <iostream>
+
 namespace Laphony
 {
     namespace BasicPhysic
@@ -57,7 +59,7 @@ namespace Laphony
                 }
             
 
-            
+            Point move = {0,0};
             //Manage collisions
             for(Collision& collision: _currentCollisions)
             {
@@ -67,17 +69,34 @@ namespace Laphony
                     if(std::abs(collision.diff.x) < std::abs(collision.diff.y) && _velocity.x * collision.diff.x < 0)//if velocity and diff in opposite signed
                     {
                         _velocity.x = 0;
-                        _position.x += collision.diff.x;
+                        if(move.x * collision.diff.x > 0)
+                        {
+                            if(std::abs(collision.diff.x) > std::abs(move.x))
+                                 move.x += collision.diff.x - move.x;
+                        }
+                        else
+                             move.x += collision.diff.x;
+                           
+                        
                     }
                     
                     if(std::abs(collision.diff.y) < std::abs(collision.diff.x) && _velocity.y * collision.diff.y < 0)//if velocity and diff in opposite signed
                     {
                         _velocity.y = 0;
-                        _position.y += collision.diff.y;
+                        if(move.y * collision.diff.y > 0)
+                        {
+                            if(std::abs(collision.diff.y) > std::abs(move.y))
+                                 move.y += collision.diff.y - move.y;
+                        }
+                        else
+                             move.y += collision.diff.y;
                     }
                         
                 }
             }
+            
+            //std::cout << "Move: " << move.x << ";"<< move.y << std::endl;
+            _position = _position + move;
             
         }
         

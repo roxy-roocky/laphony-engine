@@ -38,7 +38,8 @@ namespace Laphony
                     Vector2d diff;
                 };
                 
-            public:                
+            public:    
+                ~Body();
                 virtual void PhysicUpdate(Engine* engine) = 0;
                 virtual std::string GetIdentifierString() const = 0;
                 

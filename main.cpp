@@ -34,6 +34,8 @@
 #include "BasicPhysic/Engine.h"
 #include "Test/TestGround.h"
 #include "Test/TestCharacter.h"
+#include "Test/Slope.h"
+#include "Events/MouseButtonControl.h"
 /*
  * 
  */
@@ -83,6 +85,19 @@ int main(int argc, char** argv)
     bpEngine.Register(&wall1);
     
     
+    TestGround wall2(&gEngine, 100, 50);
+    wall2.Position({200, 250});
+    wall2.Pivot({0,0});
+    
+    gEngine.Register(&wall2);
+    bpEngine.Register(&wall2);
+    
+    Slope slope(&gEngine,100,50);
+    slope.Position({400, 300});
+    slope.Pivot({0,0});
+    gEngine.Register(&slope);
+    bpEngine.Register(&slope);
+    
     TestCharacter character(&gEngine);
 
 
@@ -110,6 +125,8 @@ int main(int argc, char** argv)
     evEngine.Register("pause", keyPause);
     
     evEngine.Register("jump", new Laphony::Events::KeyControl("space"));
+    evEngine.Register("jump_joy", new Laphony::Events::JoyButtonControl(0,1));
+    evEngine.Register("jump_mouse", new Laphony::Events::MouseButtonControl(Laphony::Events::MouseButtonControl::LEFT));
     
     std::vector<TestRectangle*> testRectangles;
     for(int i=0; i<00; i++)
@@ -144,17 +161,17 @@ int main(int argc, char** argv)
         
         if(evEngine.GetValueOf("Camera Up"))
         {
-            std::cout << character.Scale().x << ";" << character.Scale().y << std::endl;
+            //std::cout << character.Scale().x << ";" << character.Scale().y << std::endl;
             character.Scale({character.Scale().x, character.Scale().y + 0.01});
         }
             
         if(evEngine.GetValueOf("Camera Down"))
         {
-            std::cout << character.Scale().x << ";" << character.Scale().y << std::endl;
+            //std::cout << character.Scale().x << ";" << character.Scale().y << std::endl;
             character.Scale({character.Scale(). x, character.Scale().y - 0.01});
         }
             
-        std::cout << "Vel: " << character.GetVelocity().x << ";" << character.GetVelocity().y << std::endl;
+        //std::cout << "Vel: " << character.GetVelocity().x << ";" << character.GetVelocity().y << std::endl;
             
        /* if(evEngine.GetValueOf("Camera left"))
             camera.x -=5;
@@ -189,7 +206,7 @@ int main(int argc, char** argv)
             //character.Scale({2,2});
         }
         
-        if(evEngine.GetValueOf("jump") || evEngine.GetValueOf("jump_joy"))
+        if(evEngine.GetValueOf("jump") || evEngine.GetValueOf("jump_joy") || evEngine.GetValueOf("jump_mouse"))
         {
             character.Jump();
         }

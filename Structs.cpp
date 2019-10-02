@@ -57,5 +57,8 @@ namespace Laphony
         return Vector2d{std::round(p.x * d), std::round(p.y * d)};
     }
     
-    
-}
+    bool PointInRect(Point const& point, Rect const& rect)
+    {
+        
+    }
+//}

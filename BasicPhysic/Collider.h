@@ -38,6 +38,7 @@ namespace Laphony
                 bool CheckIfCollision(Collider* collider, Vector2d const& thisColliderMove, Vector2d* diffenrence = nullptr);
                 Rect GetTransformedRect() const;
                 
+                
             private:
                 std::string _tag;
                 Rect _collider;

@@ -75,6 +75,8 @@ namespace Laphony
     Vector2d operator-(Vector2d const& p1, Vector2d const& p2);
     
     Vector2d operator*(Vector2d const& p, double d);
+    
+    bool PointInRect(Point const& point, Rect const& rect);
 }
 
 #endif /* STRUCTS_H */
