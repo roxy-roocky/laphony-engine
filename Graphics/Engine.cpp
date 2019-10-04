@@ -69,7 +69,7 @@ namespace Laphony
 
         void Engine::Clear()
         {
-            SDL_SetRenderDrawColor(_renderer,0,0,0,255);
+            //SDL_SetRenderDrawColor(_renderer,0,0,0,255);
             SDL_RenderClear(_renderer);
         }
 

@@ -81,14 +81,19 @@ void TestCharacter::Update()
 {
     Laphony::Graphics::Animator::Update();
     
-    if(_colliders.size() > 0)
+    Laphony::Graphics::Animation* currentAnimation = AnimationFromName(CurrentAnimationName());
+    if(currentAnimation)
+    {
+        if(_colliders.size() > 0)
         delete *_colliders.begin();
     
-    Laphony::Rect newRect = AnimationFromName(CurrentAnimationName())->GetCurrentRect();
-    newRect.x = newRect.y = 0;
+        Laphony::Rect newRect = currentAnimation->GetCurrentRect();
+        newRect.x = newRect.y = 0;
+
+        _colliders.clear();
+        _colliders.push_back(new Laphony::BasicPhysic::Collider("character", newRect, this));
+    }
     
-    _colliders.clear();
-    _colliders.push_back(new Laphony::BasicPhysic::Collider("character", newRect, this));
     
     //gravity
    _velocity.y += 0.2;

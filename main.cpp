@@ -143,7 +143,9 @@ int main(int argc, char** argv)
     int lastFPS = 0;
     
     do
-    {
+    { 
+        
+        
         if(fEngine.LastFPS() != lastFPS)
         {
             std::ostringstream oss;
@@ -156,6 +158,7 @@ int main(int argc, char** argv)
             lastFPS = fEngine.LastFPS();
         }
  
+        
         
         Laphony::Rect camera = gEngine.Camera();
         
@@ -208,8 +211,11 @@ int main(int argc, char** argv)
         
         if(evEngine.GetValueOf("jump") || evEngine.GetValueOf("jump_joy") || evEngine.GetValueOf("jump_mouse"))
         {
+            SDL_SetRenderDrawColor(gEngine.Renderer(), 0,255,0,255);
             character.Jump();
         }
+        else
+            SDL_SetRenderDrawColor(gEngine.Renderer(), 0,0,0,255);
         
             
         if(persoMove)
@@ -217,8 +223,6 @@ int main(int argc, char** argv)
         else
             character.SetCurrentAnimation("idle");
             
-        
-        
         fEngine.Update();
         
     }while(!evEngine.AppQuit());

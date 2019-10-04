@@ -29,6 +29,9 @@ namespace Laphony
         
         bool Raycast::Proceed(int maxHitsCount)
         {
+            if(!_engine)
+                return false;
+            
             double a = _direction.y;
             double b = -_direction.x;
             double c = -a*_origin.x -b*_origin.y;
@@ -41,8 +44,32 @@ namespace Laphony
             //                = -(a/b)x -(b/c)
             
             _hitsColliders.clear();
+            Point pt = {0,0};
+            double currentDistance = 0.0;
+            int hits = 0;
             
+            do
+            {
+                pt.y = std::round(-(a/b)*pt.x -(b/c));
+                
+                for(Body* b : _engine->GetBodiesList())
+                    if(b)
+                    {
+                        for(Collider* c : b->GetCollidersList())
+                            if(c)
+                            {
+                                if(PointInRect(pt, c->GetTransformedRect()))
+                                {
+                                    _hitsColliders.push_back(c);
+                                    hits++;
+                                }
+                            }
+                    }
+                currentDistance = std::sqrt(std::pow(_origin.x - pt.x, 2) + std::pow(_origin.y - pt.y, 2));
+                
+            }while((maxHitsCount < 0 || hits < maxHitsCount) && currentDistance <= _distance);
             
+            return hits > 0;
         }
 
     }
