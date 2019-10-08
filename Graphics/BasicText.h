@@ -46,6 +46,9 @@ namespace Laphony
                 bool IsStickOnScreen() const;
                 void IsStickOnScreen(bool isStickOnScreen);
                 
+                Point GetPivot() const;
+                void SetPivot(Point const& pivot);
+                
             private:
             
                 void RenderTextNow(SDL_Renderer* renderer);
@@ -56,6 +59,7 @@ namespace Laphony
                 
                 bool _isStickOnScreen;
                 
+                Point _pivot;
                 
                 SDL_Texture* _renderedText;
                 

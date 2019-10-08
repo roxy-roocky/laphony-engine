@@ -18,12 +18,14 @@ namespace Laphony
     {
         Image::Image(Image const& orig): Transformable(orig), _surface(new Surface(*orig._surface)), _srcRect(orig._srcRect)
         {
-            
+            if(_surface)
+                _pivot = {_surface->Size().w/2, _surface->Size().h/2};
         }
         
         Image::Image(Image const& orig, Rect const& rect):Transformable(orig), _surface(new Surface(*orig._surface, rect)), _srcRect(orig._srcRect)
         {
-            
+            if(_surface)
+                _pivot = {_surface->Size().w/2, _surface->Size().h/2};
         }
                 
         Image::Image(std::string const& filename, Engine* engine, Rect const& srcRect): Transformable(), _surface(engine->CreateSurface(filename)), _srcRect(srcRect)
@@ -110,6 +112,14 @@ namespace Laphony
             if(_surface)
                 _surface->Alpha(alpha);
         }
+        
+        Point Image::Pivot() const {return {std::round(_pivot.x * std::abs(_scale.x)), std::round(_pivot.y * std::abs(_scale.y))};}
+        
+        void Image::Pivot(Point const& pivot)
+        {
+            _pivot = pivot;
+        }
+
         
     }
 }

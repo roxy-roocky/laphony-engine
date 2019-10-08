@@ -162,6 +162,16 @@ namespace Laphony
         {
             _isStickOnScreen = isStickOnScreen;
         }
+        
+        Point BasicText::GetPivot() const
+        {
+            return _pivot;
+        }
+        
+        void BasicText::SetPivot(Point const& pivot)
+        {
+            _pivot = pivot;
+        }
     }
 }
 

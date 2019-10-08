@@ -19,7 +19,7 @@ namespace Laphony
 {
     namespace BasicPhysic
     {
-        Collider::Collider(std::string const& tag, Rect const& rect, Body* parent): _tag(tag), _collider(rect), _parent(parent)
+        Collider::Collider(std::string const& tag, Rect const& rect, Body* parent): _tag(tag), _collider(rect), _parent(parent), _enabled(true)
         {
         }
         
@@ -36,8 +36,8 @@ namespace Laphony
         Rect Collider::GetTransformedRect() const
         {
             if(_parent)
-                return  {_collider.x + _parent->Position().x - _parent->Pivot().x,
-                         _collider.y + _parent->Position().y - _parent->Pivot().y,
+                return  {_parent->Position().x + (_collider.x * std::abs(_parent->Scale().x)),
+                         _parent->Position().y + (_collider.y * std::abs(_parent->Scale().y)),
                          _collider.w * std::abs(_parent->Scale().x),
                          _collider.h * std::abs(_parent->Scale().y)};
             else
@@ -101,6 +101,26 @@ namespace Laphony
         Body* Collider::GetParentBody() 
         {
             return _parent;
+        }
+        
+        void Collider::ChangeRect(Rect const& newRect)
+        {
+            _collider = newRect;
+        }
+        
+        bool Collider::GetEnabled() const
+        {
+            return _enabled;
+        }
+        
+        void Collider::SetEnabled(bool enable)
+        {
+            _enabled = enable;
+        }
+        
+        Rect Collider::GetRect() const
+        {
+            return _collider;
         }
 
     }

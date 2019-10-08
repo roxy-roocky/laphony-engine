@@ -63,7 +63,7 @@ int main(int argc, char** argv)
         
     
     Laphony::Graphics::BasicText vtFps("FPS", {0,0}, 1.2, true);
-    vtFps.Pivot({0,0});
+    vtFps.SetPivot({0,0});
     
     gEngine.Register(&vtFps);
     
@@ -72,14 +72,13 @@ int main(int argc, char** argv)
     fEngine.Register(&text);
     
     TestGround ground(&gEngine);
-    ground.Position({0,700});
+    ground.Position({0,400});
     
     gEngine.Register(&ground);
     bpEngine.Register(&ground);
     
     TestGround wall1(&gEngine, 10, 100);
     wall1.Position({0, 200});
-    wall1.Pivot({0,0});
     
     gEngine.Register(&wall1);
     bpEngine.Register(&wall1);
@@ -87,14 +86,12 @@ int main(int argc, char** argv)
     
     TestGround wall2(&gEngine, 100, 50);
     wall2.Position({200, 250});
-    wall2.Pivot({0,0});
     
     gEngine.Register(&wall2);
     bpEngine.Register(&wall2);
     
     Slope slope(&gEngine,100,50);
     slope.Position({400, 300});
-    slope.Pivot({0,0});
     gEngine.Register(&slope);
     bpEngine.Register(&slope);
     
@@ -194,6 +191,12 @@ int main(int argc, char** argv)
         
         bool persoMove = false;
         
+        if(evEngine.GetValueOf("jump") || evEngine.GetValueOf("jump_joy") || evEngine.GetValueOf("jump_mouse"))
+        {
+           
+            character.Jump();
+        }
+        
          character.Move(0);
         if(evEngine.GetValueOf("move_hat") & Laphony::Events::JoyHatControl::LEFT || evEngine.GetValueOf("move_axis") < -5 || evEngine.GetValueOf("move_right"))
         {
@@ -209,13 +212,7 @@ int main(int argc, char** argv)
             //character.Scale({2,2});
         }
         
-        if(evEngine.GetValueOf("jump") || evEngine.GetValueOf("jump_joy") || evEngine.GetValueOf("jump_mouse"))
-        {
-            SDL_SetRenderDrawColor(gEngine.Renderer(), 0,255,0,255);
-            character.Jump();
-        }
-        else
-            SDL_SetRenderDrawColor(gEngine.Renderer(), 0,0,0,255);
+        
         
             
         if(persoMove)
@@ -223,8 +220,9 @@ int main(int argc, char** argv)
         else
             character.SetCurrentAnimation("idle");
             
-        fEngine.Update();
+         SDL_SetRenderDrawColor(gEngine.Renderer(), 0,0,0,255);
         
+        fEngine.Update();
     }while(!evEngine.AppQuit());
     
     

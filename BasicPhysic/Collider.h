@@ -37,13 +37,19 @@ namespace Laphony
                 
                 bool CheckIfCollision(Collider* collider, Vector2d const& thisColliderMove, Vector2d* diffenrence = nullptr);
                 Rect GetTransformedRect() const;
+                Rect GetRect() const;
                 
+                bool GetEnabled() const;
+                void SetEnabled(bool enable);
                 
+                void ChangeRect(Rect const& newRect);
             private:
                 std::string _tag;
                 Rect _collider;
                 
                 Body* _parent;
+                
+                bool _enabled;
                 
                 std::vector<Collider*> _collisions;
                 

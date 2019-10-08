@@ -117,8 +117,6 @@ namespace Laphony
                    throw std::exception{};
                }
                
-               _pivot = anim.anim->Pivot();
-               
             }
             catch(std::exception ex)
             {

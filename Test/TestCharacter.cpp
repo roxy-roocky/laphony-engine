@@ -16,6 +16,8 @@
 #include "TestCharacter.h"
 #include "../Graphics/Animation.h"
 
+#include <iostream>
+
 TestCharacter::TestCharacter(Laphony::Graphics::Engine* gEngine): _onGround(false)
 {
     Scale({1.2,1.2});
@@ -28,9 +30,12 @@ TestCharacter::TestCharacter(Laphony::Graphics::Engine* gEngine): _onGround(fals
     Laphony::Graphics::Animator::Register("idle", new Laphony::Graphics::Animation(new Laphony::Graphics::Image("Test/res/idle-52-82.png",gEngine),{0,0,52,82}, 14, AUTOFREE,  {26,82}), AUTOFREE);
         
         
-    SetVelocity({0,1}); 
+    //SetVelocity({0,1}); 
     
-    _colliders.push_back(new Laphony::BasicPhysic::Collider("character", {0,0,52,82} , this));
+    _colliders.push_back(new Laphony::BasicPhysic::Collider("character", {-26, -82, 52, 82} , this));
+    
+    SetCurrentAnimation("idle");
+    _currentAnimation = AnimationFromName(CurrentAnimationName());
     
 }
 
@@ -81,22 +86,23 @@ void TestCharacter::Update()
 {
     Laphony::Graphics::Animator::Update();
     
-    Laphony::Graphics::Animation* currentAnimation = AnimationFromName(CurrentAnimationName());
-    if(currentAnimation)
-    {
-        if(_colliders.size() > 0)
-        delete *_colliders.begin();
-    
-        Laphony::Rect newRect = currentAnimation->GetCurrentRect();
-        newRect.x = newRect.y = 0;
+    Laphony::Graphics::Animation* newAnimation = AnimationFromName(CurrentAnimationName());
 
-        _colliders.clear();
-        _colliders.push_back(new Laphony::BasicPhysic::Collider("character", newRect, this));
-    }
-    
+    /*if(newAnimation != _currentAnimation)
+    {
+        if(*_colliders.begin())
+        {
+            Laphony::Rect newRect = newAnimation->GetCurrentRect();
+            newRect.x = -newRect.w/2;
+            newRect.y = -newRect.h;
+            (*_colliders.begin())->ChangeRect(newRect);
+            
+            _currentAnimation = newAnimation;
+        }
+    }*/
     
     //gravity
-   _velocity.y += 0.2;
+    _velocity.y += 0.2;
    
    _onGround = false;
 }

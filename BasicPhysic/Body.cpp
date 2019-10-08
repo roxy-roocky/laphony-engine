@@ -38,6 +38,16 @@ namespace Laphony
         {
             return _currentCollisions;
         }
+        
+        void Body::SetEnabledCollidersWithTag(const std::string& tag, bool enable)
+        {
+            for(Collider* c : _colliders)
+                if(c && c->GetTag() == tag)
+                {
+                    c->SetEnabled(enable);
+                }
+        }
+        
     }
 }
 

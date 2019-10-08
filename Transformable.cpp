@@ -16,19 +16,19 @@
 
 namespace Laphony
 {
-    Transformable::Transformable(): Transformable({0,0}, 0, {1,1}, {0, 0})
+    Transformable::Transformable(): Transformable({0,0}, 0, {1,1})
     {
         
     }
     
-     Transformable::Transformable(Point const& position, double angle, Vector2d const& scale, Point const& pivot): _position(position), _angle(angle), _scale(scale), _pivot(pivot)
+     Transformable::Transformable(Point const& position, double angle, Vector2d const& scale): _position(position), _angle(angle), _scale(scale)
      {
          
      }
     
     Point Transformable::Position() const {return _position;}
     
-    Point Transformable::Pivot() const {return {std::round(_pivot.x * std::abs(_scale.x)), std::round(_pivot.y * std::abs(_scale.y))};}
+    
         
     double Transformable::Angle() const {return _angle;}
 
@@ -46,11 +46,7 @@ namespace Laphony
         _position = point;
     }
     
-    void Transformable::Pivot(Point const& pivot)
-    {
-        _pivot = pivot;
-    }
-
+    
     void Transformable::Angle(double const& angle)
     {
         _angle = angle;

@@ -46,6 +46,8 @@ namespace Laphony
                 
                 std::list<Collider*>& GetCollidersList();
                 std::vector<Body::Collision>& GetCollisionsList();
+                
+                void SetEnabledCollidersWithTag(const std::string& tag, bool enable);
    
             
             protected:

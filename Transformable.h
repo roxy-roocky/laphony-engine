@@ -28,8 +28,7 @@ namespace Laphony
             Point _position;
             double _angle;
             Vector2d _scale;
-            Point _pivot;
-            
+                        
             
         public:
             /**
@@ -48,7 +47,7 @@ namespace Laphony
              * @param(in] scale Scale of the object
              * @param(in] center Rotation et position center of the object
              */
-            Transformable(Point const& position, double angle, Vector2d const& scale, Point const& pivot);
+            Transformable(Point const& position, double angle, Vector2d const& scale);
             
             /**
              * \brief Copy constructor. Is the default copy constructor
@@ -88,11 +87,7 @@ namespace Laphony
              * @return Vector2d with scale
              */
             virtual Vector2d Scale() const;
-            /**
-             * \brief Get the current center point
-             * @return Point with current pivot
-             */
-            virtual Point Pivot() const;
+            
             
             /**
              * Set the current position
@@ -109,11 +104,7 @@ namespace Laphony
              * @param scale New scale as Vector2d(x, y)
              */
             virtual void Scale(Vector2d const& scale);
-            /**
-             * Set the pivot point
-             * @param pivot new pivot as Point(x, y)
-             */
-            virtual void Pivot(Point const& pivot);
+           
     };
 }
 

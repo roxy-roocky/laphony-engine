@@ -37,6 +37,8 @@ class TestCharacter: public virtual Laphony::Transformable, public virtual Lapho
         
     private:
         bool _onGround;
+        
+        Laphony::Graphics::Animation* _currentAnimation;
 };
 
 #endif /* TESTCHARACTER_H */

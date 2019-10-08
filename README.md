@@ -31,8 +31,11 @@ The Laphony engine is a 2D game engine coded in C++, which use the library SDL2.
 - [ ] Update engine in other thread
 
 ## Graphics
+- [x] Put pivot in Image
 - [x] Class for wrap `SDL_Surface` and `SDL_Texture` structures
 - [x] Class represents an simple image
+- [x] Frames Animation
+- [x] Animator
 - [x] Graphic engine which wrap `SDL_Window` and `SDL_Renderer` structures
 - [ ] TTF text support 
 

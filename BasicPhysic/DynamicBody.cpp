@@ -35,11 +35,11 @@ namespace Laphony
                 {
                     //for each of his colliders
                     for(Collider* collider : body->GetCollidersList())
-                        if(collider)
+                        if(collider && collider->GetEnabled())
                         {
                             //for each of this body colliders
                             for(Collider* thisCollider : this->GetCollidersList())
-                                if(thisCollider)
+                                if(thisCollider && collider->GetEnabled())
                                 {
                                     Body::Collision collision;
                                     
@@ -68,28 +68,22 @@ namespace Laphony
 
                     if(std::abs(collision.diff.x) < std::abs(collision.diff.y) && _velocity.x * collision.diff.x < 0)//if velocity and diff in opposite signed
                     {
-                        _velocity.x = 0;
-                        if(move.x * collision.diff.x > 0)
-                        {
+                        
+                        
                             if(std::abs(collision.diff.x) > std::abs(move.x))
-                                 move.x += collision.diff.x - move.x;
-                        }
-                        else
-                             move.x += collision.diff.x;
+                                 move.x = collision.diff.x ;
+              
                            
                         
                     }
                     
                     if(std::abs(collision.diff.y) < std::abs(collision.diff.x) && _velocity.y * collision.diff.y < 0)//if velocity and diff in opposite signed
                     {
-                        _velocity.y = 0;
-                        if(move.y * collision.diff.y > 0)
-                        {
+                        
+                        
                             if(std::abs(collision.diff.y) > std::abs(move.y))
-                                 move.y += collision.diff.y - move.y;
-                        }
-                        else
-                             move.y += collision.diff.y;
+                                 move.y = collision.diff.y ;
+                       
                     }
                         
                 }
@@ -97,6 +91,11 @@ namespace Laphony
             
             //std::cout << "Move: " << move.x << ";"<< move.y << std::endl;
             _position = _position + move;
+            
+            if(move.x != 0)
+                _velocity.x = 0;
+            if(move.y != 0)
+                _velocity.y = 0;
             
         }
         

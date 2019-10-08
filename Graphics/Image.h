@@ -27,6 +27,7 @@ namespace Laphony
             protected:
                 Surface* _surface;
                 Rect _srcRect;
+                Point _pivot;
                 
             public:
                 Image(std::string const& filename, Engine* engine, Rect const& srcRect = {-1});
@@ -46,6 +47,18 @@ namespace Laphony
                 void Alpha(uint8_t alpha);
                 
                 virtual void Display(Engine* engine);
+                
+                 /**
+                * Set the pivot point
+                * @param pivot new pivot as Point(x, y)
+                */
+               virtual void Pivot(Point const& pivot);
+               
+               /**
+             * \brief Get the current center point
+             * @return Point with current pivot
+             */
+            virtual Point Pivot() const;
                
         };
     }
