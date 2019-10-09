@@ -99,7 +99,7 @@ int main(int argc, char** argv)
 
 
     gEngine.Register(&character);
-    fEngine.Register(&character);
+    fEngine.Register(&character,true);
     bpEngine.Register(&character);
    
     //Mappage keys
@@ -193,26 +193,25 @@ int main(int argc, char** argv)
         
         if(evEngine.GetValueOf("jump") || evEngine.GetValueOf("jump_joy") || evEngine.GetValueOf("jump_mouse"))
         {
-           
+            //SDL_SetRenderDrawColor(gEngine.Renderer(), 0,0,255,255);
             character.Jump();
         }
         
-         character.Move(0);
+            SDL_SetRenderDrawColor(gEngine.Renderer(), 0,0,0,255);
+        
         if(evEngine.GetValueOf("move_hat") & Laphony::Events::JoyHatControl::LEFT || evEngine.GetValueOf("move_axis") < -5 || evEngine.GetValueOf("move_right"))
         {
-            character.Move(-2);
+            character.Move(true);
             persoMove = true;
             //character.Scale({-2,2});
         }
             
         if(evEngine.GetValueOf("move_hat") & Laphony::Events::JoyHatControl::RIGHT || evEngine.GetValueOf("move_axis") > 5 ||evEngine.GetValueOf("move_left"))
         {
-            character.Move(2);
+            character.Move(false);
             persoMove = true;
             //character.Scale({2,2});
         }
-        
-        
         
             
         if(persoMove)
@@ -220,7 +219,7 @@ int main(int argc, char** argv)
         else
             character.SetCurrentAnimation("idle");
             
-         SDL_SetRenderDrawColor(gEngine.Renderer(), 0,0,0,255);
+         
         
         fEngine.Update();
     }while(!evEngine.AppQuit());

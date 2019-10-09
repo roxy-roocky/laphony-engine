@@ -32,6 +32,7 @@ namespace Laphony
                 virtual std::string GetIdentifierString() const = 0;
                 
                 virtual bool ManageCollision(Collision const& collision) = 0;
+                virtual void NoCollision() = 0;
                 
                 Vector2d GetVelocity() const;
                 void SetVelocity(Vector2d const& velocity);

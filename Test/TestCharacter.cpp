@@ -43,10 +43,7 @@ bool TestCharacter::ManageCollision(const Collision& collision)
 {
     if(collision.otherCollider)
     {
-        if((collision.otherCollider->GetParentBody()->GetIdentifierString() == "ground" || collision.otherCollider->GetParentBody()->GetIdentifierString().find("slope") != std::string::npos) && collision.diff.y < 0 && std::abs(collision.diff.x) > collision.diff.y*-1)
-        {
-            _onGround = true;
-        }
+        _onGround = (collision.otherCollider->GetParentBody()->GetIdentifierString() == "ground" || collision.otherCollider->GetParentBody()->GetIdentifierString().find("slope") != std::string::npos) && _velocity.y > 0 && (std::abs(collision.diff.x) > collision.diff.y*-1 || collision.diff.x == 0);
         
         if(_velocity.x != 0)
         {
@@ -66,6 +63,12 @@ bool TestCharacter::ManageCollision(const Collision& collision)
     
     return true;
 }
+
+void TestCharacter::NoCollision() 
+{
+    _onGround = false;
+}
+
 
 std::string TestCharacter::GetIdentifierString() const
 {
@@ -102,19 +105,29 @@ void TestCharacter::Update()
     }*/
     
     //gravity
-    _velocity.y += 0.2;
-   
-   _onGround = false;
+    _velocity.y += 1;
+    
+    
+
+    double friction = -(_velocity.x/std::abs(_velocity.x))*(_onGround?0.3:0.1);
+
+    if((_velocity.x + friction) * _velocity.x > 0)
+    {
+        _velocity.x += friction;
+    }
+    else
+        _velocity.x = 0;
+ 
 }
 
 void TestCharacter::Jump()
 {
     if(_onGround)
-        _velocity.y = -8;
+        _velocity.y = -15;
 }
 
-void TestCharacter::Move(double x)
+void TestCharacter::Move(bool right)
 {
-    _velocity.x = x;
+    _velocity.x = (right?-1:1)*4;
 }
 

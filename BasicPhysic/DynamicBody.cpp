@@ -61,33 +61,38 @@ namespace Laphony
 
             Point move = {0,0};
             //Manage collisions
-            for(Collision& collision: _currentCollisions)
+            if(_currentCollisions.size() > 0)
             {
-                if(ManageCollision(collision))
+                for(Collision& collision: _currentCollisions)
                 {
+                    if(ManageCollision(collision))
+                    {
 
-                    if(std::abs(collision.diff.x) < std::abs(collision.diff.y) && _velocity.x * collision.diff.x < 0)//if velocity and diff in opposite signed
-                    {
-                        
-                        
-                            if(std::abs(collision.diff.x) > std::abs(move.x))
-                                 move.x = collision.diff.x ;
-              
-                           
-                        
+                        if(std::abs(collision.diff.x) < std::abs(collision.diff.y) && _velocity.x * collision.diff.x < 0)//if velocity and diff in opposite signed
+                        {
+
+
+                                if(std::abs(collision.diff.x) > std::abs(move.x))
+                                     move.x = collision.diff.x ;
+
+
+
+                        }
+
+                        if(std::abs(collision.diff.y) < std::abs(collision.diff.x) && _velocity.y * collision.diff.y < 0)//if velocity and diff in opposite signed
+                        {
+
+
+                                if(std::abs(collision.diff.y) > std::abs(move.y))
+                                     move.y = collision.diff.y ;
+
+                        }
+
                     }
-                    
-                    if(std::abs(collision.diff.y) < std::abs(collision.diff.x) && _velocity.y * collision.diff.y < 0)//if velocity and diff in opposite signed
-                    {
-                        
-                        
-                            if(std::abs(collision.diff.y) > std::abs(move.y))
-                                 move.y = collision.diff.y ;
-                       
-                    }
-                        
                 }
             }
+            else
+                NoCollision();
             
             //std::cout << "Move: " << move.x << ";"<< move.y << std::endl;
             _position = _position + move;

@@ -27,13 +27,15 @@ class TestCharacter: public virtual Laphony::Transformable, public virtual Lapho
 
         virtual std::string GetIdentifierString() const;
                 
-        virtual bool ManageCollision(Collision const& collision);
+        virtual bool ManageCollision(Collision const& collision) override;
+        virtual void NoCollision() override;
+
         
         virtual void Display(Laphony::Graphics::Engine* engine) override;
         virtual void Update() override;
 
         void Jump();
-        void Move(double x);
+        void Move(bool right);
         
     private:
         bool _onGround;
