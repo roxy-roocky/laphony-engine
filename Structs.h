@@ -68,6 +68,7 @@ namespace Laphony
     struct Vector2d
     {
         double x, y;
+        
     };
     
     Vector2d operator+(Vector2d const& p1, Vector2d const& p2);

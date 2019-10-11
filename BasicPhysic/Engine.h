@@ -18,6 +18,7 @@
 
 #include "../Frames/Updatable.h"
 #include "Body.h"
+#include "Raycast.h"
 
 namespace Laphony
 {
@@ -40,6 +41,8 @@ namespace Laphony
                 
                 bool CheckIfIsValid(Collider* ptr) const;
                 bool CheckIfIsValid(Body* ptr) const;
+                
+                Raycast* CreateRaycast(Point const& origin, Vector2d const& direction, int distance);
                 
             private:
                 std::list<Body*> _bodies;

@@ -95,7 +95,7 @@ int main(int argc, char** argv)
     gEngine.Register(&slope);
     bpEngine.Register(&slope);
     
-    TestCharacter character(&gEngine);
+    TestCharacter character(&gEngine, &bpEngine);
 
 
     gEngine.Register(&character);

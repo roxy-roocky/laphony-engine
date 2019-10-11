@@ -68,6 +68,11 @@ namespace Laphony
                     
             return false;
         }
+        
+        Raycast* Engine::CreateRaycast(const Point& origin, const Vector2d& direction, int distance)
+        {
+            return new Raycast(origin, direction, distance, this);
+        }
 
     }
 }

@@ -18,7 +18,7 @@
 
 #include <iostream>
 
-TestCharacter::TestCharacter(Laphony::Graphics::Engine* gEngine): _onGround(false)
+TestCharacter::TestCharacter(Laphony::Graphics::Engine* gEngine, Laphony::BasicPhysic::Engine* pEngine): _onGround(false), _rcGroundL(nullptr), _rcGroundC(nullptr), _rcGroundR(nullptr)
 {
     Scale({1.2,1.2});
     
@@ -28,7 +28,7 @@ TestCharacter::TestCharacter(Laphony::Graphics::Engine* gEngine): _onGround(fals
     
     Laphony::Graphics::Animator::Register("run", new Laphony::Graphics::Animation(new Laphony::Graphics::Image("Test/res/run-46-93.png",gEngine),{0,0,46,93}, 10, AUTOFREE, {23,93}), AUTOFREE);
     Laphony::Graphics::Animator::Register("idle", new Laphony::Graphics::Animation(new Laphony::Graphics::Image("Test/res/idle-52-82.png",gEngine),{0,0,52,82}, 14, AUTOFREE,  {26,82}), AUTOFREE);
-        
+//        
         
     //SetVelocity({0,1}); 
     
@@ -37,14 +37,21 @@ TestCharacter::TestCharacter(Laphony::Graphics::Engine* gEngine): _onGround(fals
     SetCurrentAnimation("idle");
     _currentAnimation = AnimationFromName(CurrentAnimationName());
     
+    _rcGroundC = pEngine->CreateRaycast(Position(), {0,1}, 5);
+    _rcGroundC->GetIgnoredCollidersTags().push_back("player");
+    
+    _rcGroundL = pEngine->CreateRaycast(Position(), {0,1}, 5);
+    _rcGroundL->GetIgnoredCollidersTags().push_back("player");
+    
+    _rcGroundR = pEngine->CreateRaycast(Position(), {0,1}, 5);
+    _rcGroundR->GetIgnoredCollidersTags().push_back("player");
 }
 
 bool TestCharacter::ManageCollision(const Collision& collision)
 {
     if(collision.otherCollider)
     {
-        _onGround = (collision.otherCollider->GetParentBody()->GetIdentifierString() == "ground" || collision.otherCollider->GetParentBody()->GetIdentifierString().find("slope") != std::string::npos) && _velocity.y > 0 && (std::abs(collision.diff.x) > collision.diff.y*-1 || collision.diff.x == 0);
-        
+       
         if(_velocity.x != 0)
         {
             if(collision.otherCollider->GetParentBody()->GetIdentifierString() == "slopelr")
@@ -66,7 +73,7 @@ bool TestCharacter::ManageCollision(const Collision& collision)
 
 void TestCharacter::NoCollision() 
 {
-    _onGround = false;
+   
 }
 
 
@@ -90,6 +97,13 @@ void TestCharacter::Update()
     Laphony::Graphics::Animator::Update();
     
     Laphony::Graphics::Animation* newAnimation = AnimationFromName(CurrentAnimationName());
+    
+    Laphony::Rect rect = (*_colliders.begin())->GetTransformedRect();
+    
+    _rcGroundC->SetOrigin(Position());
+    _rcGroundL->SetOrigin({Position().x - rect.w/2 + 2, Position().y});
+    _rcGroundR->SetOrigin({Position().x + rect.w/2 - 2, Position().y});
+    _onGround = _rcGroundL->Proceed(1) || _rcGroundC->Proceed(1) || _rcGroundR->Proceed(1);
 
     /*if(newAnimation != _currentAnimation)
     {
@@ -106,10 +120,8 @@ void TestCharacter::Update()
     
     //gravity
     _velocity.y += 1;
-    
-    
 
-    double friction = -(_velocity.x/std::abs(_velocity.x))*(_onGround?0.3:0.1);
+    double friction = 0 -(_velocity.x/std::abs(_velocity.x))*(_onGround?1:1);
 
     if((_velocity.x + friction) * _velocity.x > 0)
     {
@@ -117,6 +129,8 @@ void TestCharacter::Update()
     }
     else
         _velocity.x = 0;
+    
+    
  
 }
 

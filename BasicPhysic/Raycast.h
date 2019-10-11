@@ -14,15 +14,18 @@
 #ifndef RAYCAST_H
 #define RAYCAST_H
 
-#include "Collider.h"
-
 #include <vector>
+#include <string>
 
+#include "../Structs.h"
 
 namespace Laphony
 {
     namespace BasicPhysic
     {
+        class Engine;
+        class Collider;
+        
         class Raycast
         {
             friend class Laphony::BasicPhysic::Engine;
@@ -30,6 +33,10 @@ namespace Laphony
             public:
                 bool Proceed(int maxHitsCount = -1);
                 std::vector<Collider*>& GetHitsCollidersList();
+                std::vector<std::string>& GetIgnoredCollidersTags();
+                
+                Point GetOrigine() const;
+                void SetOrigin(Point const& newOrigin);
                 
             private:
                 Raycast(Point const& origin, Vector2d const& direction, int distance, Engine* engine);
@@ -39,6 +46,7 @@ namespace Laphony
                 int _distance;
                 
                 std::vector<Collider*> _hitsColliders;
+                std::vector<std::string> _ignoredCollidersTags;
                 
                 Engine* _engine;
 

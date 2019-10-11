@@ -13,6 +13,9 @@
 
 #include "Raycast.h"
 
+#include "Engine.h"
+#include "Collider.h"
+
 namespace Laphony
 {
     namespace BasicPhysic
@@ -27,49 +30,90 @@ namespace Laphony
             return _hitsColliders;
         }
         
+        std::vector<std::string>& Raycast::GetIgnoredCollidersTags()
+        {
+            return _ignoredCollidersTags;
+        }
+        
         bool Raycast::Proceed(int maxHitsCount)
         {
             if(!_engine)
                 return false;
             
-            double a = _direction.y;
-            double b = -_direction.x;
-            double c = -a*_origin.x -b*_origin.y;
+
             
-            //  ax + by + c   = 0
-            //  ax + by       = -c
-            //  by            = -c -ax
-            //  y             = (-c -ax)/b 
-            //                = (c + ax) / -b
-            //                = -(a/b)x -(b/c)
+            double a;
+            
+            if(_direction.x == 0)
+                a = 0;
+            else
+                a = _direction.y/_direction.x;
+            
+            double b = _origin.y;
+            
+            //  y = ax+b;
             
             _hitsColliders.clear();
-            Point pt = {0,0};
+            Point pt = _origin;
             double currentDistance = 0.0;
             int hits = 0;
             
             do
             {
-                pt.y = std::round(-(a/b)*pt.x -(b/c));
+                if(a != 0)
+                    pt.y = a*pt.x + b;
                 
-                for(Body* b : _engine->GetBodiesList())
-                    if(b)
+                for(Body* body : _engine->GetBodiesList())
+                    if(body)
                     {
-                        for(Collider* c : b->GetCollidersList())
-                            if(c)
-                            {
-                                if(PointInRect(pt, c->GetTransformedRect()))
+                        for(Collider* collider : body->GetCollidersList())
+                            if(collider)
+                            { 
+                                bool no = false;
+                                if(PointInRect(pt, collider->GetTransformedRect()))
                                 {
-                                    _hitsColliders.push_back(c);
-                                    hits++;
+                                    for(std::string tag: _ignoredCollidersTags)
+                                    {
+                                        std::string ctag = collider->GetTag();
+                                        if(ctag == tag)
+                                        {
+                                            no = true;
+                                            break;
+                                        }
+                                    
+                                    }
+                                        
+                                    if(!no)
+                                    {
+                                        _hitsColliders.push_back(collider);
+                                            hits++;
+                                    }
                                 }
+                                
+                                
+                                
                             }
                     }
+                if(a != 0)
+                    pt.x += 1;
+                else
+                    pt.y += _direction.y/std::abs(_direction.y);
+                
                 currentDistance = std::sqrt(std::pow(_origin.x - pt.x, 2) + std::pow(_origin.y - pt.y, 2));
                 
             }while((maxHitsCount < 0 || hits < maxHitsCount) && currentDistance <= _distance);
             
             return hits > 0;
+        }
+        
+        Point Raycast::GetOrigine() const
+        {
+            return _origin;
+        }
+        
+        void Raycast::SetOrigin(const Point& newOrigin)
+        {
+            _origin = newOrigin;
         }
 
     }

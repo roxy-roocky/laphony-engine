@@ -19,11 +19,12 @@
 #include "../Graphics/Displayable.h"
 
 #include "../BasicPhysic/DynamicBody.h"
+#include "../BasicPhysic/Raycast.h"
 
 class TestCharacter: public virtual Laphony::Transformable, public virtual Laphony::BasicPhysic::DynamicBody, public virtual Laphony::Graphics::Animator
 {
     public:
-        TestCharacter(Laphony::Graphics::Engine* gEngine);        
+        TestCharacter(Laphony::Graphics::Engine* gEngine, Laphony::BasicPhysic::Engine* pEngine);        
 
         virtual std::string GetIdentifierString() const;
                 
@@ -41,6 +42,9 @@ class TestCharacter: public virtual Laphony::Transformable, public virtual Lapho
         bool _onGround;
         
         Laphony::Graphics::Animation* _currentAnimation;
+        
+        Laphony::BasicPhysic::Raycast *_rcGroundL, *_rcGroundC, *_rcGroundR;       
+        
 };
 
 #endif /* TESTCHARACTER_H */
