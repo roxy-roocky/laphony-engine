@@ -10,7 +10,7 @@ The Laphony engine is a 2D game engine coded in C++, which use the library SDL2.
 - [x] Dynamics bodies
 - [x] Make bodies virtual pure (must override identifier string method for others can know what type of object is)
 - [x] Physic engine
-- [ ] Raycast
+- [x] Raycast
 
 ## Events
 - [x] Named controls
