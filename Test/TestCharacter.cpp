@@ -37,13 +37,13 @@ TestCharacter::TestCharacter(Laphony::Graphics::Engine* gEngine, Laphony::BasicP
     SetCurrentAnimation("idle");
     _currentAnimation = AnimationFromName(CurrentAnimationName());
     
-    _rcGroundC = pEngine->CreateRaycast(Position(), {0,1}, 5);
+    _rcGroundC = pEngine->CreateRaycast(Position(), {0,1}, 1);
     _rcGroundC->GetIgnoredCollidersTags().push_back("player");
     
-    _rcGroundL = pEngine->CreateRaycast(Position(), {0,1}, 5);
+    _rcGroundL = pEngine->CreateRaycast(Position(), {0,1}, 1);
     _rcGroundL->GetIgnoredCollidersTags().push_back("player");
     
-    _rcGroundR = pEngine->CreateRaycast(Position(), {0,1}, 5);
+    _rcGroundR = pEngine->CreateRaycast(Position(), {0,1}, 1);
     _rcGroundR->GetIgnoredCollidersTags().push_back("player");
 }
 

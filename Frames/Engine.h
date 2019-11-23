@@ -32,6 +32,11 @@ namespace Laphony
          */
         class Engine 
         {
+            private: 
+                //Denied copy and assign
+                Engine(const Engine& o) = default;
+                Engine& operator=(const Engine& o) = default;
+                
             public: static uint32_t Millis();
 
             public:

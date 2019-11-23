@@ -36,6 +36,8 @@
 #include "Test/TestCharacter.h"
 #include "Test/Slope.h"
 #include "Events/MouseButtonControl.h"
+#include "Frames/ThreadEngine.h"
+#include "Test/TestCounterThread.h"
 /*
  * 
  */
@@ -134,6 +136,12 @@ int main(int argc, char** argv)
         fEngine.Register(t);
     }
     
+    
+    Laphony::Frames::ThreadEngine thEngine(100, "Laphony->Test");
+    
+    TestCounterThread counterThread;
+    thEngine.Register(&counterThread);
+    
     //Must be the last
     fEngine.Register(&bpEngine);
         
@@ -155,7 +163,7 @@ int main(int argc, char** argv)
             lastFPS = fEngine.LastFPS();
         }
  
-        
+        counterThread.Print();
         
         Laphony::Rect camera = gEngine.Camera();
         
@@ -185,9 +193,6 @@ int main(int argc, char** argv)
         if(evEngine.GetValueOf("Rotation Left"))
             text.Angle(text.Angle()-2);
       
-        
-        if(keyPause->Value() && !keyPause->LastValue())
-            character.Pause(!character.Paused());
         
         bool persoMove = false;
         

@@ -33,7 +33,7 @@ namespace Laphony
                  * Check if the object is paused
                  * @return 
                  */
-                virtual bool Paused() const {return _paused;}
+                virtual bool Paused() {return _paused;}
                 
                 /**
                  * Pause or resume the update of the object

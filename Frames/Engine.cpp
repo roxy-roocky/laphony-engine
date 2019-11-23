@@ -37,8 +37,6 @@ namespace Laphony
             
             SDL_initFramerate(&_manager);
             SDL_setFramerate(&_manager, _fps);
-            
-            std::cout << "GETFRAMERATE: " << SDL_getFramerate(&_manager) << std::endl;
         }
         
         void Engine::WaitFrame(int32_t delay)
