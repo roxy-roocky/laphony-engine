@@ -61,7 +61,7 @@ namespace Laphony
                 SDL_Thread* _thread;
                 
                 int _fps;
-                FPSmanager _manager;          
+                uint32_t _ticksBegin;          
                 
                 uint32_t _beginCountFps;
                 int _fpsCount, _lastFps;

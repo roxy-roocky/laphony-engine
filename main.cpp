@@ -137,7 +137,7 @@ int main(int argc, char** argv)
     }
     
     
-    Laphony::Frames::ThreadEngine thEngine(100, "Laphony->Test");
+    Laphony::Frames::ThreadEngine thEngine(1, "Laphony->Test");
     
     TestCounterThread counterThread;
     thEngine.Register(&counterThread);

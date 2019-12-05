@@ -21,11 +21,8 @@ namespace Laphony
     namespace Frames
     {
         
-        ThreadEngine::ThreadEngine(int fps, std::string const& name): _fps(fps), _lastFps(0), _fpsCount(0), _mutex(SDL_CreateMutex()), _stopRequested(false)
+        ThreadEngine::ThreadEngine(int fps, std::string const& name): _fps(fps), _lastFps(0), _fpsCount(0), _mutex(SDL_CreateMutex()), _stopRequested(false), _ticksBegin(0)
         {
-            
-            SDL_initFramerate(&_manager);
-            SDL_setFramerate(&_manager, _fps);
            
             _thread = SDL_CreateThread(ThreadEngine::Run,name.c_str(),this);
         }
@@ -83,8 +80,12 @@ namespace Laphony
                 }
             SDL_mutexV(_mutex);
              
+            int wait = (1000.0/_fps) - (Engine::Millis() - _ticksBegin);
             
-            SDL_framerateDelay(&_manager);
+            if(wait > 0)
+                SDL_Delay(wait);
+            
+            _ticksBegin = Engine::Millis();
 
         }
         
