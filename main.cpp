@@ -139,8 +139,8 @@ int main(int argc, char** argv)
     
     Laphony::Frames::ThreadEngine thEngine(1, "Laphony->Test");
     
-    TestCounterThread counterThread;
-    thEngine.Register(&counterThread);
+    //TestCounterThread counterThread;
+    //thEngine.Register(&counterThread);
     
     //Must be the last
     fEngine.Register(&bpEngine);
@@ -163,7 +163,7 @@ int main(int argc, char** argv)
             lastFPS = fEngine.LastFPS();
         }
  
-        counterThread.Print();
+        //counterThread.Print();
         
         Laphony::Rect camera = gEngine.Camera();
         

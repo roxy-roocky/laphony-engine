@@ -229,8 +229,7 @@ namespace Laphony
             {
                 if(SDL_HapticRumbleInit( joy->haptic ) == 0)
                 {
-                    if (SDL_HapticRumblePlay( joy->haptic, 1, 1000 ) != 0)
-                        std::cout << "Events: Joystick " << joy->id << " rumble error: " << SDL_GetError() << std::endl;
+                    PlayRumbleJoystick(joy->id, 1, 1000);
                 }
                 else
                     std::cout << "Events: Joystick " << joy->id << " cannot rumble: " << SDL_GetError() << std::endl;
@@ -245,6 +244,15 @@ namespace Laphony
                 return &_joysticks[id];
             
             return nullptr;
+        }
+        
+        void Engine::PlayRumbleJoystick(int id, float strength, int duration)
+        {
+            if(JoyInfo* joy = GetJoystickInfo(id))
+            {
+                if (SDL_HapticRumblePlay(joy->haptic, strength, duration ) != 0)
+                    std::cout << "Events: Joystick " << joy->id << " rumble error: " << SDL_GetError() << std::endl;
+            }
         }
         
     }

@@ -22,7 +22,7 @@ The Laphony engine is a 2D game engine coded in C++, which use the library SDL2.
 - [x] Auto detect joystick system
 - [x] Mouse position getter
 - [x] Mouse button control
-- [ ] Rumble gamepad
+- [x] Rumble gamepad
 - [ ] Controls map system with save file
 
 ## Frames
@@ -37,7 +37,7 @@ The Laphony engine is a 2D game engine coded in C++, which use the library SDL2.
 - [x] Frames Animation
 - [x] Animator
 - [x] Graphic engine which wrap `SDL_Window` and `SDL_Renderer` structures
-- [ ] TTF text support 
+- [ ] Font text support 
 
 ## Sound
 - [ ] Named sounds and musics

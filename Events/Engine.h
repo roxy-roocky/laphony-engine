@@ -112,6 +112,8 @@ namespace Laphony
                 JoyInfo* GetJoystickInfo(int id);
                 
                 
+                //HAPTICS
+                void PlayRumbleJoystick(int id, float strength, int duration);
                 
             private:
                 //Common
