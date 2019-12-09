@@ -14,7 +14,7 @@
 #include "TestText.h"
 #include "TestRectangle.h"
 
-TestText::TestText(std::string const& str) : BasicText(str,{400,300}, 2, false, {255,255,255,255}, {0,0,0,0}), _direction(0)
+TestText::TestText(std::string const& str) : BasicFontText("Test/Cabin-Regular.ttf",str,{400,300}, 20, false, {255,255,255,255}, {0,0,0,0}), _direction(0)
 { 
     
 }

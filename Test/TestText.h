@@ -15,10 +15,10 @@
 #define TESTTEXT_H
 
 #include "../Graphics/Engine.h"
-#include "../Graphics/BasicText.h"
+#include "../Graphics/BasicFontText.h"
 #include "../Frames/Updatable.h"
 
-class TestText: public Laphony::Graphics::BasicText, public Laphony::Frames::Updatable
+class TestText: public Laphony::Graphics::BasicFontText, public Laphony::Frames::Updatable
 {
     public: 
         TestText(std::string const& str);

@@ -25,6 +25,7 @@
 #include "Test/TestRectangle.h"
 
 #include "Graphics/BasicText.h"
+#include "Graphics/BasicFontText.h"
 
 #include "Events/Engine.h"
 #include "Test/TestText.h"

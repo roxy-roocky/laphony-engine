@@ -70,13 +70,7 @@ namespace Laphony
             stringRGBA(rendererText, 0, 0, _text.c_str(), _colorText.r, _colorText.g, _colorText.b, 255);
             
             SDL_RenderPresent(rendererText);
-            
 
-            
-            if(_renderedText)
-                SDL_DestroyTexture(_renderedText);
-            
-            _renderedText = nullptr;
             
             _renderedText = SDL_CreateTextureFromSurface(renderer, renderSurface);
             
@@ -98,8 +92,11 @@ namespace Laphony
                 if(_mustBeRender)
                     RenderTextNow(engine->Renderer());
                 
+                int w, h;
+                SDL_QueryTexture(_renderedText, nullptr, nullptr, &w, &h);
+                
                 Point pivot = _pivot;
-                Rect dest = {_position.x, _position.y, _text.size()*FONT_SIZE*_scale.x, FONT_SIZE*_scale.y};
+                Rect dest = {_position.x, _position.y, w*_scale.x, h*_scale.y};
                 
                 if(pivot.x < 0)
                 {

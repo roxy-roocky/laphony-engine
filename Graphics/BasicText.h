@@ -49,9 +49,9 @@ namespace Laphony
                 Point GetPivot() const;
                 void SetPivot(Point const& pivot);
                 
-            private:
+            protected:
             
-                void RenderTextNow(SDL_Renderer* renderer);
+                virtual void RenderTextNow(SDL_Renderer* renderer);
                 
                 
                 std::string _text;

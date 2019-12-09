@@ -126,7 +126,7 @@ namespace Laphony
                 
                 int _currentJoyID;
                 
-                static void InitJoystickHaptic(JoyInfo* joy);
+                void InitJoystickHaptic(JoyInfo* joy);
                 
                 void LookingJoysticks();
                 
