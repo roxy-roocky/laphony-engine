@@ -34,13 +34,17 @@ namespace Laphony
             if(!SDL_WasInit(0))
             {
                 SDL_Init(SDL_INIT_VIDEO|SDL_INIT_JOYSTICK|SDL_INIT_HAPTIC);
+                IMG_Init(IMG_INIT_PNG|IMG_INIT_JPG|IMG_INIT_TIF|IMG_INIT_WEBP);
+                
                 atexit(SDL_Quit);
+                atexit(IMG_Quit);
             }
 
             _window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, w, h, SDL_WINDOW_OPENGL|SDL_WINDOW_SHOWN | resizable?SDL_WINDOW_RESIZABLE:0);
 
             _renderer = SDL_CreateRenderer(_window, -1, SDL_RENDERER_ACCELERATED);
             SDL_SetRenderDrawBlendMode(_renderer, SDL_BLENDMODE_BLEND);
+            //SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY,"1");
             
             if(fixedSize)
                 SDL_RenderSetLogicalSize(_renderer, w, h);

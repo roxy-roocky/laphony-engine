@@ -19,6 +19,13 @@ namespace Laphony
 {
     namespace BasicPhysic
     {
+
+        Engine::Engine() 
+        {
+
+        }
+
+        
         void Engine::Update()
         {
             for(Body* body : _bodies)

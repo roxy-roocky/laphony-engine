@@ -15,6 +15,7 @@
 #include "Updatable.h"
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <iostream>
 
 namespace Laphony
@@ -32,7 +33,10 @@ namespace Laphony
             if(!SDL_WasInit(0))
             {
                 SDL_Init(SDL_INIT_VIDEO|SDL_INIT_JOYSTICK|SDL_INIT_HAPTIC);
+                IMG_Init(IMG_INIT_PNG|IMG_INIT_JPG|IMG_INIT_TIF|IMG_INIT_WEBP);
+                
                 atexit(SDL_Quit);
+                atexit(IMG_Quit);
             }
             
             SDL_initFramerate(&_manager);

@@ -37,12 +37,17 @@ The Laphony engine is a 2D game engine coded in C++, which use the library SDL2.
 - [x] Frames Animation
 - [x] Animator
 - [x] Graphic engine which wrap `SDL_Window` and `SDL_Renderer` structures
-- [ ] Font text support 
+- [x] Font text support 
+
+## Application
+- [ ] Module system
+    - [ ] Application class
+    - [ ] Module class
 
 ## Sound
 - [ ] Named sounds and musics
 - [ ] Sound engine (DJ system)
-- [ ] Actions - Musics sync
+- [ ] Actions - Musics synchronization
 
 ## Game
 - [ ] Storage objects system

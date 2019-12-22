@@ -14,13 +14,26 @@
 #ifndef LAPHONY_SOUND_ENGINE_H
 #define LAPHONY_SOUND_ENGINE_H
 
+#include <SDL2/SDL_mixer.h>
+#include <map>
+#include <string>
+
 namespace Laphony
 {
     namespace Sound
     {
         class Engine 
         {
-
+            private:
+                static bool wasInit;
+                
+                std::map<std::string, Mix_Chunk*> _sounds;
+                std::map<std::string, Mix_Music*> _musics;
+                               
+            public:
+                Engine(int frequency = 44100, int countOfSoundsChannels = 20);
+                ~Engine();
+                
         };
     }
 }

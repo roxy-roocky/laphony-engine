@@ -10,6 +10,8 @@
  * Created on 21 avril 2019, 19:38
  */
 
+#include <SDL2/SDL_image.h>
+
 #include "Engine.h"
 #include "MouseButtonControl.h"
 
@@ -36,7 +38,10 @@ namespace Laphony
             if(!SDL_WasInit(0))
             {
                 SDL_Init(SDL_INIT_VIDEO|SDL_INIT_JOYSTICK|SDL_INIT_HAPTIC);
+                IMG_Init(IMG_INIT_PNG|IMG_INIT_JPG|IMG_INIT_TIF|IMG_INIT_WEBP);
+                
                 atexit(SDL_Quit);
+                atexit(IMG_Quit);
             }
         }
                 

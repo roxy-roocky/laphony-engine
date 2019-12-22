@@ -25,7 +25,11 @@ Laphony::Graphics::BasicFontText::BasicFontText(std::string const& fontFile, std
     if(_fonts.find(pair) == _fonts.end())
     {
         if(!TTF_WasInit())
+        {
             TTF_Init();
+            
+            atexit(TTF_Quit);
+        }
         
         TTF_Font* font = TTF_OpenFont(fontFile.c_str(), sizePoint);
         if(!font)
@@ -65,33 +69,18 @@ void Laphony::Graphics::BasicFontText::RenderTextNow(SDL_Renderer* renderer)
 
     _renderedText = nullptr;
 
-    SDL_Surface* renderSurface = TTF_RenderUTF8_Solid(_fontPtr, _text.c_str(), _colorText);
-    const char* err = SDL_GetError();
-    
-    SDL_Surface* backSurface = SDL_CreateRGBSurface(0, renderSurface->w, renderSurface->h, 32, 0,0,0,0);
-    
-   
-    SDL_BlitSurface(renderSurface, nullptr, backSurface, nullptr);
-     
+    SDL_Surface* renderSurface = nullptr;
     if(_colorBackground.a == 0)
-    {
-        if(_colorBackground == _colorText)
-            _colorBackground.r = _colorText.r - 10;
-
-        SDL_SetColorKey(backSurface, 1, SDL_MapRGB(renderSurface->format, _colorBackground.r, _colorBackground.g, _colorBackground.b));
-    }
+        renderSurface = TTF_RenderUTF8_Blended(_fontPtr, _text.c_str(), _colorText);
     else
-        SDL_FillRect(backSurface, nullptr, SDL_MapRGB(backSurface->format, _colorBackground.r, _colorBackground.g, _colorBackground.b));
+        renderSurface = TTF_RenderUTF8_Shaded(_fontPtr, _text.c_str(), _colorText, _colorBackground);
 
-    _renderedText = SDL_CreateTextureFromSurface(renderer, backSurface);
+    _renderedText = SDL_CreateTextureFromSurface(renderer, renderSurface);
 
     SDL_SetTextureBlendMode(_renderedText, SDL_BLENDMODE_BLEND);
     SDL_SetTextureAlphaMod(_renderedText, _colorText.a);
 
-    err = SDL_GetError();
-
     SDL_FreeSurface(renderSurface);
-    SDL_FreeSurface(backSurface);
 
     _mustBeRender = false;
 }

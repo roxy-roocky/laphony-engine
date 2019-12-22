@@ -30,7 +30,7 @@ namespace Laphony
         class Engine: public Frames::Updatable
         {
             public:
-                Engine() = default;
+                Engine();
                 
                 virtual void Update() override;
                 
