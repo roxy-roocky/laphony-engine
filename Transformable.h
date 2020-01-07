@@ -24,7 +24,7 @@ namespace Laphony
      */
     class Transformable
     {
-        protected:
+        private:
             Point _position;
             double _angle;
             Vector2d _scale;

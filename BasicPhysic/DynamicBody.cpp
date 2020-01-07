@@ -26,8 +26,8 @@ namespace Laphony
             if(!engine)
                 return;
             
-            _position.x += _velocity.x;
-            _position.y += _velocity.y;
+            Translate(_velocity);
+
             
             //For each bodies in engine
             for(Body* body : engine->GetBodiesList())
@@ -95,7 +95,7 @@ namespace Laphony
                 NoCollision();
             
             //std::cout << "Move: " << move.x << ";"<< move.y << std::endl;
-            _position = _position + move;
+            Position(Position() + move);
             
             if(move.x != 0)
                 _velocity.x = 0;

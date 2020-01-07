@@ -21,8 +21,8 @@ namespace Laphony
         
         BasicText::BasicText(std::string const& text, Point const& position,double renderSize, bool isStickOnScreen, Color const& colorText, Color const& colorBackground): Transformable(), _text(text),  _isStickOnScreen(isStickOnScreen), _colorBackground(colorBackground), _colorText(colorText), _renderedText(nullptr), _mustBeRender(true)
         { 
-            _scale = {renderSize, renderSize};
-            _position = position;
+            Scale({renderSize, renderSize});
+            Position(position);
         }
         
         BasicText::BasicText(const BasicText& orig) {
@@ -96,7 +96,7 @@ namespace Laphony
                 SDL_QueryTexture(_renderedText, nullptr, nullptr, &w, &h);
                 
                 Point pivot = _pivot;
-                Rect dest = {_position.x, _position.y, w*_scale.x, h*_scale.y};
+                Rect dest = {Position().x, Position().y, w*Scale().x, h*Scale().y};
                 
                 if(pivot.x < 0)
                 {
@@ -117,7 +117,7 @@ namespace Laphony
                 
                 SDL_Point sdlPivot = {std::round(pivot.x), std::round(pivot.y)};
                 SDL_Rect sdlDest = {std::round(dest.x), std::round(dest.y), std::round(dest.w), std::round(dest.h)};
-                SDL_RenderCopyEx(engine->Renderer(), _renderedText, nullptr, &sdlDest, _angle, &sdlPivot, SDL_FLIP_NONE);
+                SDL_RenderCopyEx(engine->Renderer(), _renderedText, nullptr, &sdlDest, Angle(), &sdlPivot, SDL_FLIP_NONE);
             }
         }
 

@@ -57,23 +57,23 @@ namespace Laphony
                
                if(_srcRect.x > -1)
                {
-                  realW = _srcRect.w * _scale.x;
-                  realH = _srcRect.h * _scale.y; 
+                  realW = _srcRect.w * Scale().x;
+                  realH = _srcRect.h * Scale().y; 
                   
                   
                }
                else
                {
-                   realW = _surface->Size().w * _scale.x;
-                   realH = _surface->Size().h * _scale.y;
+                   realW = _surface->Size().w * Scale().x;
+                   realH = _surface->Size().h * Scale().y;
                 
                }
                
                
-               pivot.x *= std::abs(_scale.x);
-               pivot.y *= std::abs(_scale.y);
+               pivot.x *= std::abs(Scale().x);
+               pivot.y *= std::abs(Scale().y);
                
-               _surface->Blit(Laphony::Rect{_position.x, _position.y, realW, realH}, pivot,_angle, _srcRect);
+               _surface->Blit(Laphony::Rect{Position().x, Position().y, realW, realH}, pivot,Angle(), _srcRect);
             }
            
                 
@@ -113,7 +113,7 @@ namespace Laphony
                 _surface->Alpha(alpha);
         }
         
-        Point Image::Pivot() const {return {std::round(_pivot.x * std::abs(_scale.x)), std::round(_pivot.y * std::abs(_scale.y))};}
+        Point Image::Pivot() const {return {std::round(Pivot().x * std::abs(Scale().x)), std::round(_pivot.y * std::abs(Scale().y))};}
         
         void Image::Pivot(Point const& pivot)
         {

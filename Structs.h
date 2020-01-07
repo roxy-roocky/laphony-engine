@@ -22,6 +22,7 @@
 #define STRUCTS_H
 
 #include <SDL2/SDL.h>
+#include <ostream>
 
 #define AUTOFREE true
 
@@ -44,25 +45,7 @@ namespace Laphony
     
     Rect operator*(Rect const& r, double d);
     
-    /**
-     * \struct Laphony::Point
-     * \brief Represents a (x, y) point
-     * 
-     * 
-     * Actually is a typedef of SDL_Point.
-     */
-    struct Point
-    {
-        double x, y;
-    };
-    
-    Point operator+(Point const& p1, Point const& p2);
-    
-    Point operator-(Point const& p1, Point const& p2);
-    
-    Point operator*(Point const& p, double d);
-    
-    /**
+        /**
      * \brief Represents a vector of 2 elements
      */
     struct Vector2d
@@ -77,7 +60,26 @@ namespace Laphony
     
     Vector2d operator*(Vector2d const& p, double d);
     
+    
+    /**
+     * \struct Laphony::Point
+     * \brief Represents a (x, y) point
+     * 
+     * 
+     * Actually is a typedef of SDL_Point.
+     */
+    typedef Vector2d Point;
+    
+    Point operator+(Point const& p1, Point const& p2);
+    
+    Point operator-(Point const& p1, Point const& p2);
+    
+    Point operator*(Point const& p, double d);
+    
+
     bool PointInRect(Point const& point, Rect const& rect);
+    
+    std::ostream& operator<<(std::ostream& out, Vector2d const& v);
 }
 
 #endif /* STRUCTS_H */

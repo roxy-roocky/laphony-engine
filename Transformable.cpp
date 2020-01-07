@@ -36,8 +36,7 @@ namespace Laphony
     
     void Transformable::Translate(Vector2d const& v) 
     {
-        _position.x += v.x;
-        _position.y += v.y;
+        Position({Position().x + v.x, Position().y + v.y});
     }
 
 
@@ -64,7 +63,7 @@ namespace Laphony
     
     Transformable& Transformable::operator+=(Transformable const& t)
     {
-        _position = _position + t._position;
+        Position(_position + t._position);
         _angle += t._angle;
         
         _scale.x *= t._scale.x;

@@ -23,16 +23,14 @@ void TestText::Update()
 {
     if(_direction)
     {
-        _scale.x+=0.01;
-        _scale.y+=0.01;
-        if(_scale.x > 2)
+        Scale({Scale().x + 0.01, Scale().y +0.01});
+        if(Scale().x > 2)
             _direction = 0;
     }
     else
     {
-        _scale.x-=0.01;
-        _scale.y-=0.01;
-        if(_scale.x < 0.2)
+        Scale({Scale().x - 0.01, Scale().y - 0.01});
+        if(Scale().x < 0.2)
             _direction = 1;
     }
    

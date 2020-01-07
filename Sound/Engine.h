@@ -17,23 +17,69 @@
 #include <SDL2/SDL_mixer.h>
 #include <map>
 #include <string>
+#include <vector>
+
+#include "Speaker.h"
 
 namespace Laphony
 {
     namespace Sound
     {
+        class Music;
+        class Sound;
+        
         class Engine 
         {
+            friend Speaker;
+            
             private:
                 static bool wasInit;
+                static Engine* singleton;
                 
-                std::map<std::string, Mix_Chunk*> _sounds;
-                std::map<std::string, Mix_Music*> _musics;
+                static void ChannelEnd(int channel);
+                
+                std::map<std::string, Sound*> _sounds;
+                std::map<std::string, Music*> _musics;
+                
+                std::string _currentPlayedMusic;
+                
+                int _countOfChannels;
+                
+                std::vector<Sound*> _channels;
+                std::vector<bool> _channelsDedicated;
+                
+                Transformable* _listener;
+                
+                int GetFirstAvailableChannel();
                                
             public:
-                Engine(int frequency = 44100, int countOfSoundsChannels = 20);
+                Engine(int frequency = 44100, int countOfSoundsChannels = 50);
                 ~Engine();
                 
+                void Register(std::string const& name, Music* music);
+                void Register(std::string const& name, Sound* sound);
+                
+                void UnregisterMusic(std::string const& name);
+                void UnregisterSound(std::string const& name);
+                
+                void PlayMusic(std::string const& name, int times = -1);
+                void PlaySound(std::string const& name, int times = -1);
+                
+                void StopMusic();
+                void StopSound(std::string const& name);
+                
+                void PauseMusic();
+                void ResumeMusic();
+                void RewindMusic();
+                
+                void PauseAll();
+                void ResumeAll();
+                
+                Transformable* GetListener() const;
+                void SetListener(Transformable* listener);
+                
+                bool MusicIsPlaying() const;
+                std::string MusicPlayed() const;
         };
     }
 }

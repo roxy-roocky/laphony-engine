@@ -17,12 +17,15 @@
 #include <SDL2/SDL_mixer.h>
 #include <string>
 
+#include "Engine.h"
+
 namespace Laphony
 {
     namespace Sound
     {
         class Music 
         {
+            friend Engine;
             public:
                 Music(std::string const& file);
                 virtual ~Music();

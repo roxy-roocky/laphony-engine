@@ -39,6 +39,7 @@
 #include "Events/MouseButtonControl.h"
 #include "Frames/ThreadEngine.h"
 #include "Test/TestCounterThread.h"
+#include "Sound/Engine.h"
 /*
  * 
  */
@@ -98,12 +99,6 @@ int main(int argc, char** argv)
     gEngine.Register(&slope);
     bpEngine.Register(&slope);
     
-    TestCharacter character(&gEngine, &bpEngine);
-
-
-    gEngine.Register(&character);
-    fEngine.Register(&character,true);
-    bpEngine.Register(&character);
    
     //Mappage keys
     evEngine.Register("move_left", new Laphony::Events::KeyControl("d"));
@@ -140,6 +135,17 @@ int main(int argc, char** argv)
     
     Laphony::Frames::ThreadEngine thEngine(1, "Laphony->Test");
     
+    Laphony::Sound::Engine sndEngine;
+    sndEngine.SetListener(&vtFps);
+    
+    
+    TestCharacter character(&gEngine, &bpEngine, &sndEngine);
+
+
+    gEngine.Register(&character);
+    fEngine.Register(&character,true);
+    bpEngine.Register(&character);
+    
     //TestCounterThread counterThread;
     //thEngine.Register(&counterThread);
     
@@ -160,7 +166,7 @@ int main(int argc, char** argv)
             
             if(fEngine.LastFPS() < 10)
                 vtFps.ColorText({255, 0, 0, 255});
-            std::cout << vtFps.Text() << std::endl;
+            //std::cout << vtFps.Text() << std::endl;
             lastFPS = fEngine.LastFPS();
         }
  

@@ -21,10 +21,13 @@
 #include "../BasicPhysic/DynamicBody.h"
 #include "../BasicPhysic/Raycast.h"
 
-class TestCharacter: public virtual Laphony::Transformable, public virtual Laphony::BasicPhysic::DynamicBody, public virtual Laphony::Graphics::Animator
+#include "../Sound/Speaker.h"
+#include "../Sound/Engine.h"
+
+class TestCharacter: public virtual Laphony::Transformable, public virtual Laphony::BasicPhysic::DynamicBody, public virtual Laphony::Graphics::Animator, public virtual Laphony::Sound::Speaker
 {
     public:
-        TestCharacter(Laphony::Graphics::Engine* gEngine, Laphony::BasicPhysic::Engine* pEngine);        
+        TestCharacter(Laphony::Graphics::Engine* gEngine, Laphony::BasicPhysic::Engine* pEngine, Laphony::Sound::Engine* sndEngine);        
 
         virtual std::string GetIdentifierString() const;
                 

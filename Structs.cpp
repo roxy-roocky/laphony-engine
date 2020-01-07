@@ -6,6 +6,7 @@
 
 #include "Structs.h"
 #include <cmath>
+#include <ostream>
 
 namespace Laphony
 {
@@ -22,23 +23,6 @@ namespace Laphony
     Rect operator*(Rect const& r, double d)
     {
         return Rect{std::round(r.x * d), std::round(r.y * d), std::round(r.w * d), std::round(r.h * d)};
-    }
-    
-    
-    
-    Point operator+(Point const& p1, Point const& p2)
-    {
-        return Point{p1.x + p2.x, p1.y + p2.y};
-    }
-    
-    Point operator-(Point const& p1, Point const& p2)
-    {
-        return Point{p1.x - p2.x, p1.y - p2.y};
-    }
-    
-    Point operator*(Point const& p, double d)
-    {
-        return Point{std::round(p.x * d), std::round(p.y * d)};
     }
     
     
@@ -60,5 +44,10 @@ namespace Laphony
     bool PointInRect(Point const& point, Rect const& rect)
     {
         return point.x >= rect.x && point.x <= rect.x + rect.w && point.y > rect.y && point.y < rect.y + rect.h;
+    }
+    
+    std::ostream& operator <<(std::ostream& out, const Vector2d& v)
+    {
+        out << "(" << v.x << ";" << v.y << ")";;
     }
 }

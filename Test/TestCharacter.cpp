@@ -18,8 +18,9 @@
 
 #include <iostream>
 
-TestCharacter::TestCharacter(Laphony::Graphics::Engine* gEngine, Laphony::BasicPhysic::Engine* pEngine): _onGround(false), _rcGroundL(nullptr), _rcGroundC(nullptr), _rcGroundR(nullptr)
+TestCharacter::TestCharacter(Laphony::Graphics::Engine* gEngine, Laphony::BasicPhysic::Engine* pEngine, Laphony::Sound::Engine* sndEngine):Speaker(sndEngine), _onGround(false), _rcGroundL(nullptr), _rcGroundC(nullptr), _rcGroundR(nullptr)
 {
+    StickOnListener(false);
     Scale({1.2,1.2});
     
     SetCurrentAnimation("idLE");
