@@ -40,6 +40,7 @@
 #include "Frames/ThreadEngine.h"
 #include "Test/TestCounterThread.h"
 #include "Sound/Engine.h"
+#include "Sound/Sound.h"
 /*
  * 
  */
@@ -66,7 +67,7 @@ int main(int argc, char** argv)
     Laphony::BasicPhysic::Engine bpEngine;
         
     
-    Laphony::Graphics::BasicText vtFps("FPS", {0,0}, 1.2, true);
+    Laphony::Graphics::BasicText vtFps("FPS", {300,0}, 1.2, true);
     vtFps.SetPivot({0,0});
     
     gEngine.Register(&vtFps);
@@ -140,6 +141,10 @@ int main(int argc, char** argv)
     
     
     TestCharacter character(&gEngine, &bpEngine, &sndEngine);
+    character.StickOnListener(false);
+    
+    Laphony::Sound::Sound sndJump("Test/res/snd.wav");
+    sndEngine.Register("jump",&sndJump);
 
 
     gEngine.Register(&character);

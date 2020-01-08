@@ -1,14 +1,13 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This file is a part of the Laphony Engine.
+ * Copyright 2019 Nathan Baumann. All rights reserved.
  */
 
 /* 
- * File:   Body.h
- * Author: nathan
+ * \file   BasicPhysic/Body.h
+ * \author Nathan Baumann
  *
- * Created on September 6, 2019, 5:26 PM
+ * \date September 6 2019 5:26 PM
  */
 
 #ifndef BODY_H
@@ -27,6 +26,8 @@ namespace Laphony
         class Collider;
         class Engine;
         
+        /**
+         */
         class Body: public virtual Transformable
         {
             public:

@@ -12,6 +12,7 @@
 
 #include "Engine.h"
 #include "Music.h"
+#include "Sound.h"
 
 namespace Laphony
 {

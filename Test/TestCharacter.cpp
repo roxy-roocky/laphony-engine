@@ -20,6 +20,7 @@
 
 TestCharacter::TestCharacter(Laphony::Graphics::Engine* gEngine, Laphony::BasicPhysic::Engine* pEngine, Laphony::Sound::Engine* sndEngine):Speaker(sndEngine), _onGround(false), _rcGroundL(nullptr), _rcGroundC(nullptr), _rcGroundR(nullptr)
 {
+    SetMaxAudibleDistance(800);
     StickOnListener(false);
     Scale({1.2,1.2});
     
@@ -137,8 +138,12 @@ void TestCharacter::Update()
 
 void TestCharacter::Jump()
 {
+    
     if(_onGround)
+    {
+        Play("jump");
         _velocity.y = -15;
+    }
 }
 
 void TestCharacter::Move(bool right)

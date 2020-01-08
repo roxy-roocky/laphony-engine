@@ -16,12 +16,13 @@
 #include "Speaker.h"
 
 #include "Engine.h"
+#include "Sound.h"
 
 namespace Laphony
 {
     namespace Sound
     {
-        Speaker::Speaker(Engine* engine): _engine(engine), _volume(255), _channel(-1), _onListener(true) 
+        Speaker::Speaker(Engine* engine): _engine(engine), _volume(255), _channel(-1), _onListener(true), _maxDistance(255) 
         {
             if(_engine)
             {
@@ -36,6 +37,13 @@ namespace Laphony
             {
                 _engine->_channelsDedicated[_channel] = false;
             }
+        }
+        
+        void Speaker::Play(const std::string& name)
+        {
+            Sound* snd = _engine->_sounds[name];
+            if(!Mix_Playing(_channel))
+                Mix_PlayChannel(_channel,snd->_sound,0);
         }
         
         bool Speaker::IsStickOnListener() const 
@@ -66,7 +74,7 @@ namespace Laphony
             return _maxDistance;
         }
         
-        void Speaker::SetMaxAudibleDistance(uint32_t maxDistance) const 
+        void Speaker::SetMaxAudibleDistance(uint32_t maxDistance) 
         {
             _maxDistance = maxDistance;
         }
@@ -84,15 +92,24 @@ namespace Laphony
                     Point t = Position();
                     
                     double distance = std::sqrt(std::pow(l.x - t.x , 2) + std::pow(l.y - t.y , 2));
-                    distance = (distance/255.0) * _maxDistance;
-                    double angle = std::asin((l.x-t.x)/distance);
                     
-                    Mix_SetPosition(_channel, angle, distance);
+                    double angle = 0;
+                    
+                    if(distance != 0)
+                        angle = (std::asin((l.x-t.x)/distance) / (M_PI)) * 360;
+                    
+                    angle += 180;
+                    
+                    //compute real distance (proportion of maxDistance 
+                    distance = (double)(distance/(double)_maxDistance) * 255.0;
+                    
+                    Mix_SetPosition(_channel, angle, distance < 0 ? 0 : distance > 255 ? 255 : distance);
                     
                     std::cout << "== Speaker pos calculation ==" <<std::endl;
                     std::cout << "Position listener: " << l << std::endl;
                     std::cout << "Position speaker: " << t << std::endl;
                     
+                    std::cout << "RAD! " << std::asin((l.x-t.x)/distance) << std::endl;
                     std::cout << "Angle: " << angle << " Distance: " << distance << std::endl;
                 }
             }

@@ -43,7 +43,7 @@ namespace Laphony
                 bool IsPlaying();
                 
                 uint32_t GetMaxAudibleDistance() const;
-                void SetMaxAudibleDistance(uint32_t maxDistance) const;
+                void SetMaxAudibleDistance(uint32_t maxDistance);
                 
                 virtual void Position(const Point& point) override;
                 virtual Point Position() const override;

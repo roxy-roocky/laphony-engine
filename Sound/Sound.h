@@ -18,6 +18,7 @@
 #include <string>
 
 #include "Engine.h"
+#include "Speaker.h"
 
 namespace Laphony
 {
@@ -26,6 +27,7 @@ namespace Laphony
         class Sound 
         {
             friend Engine;
+            friend Speaker;
             public:
                 Sound(std::string const& file);
                 virtual ~Sound();
