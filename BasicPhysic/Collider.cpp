@@ -12,6 +12,7 @@
  */
 
 #include <vector>
+#include <iostream>
 
 #include "Collider.h"
 
@@ -54,10 +55,10 @@ namespace Laphony
                 
                 Rect newCollider = thisTransCollider + Rect{thisColliderMove.x, thisColliderMove.y, 0, 0};
                 
-                if(newCollider.x + newCollider.w >= otherTranCollider.x && 
-                   newCollider.x <= otherTranCollider.x + otherTranCollider.w &&
-                   newCollider.y + newCollider.h >= otherTranCollider.y && 
-                   newCollider.y <= otherTranCollider.y + otherTranCollider.h)
+                if(newCollider.x + newCollider.w > otherTranCollider.x && 
+                   newCollider.x < otherTranCollider.x + otherTranCollider.w &&
+                   newCollider.y + newCollider.h > otherTranCollider.y && 
+                   newCollider.y < otherTranCollider.y + otherTranCollider.h)
                 {
                     if(thisColliderMove.x >= 0)
                     {
@@ -82,6 +83,8 @@ namespace Laphony
                         //if(tmpDiff.y == 0 || std::abs(diff) <= std::abs(tmpDiff.y))
                             tmpDiff.y += diff;       
                     }
+                    
+                    std::cout << "TmpDiff: " << tmpDiff << std::endl;
                 }
                 else
                     return false;
