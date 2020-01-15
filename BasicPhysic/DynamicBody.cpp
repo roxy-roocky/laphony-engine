@@ -94,7 +94,7 @@ namespace Laphony
             else
                 NoCollision();
             
-            //std::cout << "Move: " << move.x << ";"<< move.y << std::endl;
+           // std::cout << "Move: " << move.x << ";"<< move.y << std::endl;
             Position(Position() + move);
             
             if(move.x != 0)

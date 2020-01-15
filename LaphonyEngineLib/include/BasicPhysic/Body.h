@@ -1,0 +1,64 @@
+/*
+ * This file is a part of the Laphony Engine.
+ * Copyright 2019 Nathan Baumann. All rights reserved.
+ */
+
+/* 
+ * \file   BasicPhysic/Body.h
+ * \author Nathan Baumann
+ *
+ * \date September 6 2019 5:26 PM
+ */
+
+#ifndef BODY_H
+#define BODY_H
+
+#include <vector>
+#include <list>
+#include "../Transformable.h"
+#include "Collider.h"
+
+
+namespace Laphony
+{
+    namespace BasicPhysic
+    {
+        class Collider;
+        class Engine;
+        
+        /**
+         */
+        class Body: public virtual Transformable
+        {
+            public:
+                struct Collision
+                {
+                    Collision();
+                    Collider* collider;
+                    Collider* otherCollider;
+                    Vector2d diff;
+                };
+                
+            public:    
+                ~Body();
+                virtual void PhysicUpdate(Engine* engine) = 0;
+                virtual std::string GetIdentifierString() const = 0;
+                
+                
+                std::list<Collider*>& GetCollidersList();
+                std::vector<Body::Collision>& GetCollisionsList();
+                
+                void SetEnabledCollidersWithTag(const std::string& tag, bool enable);
+   
+            
+            protected:
+
+                std::list<Collider*> _colliders;
+
+                std::vector<Collision> _currentCollisions;
+        };
+    }
+}
+
+#endif /* BODY_H */
+

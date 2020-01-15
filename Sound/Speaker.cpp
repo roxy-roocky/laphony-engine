@@ -105,12 +105,12 @@ namespace Laphony
                     
                     Mix_SetPosition(_channel, angle, distance < 0 ? 0 : distance > 255 ? 255 : distance);
                     
-                    std::cout << "== Speaker pos calculation ==" <<std::endl;
-                    std::cout << "Position listener: " << l << std::endl;
-                    std::cout << "Position speaker: " << t << std::endl;
-                    
-                    std::cout << "RAD! " << std::asin((l.x-t.x)/distance) << std::endl;
-                    std::cout << "Angle: " << angle << " Distance: " << distance << std::endl;
+//                    std::cout << "== Speaker pos calculation ==" <<std::endl;
+//                    std::cout << "Position listener: " << l << std::endl;
+//                    std::cout << "Position speaker: " << t << std::endl;
+//                    
+//                    std::cout << "RAD! " << std::asin((l.x-t.x)/distance) << std::endl;
+//                    std::cout << "Angle: " << angle << " Distance: " << distance << std::endl;
                 }
             }
         }

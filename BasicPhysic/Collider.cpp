@@ -61,27 +61,26 @@ namespace Laphony
                 {
                     if(thisColliderMove.x >= 0)
                     {
-                        tmpDiff.x += otherTranCollider.x - thisTransCollider.x - thisTransCollider.w;
+                        tmpDiff.x = otherTranCollider.x - thisTransCollider.x - thisTransCollider.w;
                     }
 
                     if(thisColliderMove.x <= 0)
                     {
                         double diff = otherTranCollider.x + otherTranCollider.w - thisTransCollider.x;
-                        if(tmpDiff.x == 0 || std::abs(diff) < std::abs(tmpDiff.x))
-                            tmpDiff.x = diff;                 
+                        //if(tmpDiff.x == 0 || std::abs(diff) <= std::abs(tmpDiff.x))
+                            tmpDiff.x += diff;                 
                     }
 
                     if(thisColliderMove.y >= 0)
                     {
                         tmpDiff.y = otherTranCollider.y - thisTransCollider.y - thisTransCollider.h;
-
                     }
 
                     if(thisColliderMove.y <= 0)
                     {
                         double diff = otherTranCollider.y + otherTranCollider.h - thisTransCollider.y;
-                         if(tmpDiff.y == 0 || std::abs(diff) < std::abs(tmpDiff.y))
-                            tmpDiff.y = diff;       
+                        //if(tmpDiff.y == 0 || std::abs(diff) <= std::abs(tmpDiff.y))
+                            tmpDiff.y += diff;       
                     }
                 }
                 else
@@ -91,7 +90,7 @@ namespace Laphony
                     *diffenrence = tmpDiff;
                 
                 
-                return this;
+                return true;
                     
             }
             
