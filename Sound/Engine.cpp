@@ -57,7 +57,6 @@ namespace Laphony
                 Mix_OpenAudio(frequency, MIX_DEFAULT_FORMAT, 2, 1024);
                 
                 Mix_ChannelFinished(ChannelEnd);
-                           
                 
                 wasInit = true;
                 singleton = this;

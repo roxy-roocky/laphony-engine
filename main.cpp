@@ -41,6 +41,7 @@
 #include "Test/TestCounterThread.h"
 #include "Sound/Engine.h"
 #include "Sound/Sound.h"
+#include "Sound/Music.h"
 /*
  * 
  */
@@ -64,8 +65,8 @@ int main(int argc, char** argv)
     Laphony::Events::Engine evEngine(AUTOFREE);
         fEngine.Register(&evEngine);
         
-    Laphony::BasicPhysic::Engine bpEngine;
-        
+    Laphony::BasicPhysic::Engine bpEngine;        
+        fEngine.Register(&bpEngine);
     
     Laphony::Graphics::BasicText vtFps("FPS", {300,0}, 1.2, true);
     vtFps.SetPivot({0,0});
@@ -145,17 +146,18 @@ int main(int argc, char** argv)
     
     Laphony::Sound::Sound sndJump("Test/res/snd.wav");
     sndEngine.Register("jump",&sndJump);
+    
+    Laphony::Sound::Music music("Test/res/music.ogg");
+    sndEngine.Register("Test",&music);
+    
+    sndEngine.PlayMusic("Test");
 
 
     gEngine.Register(&character);
     fEngine.Register(&character,true);
     bpEngine.Register(&character);
     
-    //TestCounterThread counterThread;
-    //thEngine.Register(&counterThread);
-    
-    //Must be the last
-    fEngine.Register(&bpEngine);
+
         
     int lastFPS = 0;
     

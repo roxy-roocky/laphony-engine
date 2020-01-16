@@ -84,7 +84,7 @@ namespace Laphony
                             tmpDiff.y += diff;       
                     }
                     
-                    std::cout << "TmpDiff: " << tmpDiff << std::endl;
+                    //std::cout << "TmpDiff: " << tmpDiff << std::endl;
                 }
                 else
                     return false;

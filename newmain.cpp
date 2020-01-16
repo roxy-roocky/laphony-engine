@@ -31,23 +31,24 @@ int main(int argc, char** argv)
     fEngine.Register(&gEngine);
     fEngine.Register(&evEngine);
     
-    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
+    Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 1024);
     Mix_AllocateChannels(32);
     
-    Mix_Chunk* snd1 = Mix_LoadWAV("snd.wav");
+    Mix_SetSoundFonts("Test/res/8bitsf.SF2");
+    Mix_Music* music = Mix_LoadMUS("Test/res/midi.mid");
     
-    int channel = Mix_PlayChannel(-1, snd1, -1);
+    std::cerr << Mix_GetError() << std::endl;
     
-    Sint16 angle = 0;
+    Mix_PlayMusic(music, 1);
 
     while(!evEngine.AppQuit())
     {
         fEngine.Update(true);
         
-        Mix_SetPosition(channel,angle++,0);
+
     }
     
-    Mix_FreeChunk(snd1);
+    Mix_FreeMusic(music);
     
     Mix_CloseAudio();
     

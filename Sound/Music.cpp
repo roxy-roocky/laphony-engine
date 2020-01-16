@@ -14,6 +14,8 @@
 #include "Music.h"
 #include "Sound.h"
 
+#include <iostream>
+
 namespace Laphony
 {
     namespace Sound
@@ -21,7 +23,12 @@ namespace Laphony
         uint8_t Music::volume = 255;
         
         Music::Music(std::string const& file): _music(Mix_LoadMUS(file.c_str()))
-        {}
+        {
+            if(!_music)
+            {
+                std::cerr << "Music file \"" << file << "\" load error: " << Mix_GetError() << std::endl;
+            }
+        }
         
         Music::~Music()
         {
