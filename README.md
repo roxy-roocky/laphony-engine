@@ -1,9 +1,16 @@
-# LaphonyEngine
+# LaphonyEngine Alpha V1.0.0
 The Laphony engine is a 2D game engine coded in C++, which use the library SDL2.
+
+This is a basic 2D game engine who support 2D in multi graphic accelerated windows, multi channel sound and one channel stream, controllers and basic rects collision.
+It's a personal challenge so it is not destined to big/merchandised projects but you maybe meet it in a few game jams :).
+
+Big kiss :*
+
+Nathan
 
 ---------
  
-# TODO
+# Capabilities and TODO
 ## BasicPhysic
 - [x] Collider (box)
 - [x] Static bodies

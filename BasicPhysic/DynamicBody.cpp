@@ -21,6 +21,8 @@ namespace Laphony
 {
     namespace BasicPhysic
     {
+        DynamicBody::DynamicBody(): _velocity{0,0}{}
+        
         void DynamicBody::PhysicUpdate(Engine* engine)
         {
             if(!engine)
@@ -59,7 +61,7 @@ namespace Laphony
                 }
             
 
-            Point move = {0,0};
+            Vector2d move = {0,0};
             //Manage collisions
             if(_currentCollisions.size() > 0)
             {

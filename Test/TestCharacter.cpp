@@ -68,6 +68,12 @@ bool TestCharacter::ManageCollision(const Collision& collision)
                
             }
         }
+        
+        if(collision.otherCollider->GetParentBody()->GetIdentifierString() == "moving")
+        {
+            
+            return false;
+        }
     }
     
     return true;

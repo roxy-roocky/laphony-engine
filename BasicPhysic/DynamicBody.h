@@ -27,6 +27,8 @@ namespace Laphony
         class DynamicBody: public virtual Body
         {
             public:
+                DynamicBody();
+                
                 virtual void PhysicUpdate(Engine* engine) override;
                
                 virtual std::string GetIdentifierString() const = 0;

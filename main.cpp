@@ -42,6 +42,7 @@
 #include "Sound/Engine.h"
 #include "Sound/Sound.h"
 #include "Sound/Music.h"
+#include "Test/TestMovingSquare.h"
 /*
  * 
  */
@@ -157,7 +158,11 @@ int main(int argc, char** argv)
     fEngine.Register(&character,true);
     bpEngine.Register(&character);
     
-
+    TestMovingSquare mvSq;
+    gEngine.Register(&mvSq);
+    bpEngine.Register(&mvSq);
+    
+    
         
     int lastFPS = 0;
     
@@ -176,6 +181,8 @@ int main(int argc, char** argv)
             //std::cout << vtFps.Text() << std::endl;
             lastFPS = fEngine.LastFPS();
         }
+        
+        mvSq.Position(evEngine.GetMousePosition());
  
         //counterThread.Print();
         
