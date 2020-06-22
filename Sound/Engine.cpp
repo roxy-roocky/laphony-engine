@@ -53,7 +53,7 @@ namespace Laphony
         {
             if(!wasInit)
             {
-                Mix_Init(MIX_INIT_MP3|MIX_INIT_OGG|MIX_INIT_FLAC|MIX_INIT_FLUIDSYNTH);
+                Mix_Init(MIX_INIT_MP3|MIX_INIT_OGG|MIX_INIT_FLAC);
                 Mix_OpenAudio(frequency, MIX_DEFAULT_FORMAT, 2, 1024);
                 
                 Mix_ChannelFinished(ChannelEnd);
