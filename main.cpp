@@ -136,7 +136,7 @@ int main(int argc, char** argv)
     }
     
     
-    Laphony::Frames::ThreadEngine thEngine(1, "Laphony->Test");
+    //Laphony::Frames::ThreadEngine thEngine(1, "Laphony->Test");
     
     Laphony::Sound::Engine sndEngine;
     sndEngine.SetListener(&vtFps);

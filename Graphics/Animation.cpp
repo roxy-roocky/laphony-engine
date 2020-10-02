@@ -147,6 +147,18 @@ namespace Laphony
             if(_currentFrame < _frames.size())
                 return _frames[_currentFrame].rect;
         }
+        
+        std::vector<Animation::Frame>& Animation::GetFrames()
+        {
+            if(i < _frames.size())
+            {
+                return &_frames[i];
+            }
+            
+            return nullptr;
+        }
     }
 }
+
+
 

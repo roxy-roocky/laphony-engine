@@ -167,9 +167,10 @@ namespace Laphony
         
         int Engine::GetValueOf(std::string name) const
         {
-            //std::transform(name.begin(), name.end(), name.begin(), ::tolower);
-            if(_map.count(name))
+            if(_map.count(name) > 0 && _map.at(name))
                 return _map.at(name)->Value();
+            else
+                return 0;
         }
 
         Point Engine::GetMousePosition() const 

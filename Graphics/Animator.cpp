@@ -144,8 +144,6 @@ namespace Laphony
                 
                 static_cast<Transformable*>(_currentAnimationPtr)->operator=(oldAnimTransform);
             }
-            
-            filledCircleRGBA(engine->Renderer(), Position().x, Position().y, 3, 255,0,0, 255);
         }
     }
 }

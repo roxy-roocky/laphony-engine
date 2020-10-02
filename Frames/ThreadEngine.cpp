@@ -88,6 +88,7 @@ namespace Laphony
             _ticksBegin = Engine::Millis();
 
         }
+           
         
         int ThreadEngine::LastFPS() const 
         {
@@ -110,6 +111,8 @@ namespace Laphony
                engine->Update();
                SDL_mutexP(engine->_mutex); 
             }
+            
+            SDL_mutexV(engine->_mutex); 
         }
     }
 }

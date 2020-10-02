@@ -69,6 +69,7 @@ namespace Laphony
         _scale.x *= t._scale.x;
         _scale.y *= t._scale.y;
         
+        return *this;
     }
    
 }

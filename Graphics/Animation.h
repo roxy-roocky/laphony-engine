@@ -103,6 +103,8 @@ namespace Laphony
                 
                 Rect GetCurrentRect() const;
                 
+                std::vector<Frame>& GetFrames();
+                
             private:
                 
                 bool Forward();

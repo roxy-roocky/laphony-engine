@@ -22,7 +22,7 @@ namespace Laphony
     
     Rect operator*(Rect const& r, double d)
     {
-        return Rect{std::round(r.x * d), std::round(r.y * d), std::round(r.w * d), std::round(r.h * d)};
+        return Rect{r.x * d, r.y * d, r.w * d, r.h * d};
     }
     
     
@@ -38,7 +38,7 @@ namespace Laphony
     
     Vector2d operator*(Vector2d const& p, double d)
     {
-        return Vector2d{std::round(p.x * d), std::round(p.y * d)};
+        return Vector2d{p.x * d, p.y * d};
     }
     
     bool PointInRect(Point const& point, Rect const& rect)
@@ -49,5 +49,7 @@ namespace Laphony
     std::ostream& operator <<(std::ostream& out, const Vector2d& v)
     {
         out << "(" << v.x << ";" << v.y << ")";;
+        
+        return out;
     }
 }
