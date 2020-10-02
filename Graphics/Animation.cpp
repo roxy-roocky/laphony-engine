@@ -150,12 +150,7 @@ namespace Laphony
         
         std::vector<Animation::Frame>& Animation::GetFrames()
         {
-            if(i < _frames.size())
-            {
-                return &_frames[i];
-            }
-            
-            return nullptr;
+            return _frames;
         }
     }
 }
