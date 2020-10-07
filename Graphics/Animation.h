@@ -28,7 +28,7 @@ namespace Laphony
             /**
              * \brief A frame of the animation
              */
-            struct Frame
+            public: struct Frame
             {
                 /**
                  * \brief The rect from the image

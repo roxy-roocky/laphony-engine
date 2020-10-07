@@ -61,10 +61,6 @@ namespace Laphony
         {
             
             Rect camera = _engine->Camera();
-            SDL_Rect realRect = {std::round(rect.x), std::round(rect.y), std::abs(std::round(rect.w)), std::abs(std::round(rect.h))};
-            
-            realRect.x -= camera.x;
-            realRect.y -= camera.y;
             
             if(pivot.x < 0)
             {
@@ -72,8 +68,11 @@ namespace Laphony
                 pivot.y = std::abs(rect.h)/2;
             }
             
-            realRect.x -=  pivot.x;
-            realRect.y -= pivot.y;
+            SDL_Rect realRect = {std::round(rect.x - pivot.x), std::round(rect.y - pivot.y), std::abs(std::round(rect.w)), std::abs(std::round(rect.h))};
+            
+            realRect.x -= camera.x;
+            realRect.y -= camera.y;
+
             
             SDL_RendererFlip flip = static_cast<SDL_RendererFlip>((rect.w < 0 ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE) | (rect.h < 0 ? SDL_FLIP_VERTICAL : SDL_FLIP_NONE));
             

@@ -66,7 +66,7 @@ namespace Laphony
                 void Unregister(Updatable* updatable);
                 
                 /**
-                 * Retrive the frames count of the last second
+                 * Retrieve the frames count of the last second
                  * @return 
                  */
                 int LastFPS() const;

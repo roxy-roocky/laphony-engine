@@ -59,6 +59,20 @@ namespace Laphony
                 void Register(Displayable* displayable,  bool foreground = false);
                 void Unregister(Displayable* displayable);
                 
+                /**
+                 * Transform point from screen to viewport dimension
+                 * @param p The point from screen
+                 * @return The corresponding point in viewport dimension
+                 */
+                Point ScreenToViewport(Point const& p) const;
+                
+                /**
+                 * Transform point from viewport to screen dimension
+                 * @param p The point from viewport
+                 * @return The corresponding point in screen dimension
+                 */
+                Point ViewportToScreen(Point const& p) const;
+                
             private:
                 SDL_Window* _window;
                 SDL_Renderer* _renderer;

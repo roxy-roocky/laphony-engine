@@ -15,6 +15,8 @@
 #include "Surface.h"
 #include "Displayable.h"
 
+#include <cmath>
+
 namespace Laphony
 {
     namespace Graphics
@@ -127,6 +129,27 @@ namespace Laphony
                     d->Display(this);
             
             Refresh();
+        }
+        
+
+        Point Engine::ScreenToViewport(Point const& p) const
+        {
+            SDL_Rect vp;
+            int ox, oy;
+            SDL_RenderGetViewport(_renderer, &vp);
+            SDL_GetRendererOutputSize(_renderer, &ox, &oy);
+            
+            return {p.x/(ox/vp.w) - vp.x, p.y/(oy/vp.h) - vp.y};
+        }
+
+        Point Engine::ViewportToScreen(Point const& p) const
+        {
+            SDL_Rect vp;
+            int ox, oy;
+            SDL_RenderGetViewport(_renderer, &vp);
+            SDL_GetRendererOutputSize(_renderer, &ox, &oy);
+            
+            return {p.x*(ox/vp.w) + vp.x, p.y*(oy/vp.h) + vp.y};
         }
 
     }
