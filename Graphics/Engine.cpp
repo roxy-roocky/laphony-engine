@@ -49,7 +49,12 @@ namespace Laphony
             //SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY,"1");
             
             if(fixedSize)
+            {
                 SDL_RenderSetLogicalSize(_renderer, w, h);
+                SDL_RenderSetIntegerScale(_renderer, SDL_TRUE);
+            }
+            
+            
         }
 
 
