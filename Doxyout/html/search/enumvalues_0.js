@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['joy_5faxis',['JOY_AXIS',['../class_laphony_1_1_events_1_1_control.html#a4aea1f87aa36f9157f2ce114a14537a7a82f4dfaa99c6531218bf8596812d4734',1,'Laphony::Events::Control']]],
-  ['joy_5fballaxis',['JOY_BALLAXIS',['../class_laphony_1_1_events_1_1_control.html#a4aea1f87aa36f9157f2ce114a14537a7a2b206bd142fadfd701fdf04ccd92671b',1,'Laphony::Events::Control']]],
-  ['joy_5fbutton',['JOY_BUTTON',['../class_laphony_1_1_events_1_1_control.html#a4aea1f87aa36f9157f2ce114a14537a7af0e5bb04bc3a0a2e35cf7946b14f4252',1,'Laphony::Events::Control']]],
-  ['joy_5fhat',['JOY_HAT',['../class_laphony_1_1_events_1_1_control.html#a4aea1f87aa36f9157f2ce114a14537a7a1e8d066b253d242fd0ff9eb2cfc851ec',1,'Laphony::Events::Control']]]
+  ['joy_5faxis_176',['JOY_AXIS',['../class_laphony_1_1_events_1_1_control.html#a4aea1f87aa36f9157f2ce114a14537a7acf408768007e97b53f9e57cc4c547c77',1,'Laphony::Events::Control']]],
+  ['joy_5fballaxis_177',['JOY_BALLAXIS',['../class_laphony_1_1_events_1_1_control.html#a4aea1f87aa36f9157f2ce114a14537a7ad0da4d9ad6112f41d28ed68d74e14841',1,'Laphony::Events::Control']]],
+  ['joy_5fbutton_178',['JOY_BUTTON',['../class_laphony_1_1_events_1_1_control.html#a4aea1f87aa36f9157f2ce114a14537a7abd543645681c121b6f112e21d2d6e8b7',1,'Laphony::Events::Control']]],
+  ['joy_5fhat_179',['JOY_HAT',['../class_laphony_1_1_events_1_1_control.html#a4aea1f87aa36f9157f2ce114a14537a7ad2b876ef193df41dc1ea5b8a0ad61a48',1,'Laphony::Events::Control']]]
 ];

@@ -1,6 +1,5 @@
 var hierarchy =
 [
-    [ "Laphony::Application", "class_laphony_1_1_application.html", null ],
     [ "Laphony::BasicPhysic::Collider", "class_laphony_1_1_basic_physic_1_1_collider.html", null ],
     [ "Laphony::BasicPhysic::Body::Collision", "struct_laphony_1_1_basic_physic_1_1_body_1_1_collision.html", null ],
     [ "Laphony::Events::Control", "class_laphony_1_1_events_1_1_control.html", [
@@ -24,14 +23,15 @@ var hierarchy =
         [ "TestGround", "class_test_ground.html", null ],
         [ "TestRectangle", "class_test_rectangle.html", null ]
       ] ],
-      [ "Slope", "class_slope.html", null ]
+      [ "Slope", "class_slope.html", null ],
+      [ "TestMovingSquare", "class_test_moving_square.html", null ]
     ] ],
     [ "Laphony::Frames::Engine", "class_laphony_1_1_frames_1_1_engine.html", null ],
     [ "Laphony::Sound::Engine", "class_laphony_1_1_sound_1_1_engine.html", null ],
+    [ "Laphony::Graphics::Animation::Frame", "struct_laphony_1_1_graphics_1_1_animation_1_1_frame.html", null ],
     [ "Laphony::Events::Engine::JoyInfo", "struct_laphony_1_1_events_1_1_engine_1_1_joy_info.html", null ],
-    [ "Module", "class_module.html", null ],
     [ "Laphony::Sound::Music", "class_laphony_1_1_sound_1_1_music.html", null ],
-    [ "Laphony::Point", "struct_laphony_1_1_point.html", null ],
+    [ "Point", "struct_laphony_1_1_point.html", null ],
     [ "Laphony::BasicPhysic::Raycast", "class_laphony_1_1_basic_physic_1_1_raycast.html", null ],
     [ "Laphony::Rect", "struct_laphony_1_1_rect.html", null ],
     [ "Laphony::Sound::Sound", "class_laphony_1_1_sound_1_1_sound.html", null ],
@@ -40,7 +40,8 @@ var hierarchy =
     [ "Laphony::Transformable", "class_laphony_1_1_transformable.html", [
       [ "Laphony::BasicPhysic::Body", "class_laphony_1_1_basic_physic_1_1_body.html", [
         [ "Laphony::BasicPhysic::DynamicBody", "class_laphony_1_1_basic_physic_1_1_dynamic_body.html", [
-          [ "TestCharacter", "class_test_character.html", null ]
+          [ "TestCharacter", "class_test_character.html", null ],
+          [ "TestMovingSquare", "class_test_moving_square.html", null ]
         ] ],
         [ "Laphony::BasicPhysic::StaticBody", "class_laphony_1_1_basic_physic_1_1_static_body.html", [
           [ "Slope", "class_slope.html", null ],

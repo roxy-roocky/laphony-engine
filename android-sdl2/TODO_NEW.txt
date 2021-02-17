@@ -1,0 +1,10 @@
+- Change app identifier (org.libsdl.app) in:
+	- ./Makefile-Android.mk
+	- ./app/build.gradle
+	- ./app/src/main/AndroidManifest.xml
+
+- App permissions in:
+	- ./app/src/main/AndroidManifest.xml
+
+- App name in:
+	- ./app/src/main/res/values/strings.xml

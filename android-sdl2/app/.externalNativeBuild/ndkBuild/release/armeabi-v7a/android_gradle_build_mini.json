@@ -1,0 +1,17 @@
+{
+  "buildFiles": [
+    "/home/nathan/Documents/NetBeansProjects/LaphonyEngine/android-sdl2/app/jni/Android.mk",
+    "/home/nathan/Documents/NetBeansProjects/LaphonyEngine/android-sdl2/app/jni/Application.mk"
+  ],
+  "cleanCommands": [
+    "/opt/programs/android-ndk/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/home/nathan/Documents/NetBeansProjects/LaphonyEngine/android-sdl2/app/jni/Android.mk NDK_APPLICATION_MK\u003d/home/nathan/Documents/NetBeansProjects/LaphonyEngine/android-sdl2/app/jni/Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-16 NDK_OUT\u003d/home/nathan/Documents/NetBeansProjects/LaphonyEngine/android-sdl2/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003d/home/nathan/Documents/NetBeansProjects/LaphonyEngine/android-sdl2/app/build/intermediates/ndkBuild/release/lib APP_PLATFORM\u003dandroid-16 clean"
+  ],
+  "libraries": {
+    "main-release-armeabi-v7a": {
+      "artifactName": "main",
+      "buildCommand": "/opt/programs/android-ndk/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/home/nathan/Documents/NetBeansProjects/LaphonyEngine/android-sdl2/app/jni/Android.mk NDK_APPLICATION_MK\u003d/home/nathan/Documents/NetBeansProjects/LaphonyEngine/android-sdl2/app/jni/Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-16 NDK_OUT\u003d/home/nathan/Documents/NetBeansProjects/LaphonyEngine/android-sdl2/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003d/home/nathan/Documents/NetBeansProjects/LaphonyEngine/android-sdl2/app/build/intermediates/ndkBuild/release/lib APP_PLATFORM\u003dandroid-16 /home/nathan/Documents/NetBeansProjects/LaphonyEngine/android-sdl2/app/build/intermediates/ndkBuild/release/obj/local/armeabi-v7a/libmain.so",
+      "abi": "armeabi-v7a",
+      "output": "/home/nathan/Documents/NetBeansProjects/LaphonyEngine/android-sdl2/app/build/intermediates/ndkBuild/release/obj/local/armeabi-v7a/libmain.so"
+    }
+  }
+}

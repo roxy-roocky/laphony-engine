@@ -1,12 +1,8 @@
 var searchData=
 [
-  ['scale',['Scale',['../class_laphony_1_1_transformable.html#aca641e16b4c118bd62b9f2fcaa9e496b',1,'Laphony::Transformable::Scale() const '],['../class_laphony_1_1_transformable.html#a0b0398754208e1603ea2f58eb3f2e96d',1,'Laphony::Transformable::Scale(Vector2d const &amp;scale)']]],
-  ['slope',['Slope',['../class_slope.html',1,'']]],
-  ['sound',['Sound',['../class_laphony_1_1_sound_1_1_sound.html',1,'Laphony::Sound']]],
-  ['speaker',['Speaker',['../class_laphony_1_1_sound_1_1_speaker.html',1,'Laphony::Sound']]],
-  ['speed',['Speed',['../class_laphony_1_1_graphics_1_1_animation.html#aa9f4ec07139a6c270664894ae5012f15',1,'Laphony::Graphics::Animation::Speed() const '],['../class_laphony_1_1_graphics_1_1_animation.html#a320f696a5ca7260a7dd00e9db4ef4bc0',1,'Laphony::Graphics::Animation::Speed(double speed)']]],
-  ['staticbody',['StaticBody',['../class_laphony_1_1_basic_physic_1_1_static_body.html',1,'Laphony::BasicPhysic']]],
-  ['structs_2eh',['Structs.h',['../_structs_8h.html',1,'']]],
-  ['surface',['Surface',['../class_laphony_1_1_graphics_1_1_surface.html',1,'Laphony::Graphics']]],
-  ['surface_2eh',['Surface.h',['../_surface_8h.html',1,'']]]
+  ['raycast_53',['Raycast',['../class_laphony_1_1_basic_physic_1_1_raycast.html',1,'Laphony::BasicPhysic']]],
+  ['rect_54',['Rect',['../struct_laphony_1_1_rect.html',1,'Laphony::Rect'],['../struct_laphony_1_1_graphics_1_1_animation_1_1_frame.html#af92bad05fd7139aab78d11836252dd1c',1,'Laphony::Graphics::Animation::Frame::rect()']]],
+  ['register_55',['Register',['../class_laphony_1_1_events_1_1_engine.html#a6a192943fd31baec0e2a4c0e6ff67919',1,'Laphony::Events::Engine::Register()'],['../class_laphony_1_1_frames_1_1_engine.html#a6c3f208e8316ca565c0d212a828637ad',1,'Laphony::Frames::Engine::Register()'],['../class_laphony_1_1_frames_1_1_thread_engine.html#ab77108f6934835d4faebbd5ae7a28fc1',1,'Laphony::Frames::ThreadEngine::Register()'],['../class_laphony_1_1_graphics_1_1_animator.html#a5638ae8e56eda248d6a31d9aa12b0848',1,'Laphony::Graphics::Animator::Register()'],['../class_laphony_1_1_events_1_1_engine.html#a6a192943fd31baec0e2a4c0e6ff67919',1,'Laphony::Events::Engine::Register()'],['../class_laphony_1_1_frames_1_1_engine.html#a6c3f208e8316ca565c0d212a828637ad',1,'Laphony::Frames::Engine::Register()'],['../class_laphony_1_1_frames_1_1_thread_engine.html#ab77108f6934835d4faebbd5ae7a28fc1',1,'Laphony::Frames::ThreadEngine::Register()'],['../class_laphony_1_1_graphics_1_1_animator.html#a5638ae8e56eda248d6a31d9aa12b0848',1,'Laphony::Graphics::Animator::Register()']]],
+  ['reverseplay_56',['ReversePlay',['../class_laphony_1_1_graphics_1_1_animation.html#a222917461db7e97f69944ff8e48b6573',1,'Laphony::Graphics::Animation::ReversePlay() const'],['../class_laphony_1_1_graphics_1_1_animation.html#a41b31cd71fe4f8a2c349a1f146448b11',1,'Laphony::Graphics::Animation::ReversePlay(bool reverse)'],['../class_laphony_1_1_graphics_1_1_animation.html#a222917461db7e97f69944ff8e48b6573',1,'Laphony::Graphics::Animation::ReversePlay() const'],['../class_laphony_1_1_graphics_1_1_animation.html#a41b31cd71fe4f8a2c349a1f146448b11',1,'Laphony::Graphics::Animation::ReversePlay(bool reverse)']]],
+  ['rewind_57',['Rewind',['../class_laphony_1_1_graphics_1_1_animation.html#ae9e8a87af994de46234b32feec0d6984',1,'Laphony::Graphics::Animation::Rewind()'],['../class_laphony_1_1_graphics_1_1_animation.html#ae9e8a87af994de46234b32feec0d6984',1,'Laphony::Graphics::Animation::Rewind()']]]
 ];

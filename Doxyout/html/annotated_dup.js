@@ -27,17 +27,16 @@ var annotated_dup =
         [ "Sound", "class_laphony_1_1_sound_1_1_sound.html", "class_laphony_1_1_sound_1_1_sound" ],
         [ "Speaker", "class_laphony_1_1_sound_1_1_speaker.html", "class_laphony_1_1_sound_1_1_speaker" ]
       ] ],
-      [ "Application", "class_laphony_1_1_application.html", "class_laphony_1_1_application" ],
-      [ "Point", "struct_laphony_1_1_point.html", null ],
       [ "Rect", "struct_laphony_1_1_rect.html", "struct_laphony_1_1_rect" ],
       [ "Transformable", "class_laphony_1_1_transformable.html", "class_laphony_1_1_transformable" ],
       [ "Vector2d", "struct_laphony_1_1_vector2d.html", "struct_laphony_1_1_vector2d" ]
     ] ],
-    [ "Module", "class_module.html", "class_module" ],
+    [ "Point", "struct_laphony_1_1_point.html", null ],
     [ "Slope", "class_slope.html", "class_slope" ],
     [ "TestCharacter", "class_test_character.html", "class_test_character" ],
     [ "TestCounterThread", "class_test_counter_thread.html", "class_test_counter_thread" ],
     [ "TestGround", "class_test_ground.html", "class_test_ground" ],
+    [ "TestMovingSquare", "class_test_moving_square.html", "class_test_moving_square" ],
     [ "TestRectangle", "class_test_rectangle.html", "class_test_rectangle" ],
     [ "TestText", "class_test_text.html", "class_test_text" ]
 ];
