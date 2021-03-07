@@ -11,6 +11,7 @@
  */
 
 #include <SDL2/SDL_image.h>
+#include <queue>
 
 #include "Engine.h"
 #include "MouseButtonControl.h"
@@ -56,13 +57,36 @@ namespace Laphony
         void Engine::Update()
         {
             SDL_Event event;
-            while(SDL_PollEvent(&event));
-            
-            _appQuit = (event.type == SDL_QUIT);
-            
+            while(SDL_PollEvent(&event))
+            {
+                _appQuit = (event.type == SDL_QUIT);
+
+                /*General event*/
+                switch(event.type)
+                {
+                    case SDL_FINGERDOWN:
+                    case SDL_FINGERUP:
+                    case SDL_FINGERMOTION:
+
+                    FingerInfo info;
+                    info.type = (event.type == SDL_FINGERDOWN ? TouchEventType::DOWN : (event.type == SDL_FINGERUP ? TouchEventType::UP : TouchEventType::MOTION));
+                    info.fingerID = event.tfinger.fingerId;
+                    info.screenID = event.tfinger.touchId;
+                    info.dx = event.tfinger.dx;
+                    info.dy = event.tfinger.dy;
+                    info.pressure = event.tfinger.pressure;
+                    info.timestamp = event.tfinger.timestamp;
+                    info.x = event.tfinger.x;
+                    info.y = event.tfinger.y;
+
+                    _fingers[info.fingerID].push(info);   
+
+                    break;
+                }
+            }
+        
             const Uint8* keys = SDL_GetKeyboardState(nullptr);
             Uint32 mouseButtons = SDL_GetMouseState(nullptr, nullptr);
-            
             
             for(std::pair<std::string, Control*> entry : _map)
                 if(entry.second)
@@ -201,7 +225,7 @@ namespace Laphony
                             SDL_HapticClose(joy.haptic);
                             
                             joy.joy = SDL_JoystickOpen(i);
-                            std::cout << "Events: Reopen Joystick with id " << joy.id << std::endl;
+                            SDL_Log("Events: Reopen Joystick with id %ld", joy.id);
                             
                             InitJoystickHaptic(&joy);
                         }
@@ -218,7 +242,7 @@ namespace Laphony
                         
                         _currentJoyID++;                
                         
-                        std::cout << "Events: Detect new Joystick with id " << newJoy.id << std::endl;
+                        SDL_Log("Events: Detect new Joystick with %ld", newJoy.id);
                         
                         InitJoystickHaptic(&newJoy);                        
                         
@@ -244,6 +268,7 @@ namespace Laphony
                 std::cout << "Events: Joystick " << joy->id << " doesn't have feedback force (haptic): " << SDL_GetError() << std::endl;
         }
         
+        
         Engine::JoyInfo* Engine::GetJoystickInfo(int id)
         {
             if(id < _joysticks.size())
@@ -257,8 +282,52 @@ namespace Laphony
             if(JoyInfo* joy = GetJoystickInfo(id))
             {
                 if (SDL_HapticRumblePlay(joy->haptic, strength, duration ) != 0)
+                {
                     std::cout << "Events: Joystick " << joy->id << " rumble error: " << SDL_GetError() << std::endl;
+                }
             }
+        }
+        
+        Engine::FingerInfo Engine::PollTouchEvent()
+        {
+            int32_t timestamp = INT32_MAX;
+            
+            FingerInfo fi;//Create an invalid FingerInfo; Returns it if no events found
+            fi.type = NONE;
+            
+            int64_t selectedFinger = -1;//Use for pop the returned element.
+            
+            for(const std::pair<int64_t, std::queue<FingerInfo>> &f: _fingers)
+            {
+                if(f.second.size() > 0 && f.second.front().timestamp < timestamp)
+                {
+                    fi = f.second.front();
+                    timestamp = fi.timestamp;
+                    selectedFinger = f.first;
+                }
+            }
+            
+            if(selectedFinger >= 0)
+            {
+                _fingers[selectedFinger].pop();
+            }
+            
+            return fi;
+        }
+        
+        Engine::FingerInfo Engine::PollTouchEvent(int64_t fingerId)
+        {
+            std::map<int64_t, std::queue<FingerInfo>>::iterator it = _fingers.find(fingerId);
+            FingerInfo fi;//Create an invalid FingerInfo; Returns it if no events found
+            fi.type = NONE;
+            
+            if(it != _fingers.end())
+            {
+                fi = it->second.front();
+                it->second.pop();
+            }
+            
+            return fi;
         }
         
     }

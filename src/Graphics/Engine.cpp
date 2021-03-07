@@ -12,8 +12,9 @@
 
 #include "Engine.h"
 
-#include "Surface.h"
 #include "Displayable.h"
+
+#include "BasicText.h"
 
 #include <cmath>
 
@@ -55,20 +56,6 @@ namespace Laphony
             }
             
             
-        }
-
-
-        Surface* Engine::CreateSurface(const std::string& filename) 
-        {
-            return new Surface(this, IMG_Load(filename.c_str()));
-        }
-
-
-        Surface* Engine::CreateSurface(int w, int h, const Color& color)
-        {
-            SDL_Surface* surface = SDL_CreateRGBSurface(0, w, h, 32, 0,0,0,0);
-            SDL_FillRect(surface, nullptr, SDL_MapRGB(surface->format, color.r, color.g, color.b));
-            return new Surface(this, surface);
         }
 
 
@@ -127,7 +114,7 @@ namespace Laphony
         
         void Engine::Update()
         {
-            Clear();
+           Clear();
             
             for(Displayable* d: _displayables)
                 if(d && d->Visible())

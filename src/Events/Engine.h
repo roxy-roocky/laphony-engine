@@ -27,6 +27,7 @@
 #include <string>
 #include <algorithm>
 #include <vector>
+#include <queue>
 
 namespace Laphony
 {
@@ -37,12 +38,31 @@ namespace Laphony
          */
         class Engine: public virtual Frames::Updatable
         {
+            //TODO: Make types neutral from SDL
             public: struct JoyInfo
             {
                 SDL_JoystickGUID guid;
                 SDL_Joystick* joy;
                 int id;
                 SDL_Haptic* haptic;
+            };
+            
+            public: enum TouchEventType
+            {
+                NONE = 0,
+                DOWN,
+                MOTION,
+                UP
+            };
+            
+            public: struct FingerInfo
+            {
+                int64_t screenID;
+                int64_t fingerID;
+                float x, y, dx, dy;
+                TouchEventType type;
+                int32_t timestamp;
+                float pressure;
             };
                 
             public:
@@ -94,16 +114,7 @@ namespace Laphony
                  * This method does not depend from the engine update. The position in query when the method is called.
                  */
                 Point GetMousePosition() const;
-                
-                /**
-                 * \brief Get the last detected event
-                 * @param controlType Specify event types to scan
-                 * @return A pointer to the control
-                 * 
-                 * This method does not depend from the engine update. The scan occured when called.
-                 */
-                Control* GetLastEvent(int controlType);
-                
+   
                 /**
                  * \brief Get informations about joystick from id
                  * @param id ID of the joystick you want informations
@@ -112,17 +123,25 @@ namespace Laphony
                 JoyInfo* GetJoystickInfo(int id);
                 
                 
-                //HAPTICS
+                /**
+                 * \brief Play rumble on joystick
+                 * @param id ID of the joystick you want to rumble
+                 * @param strength The strength of the rumble
+                 * @param strength The duration of the rumble
+                 */
                 void PlayRumbleJoystick(int id, float strength, int duration);
+                
+                FingerInfo PollTouchEvent();
+                FingerInfo PollTouchEvent(int64_t fingerId);
                 
             private:
                 //Common
                 std::map<std::string, Control*> _map;
                 bool _autoFree, _appQuit;
                 
-                
-                
                 std::vector<JoyInfo> _joysticks;
+                
+                std::map<int64_t, std::queue<FingerInfo>> _fingers;
                 
                 int _currentJoyID;
                 

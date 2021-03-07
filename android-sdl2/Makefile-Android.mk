@@ -59,8 +59,8 @@ build:
 clean: 
 	./gradlew clean
 	
-	
-install:
+
+install: 
 	./gradlew installDebug
 	
 	

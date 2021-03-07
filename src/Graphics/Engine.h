@@ -29,7 +29,6 @@ namespace Laphony
 {
     namespace Graphics
     {
-        class Surface;
         class Displayable;
 
         typedef SDL_Color Color;
@@ -41,9 +40,6 @@ namespace Laphony
                 Engine(std::string const& title, int w, int h, bool resizable, bool fixedSize);
                 Engine(std::string const& title, int w, int h, bool resizable, bool fixedSize, Rect const& camera);
                 virtual ~Engine();
-
-                Surface* CreateSurface(std::string const& filename);
-                Surface* CreateSurface(int w, int h, Color const& color);
 
                 void Refresh();
                 void Clear();
@@ -73,7 +69,7 @@ namespace Laphony
                  */
                 Point ViewportToScreen(Point const& p) const;
                 
-            private:
+            private:                
                 SDL_Window* _window;
                 SDL_Renderer* _renderer;
                 

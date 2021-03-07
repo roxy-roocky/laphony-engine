@@ -4,7 +4,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := main
 	
-LOCAL_CFLAGS += -frtti
+LOCAL_CFLAGS += -frtti -DANDROID
 LOCAL_CPP_FEATURES += exceptions
 
 # START_SRC FILES

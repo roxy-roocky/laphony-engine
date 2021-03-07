@@ -13,9 +13,9 @@
 #ifndef IMAGE_H
 #define IMAGE_H
 
-#include "Surface.h"
-
 #include "../Transformable.h"
+
+#include "./Engine.h"
 
 namespace Laphony
 {
@@ -23,7 +23,29 @@ namespace Laphony
     {
         class Image: public virtual Displayable, public virtual Transformable
         {
-            //TODO: std::map<SDL_Texture*> for multi context image 
+            private:
+                class Surface 
+                {
+                    public:
+                        Surface(Engine* engine, SDL_Surface* surface);
+                        Surface(Surface const& o);
+                        Surface(Surface const& o, Rect const& rect);
+                        virtual ~Surface();
+
+                        bool Blit(Rect const& rect, Point pivot, double angle = 0, Rect const& srcRect = {-1});
+                        bool Blit(Point const& point, Point pivot, double angle = 0, Rect const& srcRect = {-1});
+
+                        Rect Size() const;
+
+                        uint8_t Alpha() const;
+                        void Alpha(uint8_t alpha);
+
+                    private:
+                        SDL_Surface* _surface;
+                        SDL_Texture* _texture;
+                        Engine* _engine;
+                };
+                
             protected:
                 Surface* _surface;
                 Rect _srcRect;
@@ -59,7 +81,7 @@ namespace Laphony
              * @return Point with current pivot
              */
             virtual Point Pivot() const;
-               
+
         };
     }
 }

@@ -41,7 +41,9 @@ namespace Laphony
                 JOY_BUTTON      = 0b00000100, /*!< Button from the joy */
                 JOY_HAT         = 0b00001000, /*!< hat from the joy */
                 JOY_BALLAXIS    = 0b00010000, /*!< ball axis from the joy */
-                JOY_AXIS        = 0b00100000  /*!< joystick axis from the joy */
+                JOY_AXIS        = 0b00100000,  /*!< joystick axis from the joy */
+                
+                TOUCH           = 0b01000000 /*!< touchscreen event */
             };
                 
             public:
