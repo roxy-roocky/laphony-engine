@@ -28,6 +28,8 @@ using namespace Laphony;
  */
 int main(int argc, char** argv)
 {
+    SDL_SetHint(SDL_HINT_ORIENTATIONS, "LandscapeLeft LandscapeRight");
+    
     Graphics::Engine gEngine("Test Android", SCREEN_W,SCREEN_H, true, true);
     SDL_RenderSetIntegerScale(gEngine.Renderer(), SDL_FALSE);
     SDL_SetWindowFullscreen(gEngine.Window(),SDL_WINDOW_FULLSCREEN_DESKTOP);
